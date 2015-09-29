@@ -1,1 +1,0 @@
-W:\C#Projects\TimeManager\TimeManager\bin\Debug\TimeManager.exe.config

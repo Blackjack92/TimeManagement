@@ -1,5 +1,6 @@
 ﻿using Prism.Modularity;
 using Prism.Regions;
+using TimeManager.Infrastructure;
 using TimeManager.ManageTodos.Views;
 
 namespace TimeManager.ManageTodos
@@ -15,7 +16,7 @@ namespace TimeManager.ManageTodos
 
         public void Initialize()
         {
-            regionManager.RegisterViewWithRegion("MainRegion", typeof(MainView));
+            regionManager.RegisterViewWithRegion(RegionNames.MainRegion, typeof(TodosMainView));
         }
     }
 }

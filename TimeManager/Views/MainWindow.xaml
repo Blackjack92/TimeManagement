@@ -8,6 +8,12 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="350" Width="525">
     <Grid>
-        <ContentControl prism:RegionManager.RegionName="MainRegion" />
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="3*" />
+        </Grid.ColumnDefinitions>
+
+        <ContentControl Grid.Column="0" prism:RegionManager.RegionName="NavigationRegion" />
+        <ContentControl Grid.Column="1" prism:RegionManager.RegionName="MainRegion" />
     </Grid>
 </Window>

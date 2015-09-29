@@ -29,7 +29,7 @@
     <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
-    <OutputPath>bin\Release\</OutputPath>
+    <OutputPath>..\Output\Release\</OutputPath>
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -134,6 +134,14 @@
     <ProjectReference Include="..\ManageTodos\TimeManager.ManageTodos.csproj">
       <Project>{8f2fd2b1-439a-4828-af2d-1a53f9dfd4a8}</Project>
       <Name>TimeManager.ManageTodos</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TimeManager.Infrastructure\TimeManager.Infrastructure.csproj">
+      <Project>{aed537e5-70fd-4031-a8f4-6350c3e761a3}</Project>
+      <Name>TimeManager.Infrastructure</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TimeManager.Navigation\TimeManager.Navigation.csproj">
+      <Project>{016e1fde-6d51-4a09-954d-12f7a7a505d2}</Project>
+      <Name>TimeManager.Navigation</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

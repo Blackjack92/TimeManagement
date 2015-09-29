@@ -5,6 +5,7 @@ using System.Windows;
 using TimeManager.Shell.Views;
 using Prism.Unity;
 using Microsoft.Practices.Unity;
+using TimeManager.Navigation;
 
 namespace TimeManager
 {
@@ -25,6 +26,7 @@ namespace TimeManager
             ModuleCatalog catalog = (ModuleCatalog)ModuleCatalog;
             catalog.AddModule(typeof(ManageTodosModule));
             catalog.AddModule(typeof(ManageProjectsModule));
+            catalog.AddModule(typeof(NavigationModule));
         }
     }
 }
