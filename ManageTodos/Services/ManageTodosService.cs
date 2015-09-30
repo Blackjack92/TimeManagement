@@ -1,4 +1,5 @@
-﻿using System.Collections.ObjectModel;
+﻿using System;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Xml.Linq;
 using TimeManager.ManageTodos.Models;
@@ -20,6 +21,7 @@ namespace TimeManager.ManageTodos.Services
         public ManageTodosService()
         {
             todos = new ObservableCollection<Todo>();
+            ReadTodos();
         }
         #endregion
 
@@ -28,16 +30,16 @@ namespace TimeManager.ManageTodos.Services
         {
             var document = XDocument.Parse(Resources.Todos);
 
-            //var newsData = document.Descendants("NewsItem")
-            //    .GroupBy(x => x.Attribute("TickerSymbol").Value,
-            //    x => new NewsArticle
-            //    {
-            //        PublishedDate = DateTime.Parse(x.Attribute("PublishedDate").Value, CultureInfo.InvariantCulture),
-            //        Title = x.Element("Title").Value,
-            //        Body = x.Element("Body").Value,
-            //        IconUri = x.Attribute("IconUri") != null ? x.Attribute("IconUri").Value : null
-            //    })
-            //    .ToDictionary(group => group.Key, group => group.ToList());
+            foreach (var todo in document.Descendants("Todo"))
+            {
+                todos.Add(new Todo()
+                {
+                    Title = todo.Element("Title").Value,
+                    Description = todo.Element("Description").Value,
+                    Priority = (Priority)Enum.Parse(typeof(Priority), todo.Element("Priority").Value),
+                    FinalDate = DateTime.Parse(todo.Element("FinalDate").Value)
+                });
+            }
         }
         #endregion
     }

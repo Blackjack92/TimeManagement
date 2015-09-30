@@ -1,4 +1,27 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<Todos>
-  
+<Todos xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Todo>
+    <Title>First todo</Title>
+    <Description>First description</Description>
+    <Priority>High</Priority>
+    <FinalDate>5/5/2015</FinalDate>
+  </Todo>
+  <Todo>
+    <Title>Second todo</Title>
+    <Description>Second description</Description>
+    <Priority>High</Priority>
+    <FinalDate>5/5/2015</FinalDate>
+  </Todo>
+  <Todo>
+    <Title>Third todo</Title>
+    <Description>Third description</Description>
+    <Priority>High</Priority>
+    <FinalDate>5/5/2015</FinalDate>
+  </Todo>
+  <Todo>
+    <Title>Fourth todo</Title>
+    <Description>Fourth description</Description>
+    <Priority>High</Priority>
+    <FinalDate>5/5/2015</FinalDate>
+  </Todo>
 </Todos>

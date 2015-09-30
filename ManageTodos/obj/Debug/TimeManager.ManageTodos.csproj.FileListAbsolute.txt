@@ -9,3 +9,5 @@ W:\C#Projects\TimeManager\ManageTodos\obj\Debug\TimeManager.ManageTodos.dll
 W:\C#Projects\TimeManager\ManageTodos\obj\Debug\TimeManager.ManageTodos.pdb
 W:\C#Projects\TimeManager\ManageTodos\obj\Debug\Views\MainView.g.cs
 W:\C#Projects\TimeManager\ManageTodos\obj\Debug\Views\MainView.baml
+W:\C#Projects\TimeManager\ManageTodos\obj\Debug\TimeManager.ManageTodos.Properties.Resources.resources
+W:\C#Projects\TimeManager\ManageTodos\obj\Debug\TimeManager.ManageTodos.csproj.GenerateResource.Cache
