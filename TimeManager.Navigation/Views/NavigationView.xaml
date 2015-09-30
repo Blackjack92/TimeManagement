@@ -8,12 +8,23 @@
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300"
              xmlns:prism="http://prismlibrary.com/"
-             prism:ViewModelLocator.AutoWireViewModel="True"
-             >
+             prism:ViewModelLocator.AutoWireViewModel="True">
 
+    <UserControl.Resources>
+        <Style x:Key="Button.Navigation" TargetType="Button">
+            <Setter Property="Background" Value="Transparent" />
+            <Setter Property="BorderBrush" Value="Transparent" />
+            <Setter Property="BorderThickness" Value="0" />
+            <Setter Property="HorizontalAlignment" Value="Stretch" />
+            <Setter Property="HorizontalContentAlignment" Value="Left" />
+            <Setter Property="Padding" Value="7,3" />
+            <Setter Property="FontSize" Value="14" />
+        </Style>
+    </UserControl.Resources>
+    
     <StackPanel Orientation="Vertical">
-        <Button Content="Manage projects" Command="{Binding NavigationCommand}" CommandParameter="{x:Static Inf:ViewNames.MainViewManageProjects}" />
-        <Button Content="Manage todos" Command="{Binding NavigationCommand}" CommandParameter="{x:Static Inf:ViewNames.MainViewManageTodos}" />
+        <Button Content="Manage projects" Command="{Binding NavigationCommand}" CommandParameter="{x:Static Inf:ViewNames.MainViewManageProjects}" Style="{StaticResource Button.Navigation}" />
+        <Button Content="Manage todos" Command="{Binding NavigationCommand}" CommandParameter="{x:Static Inf:ViewNames.MainViewManageTodos}" Style="{StaticResource Button.Navigation}" />
     </StackPanel>
     
 </UserControl>
