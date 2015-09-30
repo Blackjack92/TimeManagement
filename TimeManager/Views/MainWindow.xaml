@@ -4,6 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TimeManager"
+        xmlns:Inf="clr-namespace:TimeManager.Infrastructure;assembly=TimeManager.Infrastructure"
         xmlns:prism="http://prismlibrary.com/"
         mc:Ignorable="d"
         Title="MainWindow" Height="350" Width="525">
@@ -13,7 +14,7 @@
             <ColumnDefinition Width="3*" />
         </Grid.ColumnDefinitions>
 
-        <ContentControl Grid.Column="0" prism:RegionManager.RegionName="NavigationRegion" />
-        <ContentControl Grid.Column="1" prism:RegionManager.RegionName="MainRegion" />
+        <ContentControl Grid.Column="0" prism:RegionManager.RegionName="{x:Static Inf:RegionNames.NavigationRegion}" />
+        <ContentControl Grid.Column="1" prism:RegionManager.RegionName="{x:Static Inf:RegionNames.MainRegion}" />
     </Grid>
 </Window>
