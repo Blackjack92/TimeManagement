@@ -12,3 +12,5 @@ W:\C#Projects\TimeManager\TimeManager\obj\Debug\TimeManager.Shell.Properties.Res
 W:\C#Projects\TimeManager\TimeManager\obj\Debug\TimeManager.Shell.csproj.GenerateResource.Cache
 W:\C#Projects\TimeManager\TimeManager\obj\Debug\TimeManager.Shell.exe
 W:\C#Projects\TimeManager\TimeManager\obj\Debug\TimeManager.Shell.pdb
+W:\C#Projects\TimeManager\TimeManager\obj\Debug\Theme\Theme.baml
+W:\C#Projects\TimeManager\TimeManager\obj\Debug\App.baml

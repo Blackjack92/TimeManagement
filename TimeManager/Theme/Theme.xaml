@@ -1,4 +1,35 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <!-- Basic colors -->
+    <Color x:Key="BaseColor.White">#FFFFFF</Color>
+    <Color x:Key="BaseColor.Black">#000000</Color>
     
+    <!-- Gray colors  -->
+    <Color x:Key="BaseColor.Gray10">#E5E5E5</Color>
+    <Color x:Key="BaseColor.Gray20">#BBBBBB</Color>
+    <Color x:Key="BaseColor.Gray30">#8F7F7F</Color>
+    <Color x:Key="BaseColor.Gray40">#404040</Color>
+    
+    <!-- Blue colors -->
+    <Color x:Key="BaseColor.Blue10">#51A2E0</Color>
+    <Color x:Key="BaseColor.Blue20">#488FC7</Color>
+    <Color x:Key="BaseColor.Blue30">#3D79A8</Color>
+    <Color x:Key="BaseColor.Blue40">#32658D</Color>
+    
+    <!-- Basic brushes -->
+    <SolidColorBrush x:Key="BaseTheme.White" Color="{StaticResource BaseColor.White}" />
+    <SolidColorBrush x:Key="BaseTheme.Black" Color="{StaticResource BaseColor.Black}" />
+    
+    <!-- Gray brushes -->
+    <SolidColorBrush x:Key="BaseTheme.Gray10" Color="{StaticResource BaseColor.Gray10}" />
+    <SolidColorBrush x:Key="BaseTheme.Gray20" Color="{StaticResource BaseColor.Gray20}" />
+    <SolidColorBrush x:Key="BaseTheme.Gray30" Color="{StaticResource BaseColor.Gray30}" />
+    <SolidColorBrush x:Key="BaseTheme.Gray40" Color="{StaticResource BaseColor.Gray40}" />
+
+    <!-- Blue brushes -->
+    <SolidColorBrush x:Key="BaseTheme.Blue10" Color="{StaticResource BaseColor.Blue10}" />
+    <SolidColorBrush x:Key="BaseTheme.Blue20" Color="{StaticResource BaseColor.Blue20}" />
+    <SolidColorBrush x:Key="BaseTheme.Blue30" Color="{StaticResource BaseColor.Blue30}" />
+    <SolidColorBrush x:Key="BaseTheme.Blue40" Color="{StaticResource BaseColor.Blue40}" />
+
 </ResourceDictionary>

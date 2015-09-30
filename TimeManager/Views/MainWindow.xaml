@@ -9,12 +9,22 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="350" Width="525">
     <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*" />
             <ColumnDefinition Width="3*" />
         </Grid.ColumnDefinitions>
 
-        <ContentControl Grid.Column="0" prism:RegionManager.RegionName="{x:Static Inf:RegionNames.NavigationRegion}" />
-        <ContentControl Grid.Column="1" prism:RegionManager.RegionName="{x:Static Inf:RegionNames.MainRegion}" />
+        <Border Background="{StaticResource BaseTheme.Gray20}" Grid.Row="0" Grid.ColumnSpan="2" Height="40" />
+        <ContentControl Grid.Row="0" Grid.ColumnSpan="2" prism:RegionManager.RegionName="{x:Static Inf:RegionNames.RibbonRegion}" />
+
+        <Border Background="{StaticResource BaseTheme.Blue40}" Grid.Row="1" Grid.Column="0" />
+        <ContentControl Grid.Row="1" Grid.Column="0" prism:RegionManager.RegionName="{x:Static Inf:RegionNames.NavigationRegion}" />
+
+        <Border Background="{StaticResource BaseTheme.Blue20}" Grid.Row="1" Grid.Column="1" />
+        <ContentControl Grid.Row="1" Grid.Column="1" prism:RegionManager.RegionName="{x:Static Inf:RegionNames.MainRegion}" />
     </Grid>
 </Window>
