@@ -5,9 +5,9 @@ namespace TimeManager.ManageProjects.Views
     /// <summary>
     /// Interaktionslogik für MainView.xaml
     /// </summary>
-    public partial class ProjectsMainView : UserControl
+    public partial class MainView : UserControl
     {
-        public ProjectsMainView()
+        public MainView()
         {
             InitializeComponent();
         }

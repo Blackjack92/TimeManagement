@@ -2,8 +2,8 @@
 {
     public class ViewNames
     {
-        public const string TodosMainView = "TodosMainView";
-        public const string ProjectsMainView = "ProjectsMainView";
+        public const string MainViewManageTodos = "TimeManager.ManageTodos.Views.MainView";
+        public const string MainViewManageProjects = "TimeManager.ManageProjects.Views.MainView";
         public const string NavigationView = "NavigationView";
     }
 }

@@ -16,7 +16,7 @@ namespace TimeManager.ManageProjects
 
         public void Initialize()
         {
-            regionManager.RegisterViewWithRegion(RegionNames.MainRegion, typeof(ProjectsMainView));
+            regionManager.RegisterViewWithRegion(RegionNames.MainRegion, typeof(MainView));
         }
     }
 }

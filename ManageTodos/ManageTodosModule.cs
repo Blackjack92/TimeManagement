@@ -16,7 +16,7 @@ namespace TimeManager.ManageTodos
 
         public void Initialize()
         {
-            regionManager.RegisterViewWithRegion(RegionNames.MainRegion, typeof(TodosMainView));
+            regionManager.RegisterViewWithRegion(RegionNames.MainRegion, typeof(MainView));
         }
     }
 }

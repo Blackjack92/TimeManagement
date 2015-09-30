@@ -2,7 +2,7 @@
 
 namespace TimeManager.ManageProjects.ViewModels
 {
-    public class ProjectsMainViewModel : BindableBase
+    public class MainViewModel : BindableBase
     {
     }
 }

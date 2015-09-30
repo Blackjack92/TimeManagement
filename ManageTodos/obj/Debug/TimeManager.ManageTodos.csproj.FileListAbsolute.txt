@@ -7,5 +7,5 @@ W:\C#Projects\TimeManager\ManageTodos\obj\Debug\TimeManager.ManageTodos_MarkupCo
 W:\C#Projects\TimeManager\ManageTodos\obj\Debug\TimeManager.ManageTodos.g.resources
 W:\C#Projects\TimeManager\ManageTodos\obj\Debug\TimeManager.ManageTodos.dll
 W:\C#Projects\TimeManager\ManageTodos\obj\Debug\TimeManager.ManageTodos.pdb
-W:\C#Projects\TimeManager\ManageTodos\obj\Debug\Views\TodosMainView.g.cs
-W:\C#Projects\TimeManager\ManageTodos\obj\Debug\Views\TodosMainView.baml
+W:\C#Projects\TimeManager\ManageTodos\obj\Debug\Views\MainView.g.cs
+W:\C#Projects\TimeManager\ManageTodos\obj\Debug\Views\MainView.baml
