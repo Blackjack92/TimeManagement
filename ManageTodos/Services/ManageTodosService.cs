@@ -1,9 +1,5 @@
-﻿using System;
-using System.Collections.ObjectModel;
-using System.Linq;
-using System.Xml.Linq;
+﻿using System.Collections.ObjectModel;
 using TimeManager.ManageTodos.Models;
-using TimeManager.ManageTodos.Properties;
 
 namespace TimeManager.ManageTodos.Services
 {
@@ -21,26 +17,6 @@ namespace TimeManager.ManageTodos.Services
         public ManageTodosService()
         {
             todos = new ObservableCollection<Todo>();
-            ReadTodos();
-        }
-        #endregion
-
-        #region methods
-        private void ReadTodos()
-        {
-            var document = XDocument.Parse(Resources.Todos);
-
-            foreach (var todo in document.Descendants("Todo"))
-            {
-                todos.Add(new Todo()
-                {
-                    Id = Guid.Parse(todo.Element("Id").Value),
-                    Title = todo.Element("Title").Value,
-                    Description = todo.Element("Description").Value,
-                    Priority = (Priority)Enum.Parse(typeof(Priority), todo.Element("Priority").Value),
-                    FinalDate = DateTime.Parse(todo.Element("FinalDate").Value)
-                });
-            }
         }
         #endregion
     }

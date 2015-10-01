@@ -12,5 +12,12 @@ namespace TimeManager.ManageTodos.Services
         #region properties
         public ObservableCollection<WorkingItem> WorkingItems { get { return workingItems; } private set { workingItems = value; } }
         #endregion
+
+        #region ctor
+        public ManageWorkingItemsService()
+        {
+            workingItems = new ObservableCollection<WorkingItem>();
+        }
+        #endregion
     }
 }

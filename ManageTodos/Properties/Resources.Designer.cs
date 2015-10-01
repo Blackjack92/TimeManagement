@@ -62,14 +62,31 @@ namespace TimeManager.ManageTodos.Properties {
         
         /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die &lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot; ?&gt;
-        ///&lt;Todos&gt;
-        ///  
-        ///&lt;/Todos&gt;
-        /// ähnelt.
+        ///&lt;Todos xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; xmlns:xsd=&quot;http://www.w3.org/2001/XMLSchema&quot;&gt;
+        ///  &lt;Todo&gt;
+        ///    &lt;Id&gt;8274009F-2B8B-471D-B392-0D5ABBA429EC&lt;/Id&gt;
+        ///    &lt;Title&gt;First todo&lt;/Title&gt;
+        ///    &lt;Description&gt;First description&lt;/Description&gt;
+        ///    &lt;Priority&gt;High&lt;/Priority&gt;
+        ///    &lt;FinalDate&gt;5/5/2015&lt;/FinalDate&gt;
+        ///  &lt;/Todo&gt;
+        ///  &lt;Todo&gt;
+        ///    &lt;Id&gt;89706025-C12F-42F3-855D-CDBC1868DBA4&lt;/Id&gt;
+        ///    &lt;Title&gt;Second todo&lt;/Title&gt;
+        ///    &lt;Description&gt;Second description&lt;/Description&gt; [Rest der Zeichenfolge wurde abgeschnitten]&quot;; ähnelt.
         /// </summary>
         internal static string Todos {
             get {
                 return ResourceManager.GetString("Todos", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die &lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot; ?&gt;        ///&lt;WorkingItems xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; xmlns:xsd=&quot;http://www.w3.org/2001/XMLSchema&quot;&gt;        ///  &lt;WorkingItem&gt;        ///    &lt;Id&gt;C2565AEC-9315-4008-80B9-962475E3FFCE&lt;/Id&gt;        ///    &lt;WorkingTimes&gt;        ///      &lt;WorkingTime Start=&quot;5/5/2015&quot; End=&quot;5/5/2015&quot; /&gt;        ///      &lt;!--&lt;WorkingTime Start=&quot;5/5/2015-12:12:12&quot; End=&quot;5/5/2015-12:22:12&quot; /&gt;--&gt;        ///    &lt;/WorkingTimes&gt;        ///  &lt;/WorkingItem&gt;        ///&lt;/WorkingItems&gt; ähnelt.
+        /// </summary>
+        internal static string WorkingItems {
+            get {
+                return ResourceManager.GetString("WorkingItems", resourceCulture);
             }
         }
     }

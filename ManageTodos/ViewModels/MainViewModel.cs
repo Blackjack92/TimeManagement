@@ -16,10 +16,11 @@ namespace TimeManager.ManageTodos.ViewModels
         #endregion
 
         #region ctor
-        public MainViewModel(ManageTodosService manageTodosService, ManageWorkingItemsService manageWorkingItemsService)
+        public MainViewModel(ManageTodosService manageTodosService, ManageWorkingItemsService manageWorkingItemsService, DataLoadService dataLoadService)
         {
             this.manageTodosService = manageTodosService;
             this.manageWorkingItemsService = manageWorkingItemsService;
+            dataLoadService.LoadData();
         }
         #endregion
     }
