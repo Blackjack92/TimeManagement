@@ -1,24 +1,28 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <Todos xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <Todo>
+    <Id>8274009F-2B8B-471D-B392-0D5ABBA429EC</Id>
     <Title>First todo</Title>
     <Description>First description</Description>
     <Priority>High</Priority>
     <FinalDate>5/5/2015</FinalDate>
   </Todo>
   <Todo>
+    <Id>89706025-C12F-42F3-855D-CDBC1868DBA4</Id>
     <Title>Second todo</Title>
     <Description>Second description</Description>
     <Priority>High</Priority>
     <FinalDate>5/5/2015</FinalDate>
   </Todo>
   <Todo>
+    <Id>DC9FC3D7-7B29-4644-BDE6-5DD3B472D323</Id>
     <Title>Third todo</Title>
     <Description>Third description</Description>
     <Priority>High</Priority>
     <FinalDate>5/5/2015</FinalDate>
   </Todo>
   <Todo>
+    <Id>F167E397-FA76-46CE-A60C-05214D7CD769</Id>
     <Title>Fourth todo</Title>
     <Description>Fourth description</Description>
     <Priority>High</Priority>

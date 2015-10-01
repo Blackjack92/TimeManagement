@@ -34,6 +34,7 @@ namespace TimeManager.ManageTodos.Services
             {
                 todos.Add(new Todo()
                 {
+                    Id = Guid.Parse(todo.Element("Id").Value),
                     Title = todo.Element("Title").Value,
                     Description = todo.Element("Description").Value,
                     Priority = (Priority)Enum.Parse(typeof(Priority), todo.Element("Priority").Value),
