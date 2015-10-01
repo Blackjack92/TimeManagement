@@ -1,28 +1,26 @@
 ﻿using System;
-using System.ComponentModel.Composition;
 using System.Xml.Linq;
 using TimeManager.ManageTodos.Models;
 using TimeManager.ManageTodos.Properties;
 
 namespace TimeManager.ManageTodos.Services
 {
-    [Export, PartCreationPolicy(CreationPolicy.Shared)]
     public class DataLoadService
     {
         private readonly ManageTodosService manageTodosService;
         private readonly ManageWorkingItemsService manageWorkingItemsService;
 
-        [ImportingConstructor]
         public DataLoadService(ManageTodosService manageTodosService, ManageWorkingItemsService manageWorkingItemsService)
         {
             this.manageTodosService = manageTodosService;
             this.manageWorkingItemsService = manageWorkingItemsService;
         }
 
+        #region methods
         public void LoadData()
         {
-            this.LoadWorkingItems();
-            this.LoadTodos();
+            LoadWorkingItems();
+            LoadTodos();
         }
 
         private void LoadTodos()
@@ -38,7 +36,7 @@ namespace TimeManager.ManageTodos.Services
                     Priority = (Priority)Enum.Parse(typeof(Priority), element.Element("Priority").Value),
                     FinalDate = DateTime.Parse(element.Element("FinalDate").Value)
                 };
-                this.manageTodosService.Todos.Add(item);
+                manageTodosService.Todos.Add(item);
             }
         }
 
@@ -60,9 +58,10 @@ namespace TimeManager.ManageTodos.Services
                     };
                     item.WorkingTimes.Add(time);
                 }
-                this.manageWorkingItemsService.WorkingItems.Add(item);
+                manageWorkingItemsService.WorkingItems.Add(item);
             }
         }
+        #endregion
     }
 }
 

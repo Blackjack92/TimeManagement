@@ -1,21 +1,29 @@
-﻿using Prism.Modularity;
+﻿using Microsoft.Practices.Unity;
+using Prism.Modularity;
 using Prism.Regions;
 using TimeManager.Infrastructure;
+using TimeManager.ManageTodos.Services;
 using TimeManager.ManageTodos.Views;
 
 namespace TimeManager.ManageTodos
 {
     public class ManageTodosModule : IModule
     {
-        IRegionManager regionManager;
+        private readonly IRegionManager regionManager;
+        private readonly IUnityContainer container;
 
-        public ManageTodosModule(IRegionManager regionManager)
+        public ManageTodosModule(IRegionManager regionManager, IUnityContainer container)
         {
             this.regionManager = regionManager;
+            this.container = container;
         }
 
         public void Initialize()
         {
+            container.RegisterType<ManageTodosService>(new ContainerControlledLifetimeManager());
+            container.RegisterType<ManageWorkingItemsService>(new ContainerControlledLifetimeManager());
+            container.RegisterType<DataLoadService>(new ContainerControlledLifetimeManager());
+
             regionManager.RegisterViewWithRegion(RegionNames.MainRegion, typeof(MainView));
         }
     }
