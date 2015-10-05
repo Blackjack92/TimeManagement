@@ -1,22 +1,20 @@
 ﻿using System.Collections.ObjectModel;
 using TimeManager.ManageTodos.Models;
+using PostSharp.Patterns.Model;
 
 namespace TimeManager.ManageTodos.Services
 {
+    [NotifyPropertyChanged]
     public class ManageTodosService
     {
-        #region fields
-        private ObservableCollection<Todo> todos;
-        #endregion
-
         #region properties
-        public ObservableCollection<Todo> Todos { get { return todos; } private set { todos = value; } }
+        public ObservableCollection<Todo> Todos { get; set; }
         #endregion
 
         #region ctor
         public ManageTodosService()
         {
-            todos = new ObservableCollection<Todo>();
+            Todos = new ObservableCollection<Todo>();
         }
         #endregion
     }

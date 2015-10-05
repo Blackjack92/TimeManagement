@@ -14,7 +14,10 @@
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
 
-        <TextBlock Text="Manage todos main view" />
+        <StackPanel Orientation="Horizontal">
+            <TextBlock Text="Manage todos main view" />
+            <Button Content="Change" Command="{Binding ChangeCommand}"/>
+        </StackPanel>
         <DataGrid Grid.Row="1" ItemsSource="{Binding ManageTodosService.Todos}" AutoGenerateColumns="False">
             <DataGrid.Columns>
                 <DataGridTemplateColumn Header="FinalDate">

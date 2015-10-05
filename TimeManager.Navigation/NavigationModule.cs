@@ -1,10 +1,5 @@
 ﻿using Prism.Modularity;
 using Prism.Regions;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using TimeManager.Infrastructure;
 using TimeManager.Navigation.Views;
 
@@ -12,16 +7,22 @@ namespace TimeManager.Navigation
 {
     public class NavigationModule : IModule
     {
-        IRegionManager regionManager;
+        #region fields
+        private readonly IRegionManager regionManager;
+        #endregion
 
+        #region ctor
         public NavigationModule(IRegionManager regionManager)
         {
             this.regionManager = regionManager;
         }
+        #endregion
 
+        #region methods
         public void Initialize()
         {
             regionManager.RegisterViewWithRegion(RegionNames.NavigationRegion, typeof(NavigationView));
         }
+        #endregion
     }
 }

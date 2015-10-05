@@ -1,15 +1,23 @@
-﻿using Prism.Mvvm;
-using System;
+﻿using System;
 using System.Collections.ObjectModel;
+using PostSharp.Patterns.Model;
 
 namespace TimeManager.ManageTodos.Models
 {
-    public class WorkingItem : BindableBase
-    {
-        private Guid id;
-        private ObservableCollection<WorkingTime> workingTimes = new ObservableCollection<WorkingTime>();
 
-        public Guid Id { get { return id; } set { SetProperty(ref id, value); } }
-        public ObservableCollection<WorkingTime> WorkingTimes { get { return workingTimes; } private set { SetProperty(ref workingTimes, value); } }
+    [NotifyPropertyChanged]
+    public class WorkingItem
+    {
+        #region properties
+        public Guid Id { get; set; }
+        public ObservableCollection<WorkingTime> WorkingTimes { get; set; }
+        #endregion
+
+        #region ctor
+        public WorkingItem()
+        {
+            WorkingTimes = new ObservableCollection<WorkingTime>();
+        }
+        #endregion
     }
 }

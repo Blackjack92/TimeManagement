@@ -1,8 +1,8 @@
-﻿using Prism.Mvvm;
+﻿using PostSharp.Patterns.Model;
 
 namespace TimeManager.ManageProjects.ViewModels
 {
-    public class MainViewModel : BindableBase
-    {
-    }
+    [NotifyPropertyChanged]
+    public class MainViewModel
+    { }
 }

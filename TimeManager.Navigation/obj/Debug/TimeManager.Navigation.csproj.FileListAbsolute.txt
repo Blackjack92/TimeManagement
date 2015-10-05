@@ -9,3 +9,4 @@ W:\C#Projects\TimeManager\TimeManager.Navigation\obj\Debug\Views\NavigationView.
 W:\C#Projects\TimeManager\TimeManager.Navigation\obj\Debug\TimeManager.Navigation.g.resources
 W:\C#Projects\TimeManager\TimeManager.Navigation\obj\Debug\TimeManager.Navigation.dll
 W:\C#Projects\TimeManager\TimeManager.Navigation\obj\Debug\TimeManager.Navigation.pdb
+W:\C#Projects\TimeManager\TimeManager.Navigation\obj\Debug\TimeManager.Navigation.dll.postsharp

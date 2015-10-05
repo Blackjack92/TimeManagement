@@ -1,7 +1,9 @@
 ﻿using System;
+using PostSharp.Patterns.Model;
 
 namespace TimeManager.ManageTodos.Models
 {
+    [NotifyPropertyChanged]
     public class WorkingTime
     {
         #region properties

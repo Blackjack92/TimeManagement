@@ -11,6 +11,7 @@ namespace TimeManager
 {
     public class Bootstrapper : UnityBootstrapper
     {
+        #region methods
         protected override DependencyObject CreateShell()
         {
             return Container.Resolve<MainWindow>();
@@ -28,5 +29,6 @@ namespace TimeManager
             catalog.AddModule(typeof(ManageProjectsModule));
             catalog.AddModule(typeof(NavigationModule));
         }
+        #endregion
     }
 }
