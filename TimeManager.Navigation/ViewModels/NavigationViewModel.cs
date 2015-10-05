@@ -1,10 +1,10 @@
 ﻿using Prism.Commands;
-using Prism.Mvvm;
 using Prism.Regions;
 using System;
 using System.Windows.Input;
 using TimeManager.Infrastructure;
 using PostSharp.Patterns.Model;
+using PostSharp.Patterns.Diagnostics;
 
 namespace TimeManager.Navigation.ViewModels
 {
@@ -28,6 +28,7 @@ namespace TimeManager.Navigation.ViewModels
         #endregion
 
         #region methods
+        [Log]
         private void NavigateTo(string view)
         {
             regionManager.RequestNavigate(RegionNames.MainRegion, new Uri(view, UriKind.Relative));

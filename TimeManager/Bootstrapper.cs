@@ -6,6 +6,8 @@ using TimeManager.Shell.Views;
 using Prism.Unity;
 using Microsoft.Practices.Unity;
 using TimeManager.Navigation;
+using PostSharp.Patterns.Diagnostics;
+using PostSharp.Extensibility;
 
 namespace TimeManager
 {
@@ -22,6 +24,7 @@ namespace TimeManager
             Application.Current.MainWindow.Show();
         }
 
+        [Log("DebugLogging")]
         protected override void ConfigureModuleCatalog()
         {
             ModuleCatalog catalog = (ModuleCatalog)ModuleCatalog;

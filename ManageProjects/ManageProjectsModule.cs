@@ -7,16 +7,22 @@ namespace TimeManager.ManageProjects
 {
     public class ManageProjectsModule : IModule
     {
-        IRegionManager regionManager;
+        #region fields
+        private readonly IRegionManager regionManager;
+        #endregion
 
+        #region ctor
         public ManageProjectsModule(IRegionManager regionManager)
         {
             this.regionManager = regionManager;
         }
+        #endregion
 
+        #region methods
         public void Initialize()
         {
             regionManager.RegisterViewWithRegion(RegionNames.MainRegion, typeof(MainView));
         }
+        #endregion
     }
 }

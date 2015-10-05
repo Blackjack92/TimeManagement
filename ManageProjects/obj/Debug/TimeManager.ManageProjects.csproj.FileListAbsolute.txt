@@ -10,3 +10,4 @@ W:\C#Projects\TimeManager\ManageProjects\obj\Debug\TimeManager.ManageProjects.pd
 W:\C#Projects\TimeManager\ManageProjects\obj\Debug\Views\MainView.g.cs
 W:\C#Projects\TimeManager\ManageProjects\obj\Debug\Views\MainView.baml
 W:\C#Projects\TimeManager\ManageProjects\obj\Debug\TimeManager.ManageProjects.dll.postsharp
+W:\C#Projects\TimeManager\Output\Debug\log4net.config

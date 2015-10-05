@@ -9,15 +9,20 @@ namespace TimeManager.ManageTodos
 {
     public class ManageTodosModule : IModule
     {
+        #region fields
         private readonly IRegionManager regionManager;
         private readonly IUnityContainer container;
+        #endregion
 
+        #region ctor
         public ManageTodosModule(IRegionManager regionManager, IUnityContainer container)
         {
             this.regionManager = regionManager;
             this.container = container;
         }
+        #endregion
 
+        #region methods
         public void Initialize()
         {
             container.RegisterType<ManageTodosService>(new ContainerControlledLifetimeManager());
@@ -26,5 +31,6 @@ namespace TimeManager.ManageTodos
 
             regionManager.RegisterViewWithRegion(RegionNames.MainRegion, typeof(MainView));
         }
+        #endregion
     }
 }

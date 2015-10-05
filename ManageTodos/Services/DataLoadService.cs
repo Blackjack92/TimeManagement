@@ -2,19 +2,24 @@
 using System.Xml.Linq;
 using TimeManager.ManageTodos.Models;
 using TimeManager.ManageTodos.Properties;
+using PostSharp.Patterns.Diagnostics;
 
 namespace TimeManager.ManageTodos.Services
 {
     public class DataLoadService
     {
+        #region fields
         private readonly ManageTodosService manageTodosService;
         private readonly ManageWorkingItemsService manageWorkingItemsService;
+        #endregion
 
+        #region ctor
         public DataLoadService(ManageTodosService manageTodosService, ManageWorkingItemsService manageWorkingItemsService)
         {
             this.manageTodosService = manageTodosService;
             this.manageWorkingItemsService = manageWorkingItemsService;
         }
+        #endregion
 
         #region methods
         public void LoadData()

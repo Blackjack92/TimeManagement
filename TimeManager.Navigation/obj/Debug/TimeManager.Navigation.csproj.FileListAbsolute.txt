@@ -10,3 +10,4 @@ W:\C#Projects\TimeManager\TimeManager.Navigation\obj\Debug\TimeManager.Navigatio
 W:\C#Projects\TimeManager\TimeManager.Navigation\obj\Debug\TimeManager.Navigation.dll
 W:\C#Projects\TimeManager\TimeManager.Navigation\obj\Debug\TimeManager.Navigation.pdb
 W:\C#Projects\TimeManager\TimeManager.Navigation\obj\Debug\TimeManager.Navigation.dll.postsharp
+W:\C#Projects\TimeManager\Output\Debug\log4net.config
