@@ -7,7 +7,7 @@
         xmlns:Inf="clr-namespace:TimeManager.Infrastructure;assembly=TimeManager.Infrastructure"
         xmlns:prism="http://prismlibrary.com/"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525">
+        Title="MainWindow" Height="800" Width="1200">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
