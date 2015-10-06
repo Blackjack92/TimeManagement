@@ -6,6 +6,7 @@
         xmlns:local="clr-namespace:TimeManager"
         xmlns:Inf="clr-namespace:TimeManager.Infrastructure;assembly=TimeManager.Infrastructure"
         xmlns:prism="http://prismlibrary.com/"
+        xmlns:views="clr-namespace:TimeManager.Shell.Views"
         mc:Ignorable="d"
         Title="MainWindow" Height="800" Width="1200">
     <Grid>
@@ -18,9 +19,10 @@
             <ColumnDefinition Width="3*" />
         </Grid.ColumnDefinitions>
 
-        <Border Background="{StaticResource BaseTheme.Gray20}" Grid.Row="0" Grid.ColumnSpan="2" Height="40" />
-        <ContentControl Grid.Row="0" Grid.ColumnSpan="2" prism:RegionManager.RegionName="{x:Static Inf:RegionNames.RibbonRegion}" />
-
+        <Border Background="{StaticResource BaseTheme.Gray20}" Grid.Row="0" Grid.ColumnSpan="2" />
+        <!--<ContentControl Grid.Row="0" Grid.ColumnSpan="2" prism:RegionManager.RegionName="{x:Static Inf:RegionNames.RibbonRegion}" />-->
+        <views:RibbonView Grid.Row="0" Grid.ColumnSpan="2" />
+        
         <Border Background="{StaticResource BaseTheme.Blue40}" Grid.Row="1" Grid.Column="0" />
         <ContentControl Grid.Row="1" Grid.Column="0" prism:RegionManager.RegionName="{x:Static Inf:RegionNames.NavigationRegion}" />
 
