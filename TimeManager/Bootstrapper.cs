@@ -4,8 +4,12 @@ using Prism.Modularity;
 using System.Windows;
 using TimeManager.Shell.Views;
 using Prism.Unity;
-using Microsoft.Practices.Unity;
 using TimeManager.Navigation;
+using Prism.Regions;
+using System.Windows.Controls.Ribbon;
+using System.Windows.Controls;
+using Prism.RibbonRegionAdapter;
+using Microsoft.Practices.ServiceLocation;
 
 namespace TimeManager
 {
@@ -15,6 +19,16 @@ namespace TimeManager
         protected override DependencyObject CreateShell()
         {
             return Container.Resolve<MainWindow>();
+        }
+
+        protected override RegionAdapterMappings ConfigureRegionAdapterMappings()
+        {
+            var mappings = base.ConfigureRegionAdapterMappings();
+
+            mappings.RegisterMapping(typeof(Ribbon), ServiceLocator.Current.GetInstance<RibbonRegionAdapter>());
+            mappings.RegisterMapping(typeof(ContextMenu), ServiceLocator.Current.GetInstance<MergingItemsControlRegionAdapter>());
+
+            return mappings;
         }
 
         protected override void InitializeShell()
