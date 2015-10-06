@@ -1,0 +1,13 @@
+W:\C#Projects\TimeManager\Output\Debug\TimeManager.ManageProjects.dll.config
+W:\C#Projects\TimeManager\Output\Debug\TimeManager.ManageProjects.dll
+W:\C#Projects\TimeManager\Output\Debug\TimeManager.ManageProjects.pdb
+W:\C#Projects\TimeManager\ManageProjects\obj\Debug\TimeManager.ManageProjects.csprojResolveAssemblyReference.cache
+W:\C#Projects\TimeManager\ManageProjects\obj\Debug\TimeManager.ManageProjects_MarkupCompile.cache
+W:\C#Projects\TimeManager\ManageProjects\obj\Debug\TimeManager.ManageProjects_MarkupCompile.lref
+W:\C#Projects\TimeManager\ManageProjects\obj\Debug\TimeManager.ManageProjects.g.resources
+W:\C#Projects\TimeManager\ManageProjects\obj\Debug\TimeManager.ManageProjects.dll
+W:\C#Projects\TimeManager\ManageProjects\obj\Debug\TimeManager.ManageProjects.pdb
+W:\C#Projects\TimeManager\ManageProjects\obj\Debug\Views\MainView.g.cs
+W:\C#Projects\TimeManager\ManageProjects\obj\Debug\Views\MainView.baml
+W:\C#Projects\TimeManager\ManageProjects\obj\Debug\TimeManager.ManageProjects.dll.postsharp
+W:\C#Projects\TimeManager\Output\Debug\log4net.config

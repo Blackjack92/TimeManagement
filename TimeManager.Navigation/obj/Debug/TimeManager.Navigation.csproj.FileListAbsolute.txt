@@ -1,0 +1,12 @@
+W:\C#Projects\TimeManager\Output\Debug\TimeManager.Navigation.dll.config
+W:\C#Projects\TimeManager\Output\Debug\TimeManager.Navigation.dll
+W:\C#Projects\TimeManager\Output\Debug\TimeManager.Navigation.pdb
+W:\C#Projects\TimeManager\TimeManager.Navigation\obj\Debug\TimeManager.Navigation.csprojResolveAssemblyReference.cache
+W:\C#Projects\TimeManager\TimeManager.Navigation\obj\Debug\Views\NavigationView.g.cs
+W:\C#Projects\TimeManager\TimeManager.Navigation\obj\Debug\TimeManager.Navigation_MarkupCompile.cache
+W:\C#Projects\TimeManager\TimeManager.Navigation\obj\Debug\TimeManager.Navigation_MarkupCompile.lref
+W:\C#Projects\TimeManager\TimeManager.Navigation\obj\Debug\Views\NavigationView.baml
+W:\C#Projects\TimeManager\TimeManager.Navigation\obj\Debug\TimeManager.Navigation.g.resources
+W:\C#Projects\TimeManager\TimeManager.Navigation\obj\Debug\TimeManager.Navigation.dll
+W:\C#Projects\TimeManager\TimeManager.Navigation\obj\Debug\TimeManager.Navigation.pdb
+W:\C#Projects\TimeManager\Output\Debug\log4net.config
