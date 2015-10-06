@@ -4,7 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TimeManager"
-        xmlns:Inf="clr-namespace:TimeManager.Infrastructure;assembly=TimeManager.Infrastructure"
+        xmlns:inf="clr-namespace:TimeManager.Infrastructure;assembly=TimeManager.Infrastructure"
         xmlns:prism="http://prismlibrary.com/"
         xmlns:views="clr-namespace:TimeManager.Shell.Views"
         mc:Ignorable="d"
@@ -24,9 +24,9 @@
         <views:RibbonView Grid.Row="0" Grid.ColumnSpan="2" />
         
         <Border Background="{StaticResource BaseTheme.Blue40}" Grid.Row="1" Grid.Column="0" />
-        <ContentControl Grid.Row="1" Grid.Column="0" prism:RegionManager.RegionName="{x:Static Inf:RegionNames.NavigationRegion}" />
+        <ContentControl Grid.Row="1" Grid.Column="0" prism:RegionManager.RegionName="{x:Static inf:RegionNames.NavigationRegion}" />
 
         <Border Background="{StaticResource BaseTheme.Blue20}" Grid.Row="1" Grid.Column="1" />
-        <ContentControl Grid.Row="1" Grid.Column="1" prism:RegionManager.RegionName="{x:Static Inf:RegionNames.MainRegion}" />
+        <ContentControl Grid.Row="1" Grid.Column="1" prism:RegionManager.RegionName="{x:Static inf:RegionNames.MainRegion}" />
     </Grid>
 </Window>

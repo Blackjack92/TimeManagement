@@ -12,7 +12,6 @@ namespace Prism.RibbonRegionAdapter
 {
     public class MergingItemsControlRegionAdapter : RegionAdapterBase<ItemsControl>
 	{
-
 		/// <summary>
 		/// Initializes a new instance of <see cref="MergingItemsControlRegionAdapter"/>.
 		/// </summary>
@@ -22,12 +21,12 @@ namespace Prism.RibbonRegionAdapter
 		{
 		}
 
-		/// <summary>
-		/// Adapts a <see cref="ContentControl"/> to an <see cref="IRegion"/>.
-		/// </summary>
-		/// <param name="region">The new region being used.</param>
-		/// <param name="regionTarget">The object to adapt.</param>
-		protected override void Adapt(IRegion region, ItemsControl regionTarget)
+        /// <summary>
+        /// Adapts a <see cref="ContentControl"/> to an <see cref="IRegion"/>.
+        /// </summary>
+        /// <param name="region">The new region being used.</param>
+        /// <param name="regionTarget">The object to adapt.</param>
+        protected override void Adapt(IRegion region, ItemsControl regionTarget)
 		{
 			if (regionTarget == null) throw new ArgumentNullException("regionTarget");
 
@@ -35,21 +34,32 @@ namespace Prism.RibbonRegionAdapter
 			region.Views.CollectionChanged += (o, e) => OnViewsChanged(o, e, region, regionTarget);
 		}
 
-		// ReSharper disable UnusedParameter.Local
-		private void OnActiveViewsChanged(object o, NotifyCollectionChangedEventArgs e, IRegion region, ItemsControl target)
+        // ReSharper disable UnusedParameter.Local
+        private void OnActiveViewsChanged(object o, NotifyCollectionChangedEventArgs e, IRegion region, ItemsControl target)
 		{
-			var sel = target as Selector;
-			if (sel != null)
-				sel.SelectedItem = region.ActiveViews.FirstOrDefault();
-		}
+            if (e.NewItems != null)
+                MergeItems(e.NewItems, target);
+            if (e.OldItems != null)
+                UnmergeItems(e.OldItems, target);
+
+            var sel = target as Selector;
+            if (sel != null)
+                sel.SelectedItem = region.ActiveViews.FirstOrDefault();
+        }
 
 		private void OnViewsChanged(object o, NotifyCollectionChangedEventArgs e, IRegion region, ItemsControl target)
 		{
-			if (e.NewItems != null)
-				MergeItems(e.NewItems, target);
-			if (e.OldItems != null)
-				UnmergeItems(e.OldItems, target);
-		}
+			//if (e.NewItems != null)
+			//	MergeItems(e.NewItems, target);
+			//if (e.OldItems != null)
+			//	UnmergeItems(e.OldItems, target);
+
+            //&& (region.ActiveViews.Count() == 0
+            //if (e.Action == NotifyCollectionChangedAction.Add)
+            //{
+            //    region.Activate(e.NewItems[0]);
+            //}
+        }
 		// ReSharper restore UnusedParameter.Local
 
 		protected virtual void MergeItems(IList list, ItemsControl target)
@@ -146,10 +156,14 @@ namespace Prism.RibbonRegionAdapter
 		/// <returns>A new instance of <see cref="SingleActiveRegion"/></returns>
 		protected override IRegion CreateRegion()
 		{
-			return new SingleActiveRegion();
+            return new SingleActiveRegion();
 		}
 
-		protected virtual internal bool ItemsMatch(UIElement item1, UIElement item2)
+        private void Region_PropertyChanged(object sender, System.ComponentModel.PropertyChangedEventArgs e)
+        {
+        }
+
+        protected virtual internal bool ItemsMatch(UIElement item1, UIElement item2)
 		{
 			var tab1Id = GetMergeKey(item1);
 			var tab2Id = GetMergeKey(item2);

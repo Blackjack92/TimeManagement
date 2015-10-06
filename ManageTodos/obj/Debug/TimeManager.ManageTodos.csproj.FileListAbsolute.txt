@@ -13,3 +13,5 @@ W:\C#Projects\TimeManager\ManageTodos\obj\Debug\TimeManager.ManageTodos.csproj.G
 W:\C#Projects\TimeManager\ManageTodos\obj\Debug\TimeManager.ManageTodos.dll
 W:\C#Projects\TimeManager\ManageTodos\obj\Debug\TimeManager.ManageTodos.pdb
 W:\C#Projects\TimeManager\ManageTodos\obj\Debug\TimeManager.ManageTodos.dll.postsharp
+W:\C#Projects\TimeManager\ManageTodos\obj\Debug\Views\RibbonView.g.cs
+W:\C#Projects\TimeManager\ManageTodos\obj\Debug\Views\RibbonView.baml

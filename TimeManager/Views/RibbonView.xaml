@@ -4,30 +4,30 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:TimeManager.Shell.Views"
-             xmlns:Inf="clr-namespace:TimeManager.Infrastructure;assembly=TimeManager.Infrastructure"
-             xmlns:prism="clr-namespace:Prism.RibbonRegionAdapter;assembly=TimeManager.Infrastructure"
-             xmlns:prismLib="http://prismlibrary.com/"
+             xmlns:inf="clr-namespace:TimeManager.Infrastructure;assembly=TimeManager.Infrastructure"
+             xmlns:ribbon="clr-namespace:Prism.RibbonRegionAdapter;assembly=TimeManager.Infrastructure"
+             xmlns:prism="http://prismlibrary.com/"
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
 
-    <Ribbon prism:UIElementExtension.MergeOrder="10"
+    <Ribbon ribbon:UIElementExtension.MergeOrder="10"
         x:Name="MainMenu" x:FieldModifier="protected internal"
-        prismLib:RegionManager.RegionName="{x:Static Inf:RegionNames.RibbonRegion}">
+        prism:RegionManager.RegionName="{x:Static inf:RegionNames.RibbonRegion}">
         <RibbonTab Header="General"
-             prism:UIElementExtension.MergeKey="GeneralTab"
-             prism:UIElementExtension.MergeOrder="10">
+             ribbon:UIElementExtension.MergeKey="GeneralTab"
+             ribbon:UIElementExtension.MergeOrder="10">
             <RibbonGroup Header="Group 1">
                 <RibbonButton Label="Group1.Button1 (Main)" />
             </RibbonGroup>
             <RibbonGroup Header="Group 2"
-                 prism:UIElementExtension.MergeKey="GeneralTabGroup2">
+                 ribbon:UIElementExtension.MergeKey="GeneralTabGroup2">
                 <RibbonButton Label="Group2.Button1 (Main)" />
                 <RibbonButton Label="Group2.Button2 (Main)" />
             </RibbonGroup>
         </RibbonTab>
         <RibbonTab Header="Last Tab"
-             prism:UIElementExtension.MergeKey="LastTab"
-             prism:UIElementExtension.MergeOrder="1000">
+             ribbon:UIElementExtension.MergeKey="LastTab"
+             ribbon:UIElementExtension.MergeOrder="1000">
         </RibbonTab>
     </Ribbon>
 

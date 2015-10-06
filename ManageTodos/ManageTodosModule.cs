@@ -30,6 +30,7 @@ namespace TimeManager.ManageTodos
             container.RegisterType<DataLoadService>(new ContainerControlledLifetimeManager());
 
             regionManager.RegisterViewWithRegion(RegionNames.MainRegion, typeof(MainView));
+            regionManager.RegisterViewWithRegion(RegionNames.RibbonRegion, typeof(RibbonView));
         }
         #endregion
     }

@@ -31,7 +31,8 @@ namespace TimeManager.Navigation.ViewModels
         [Log]
         private void NavigateTo(string view)
         {
-            regionManager.RequestNavigate(RegionNames.MainRegion, new Uri(view, UriKind.Relative));
+            regionManager.RequestNavigate(RegionNames.MainRegion, new Uri(view + ".MainView", UriKind.Relative));
+            regionManager.RequestNavigate(RegionNames.RibbonRegion, new Uri(view + ".RibbonView", UriKind.Relative));
         }
         #endregion
     }

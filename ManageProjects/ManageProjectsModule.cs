@@ -22,6 +22,7 @@ namespace TimeManager.ManageProjects
         public void Initialize()
         {
             regionManager.RegisterViewWithRegion(RegionNames.MainRegion, typeof(MainView));
+            regionManager.RegisterViewWithRegion(RegionNames.RibbonRegion, typeof(RibbonView));
         }
         #endregion
     }
