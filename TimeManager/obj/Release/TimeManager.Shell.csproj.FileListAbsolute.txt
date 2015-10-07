@@ -16,3 +16,6 @@ W:\C#Projects\TimeManager\TimeManager\obj\Release\TimeManager.Shell.csproj.Gener
 W:\C#Projects\TimeManager\TimeManager\obj\Release\TimeManager.Shell.exe
 W:\C#Projects\TimeManager\TimeManager\obj\Release\TimeManager.Shell.pdb
 W:\C#Projects\TimeManager\TimeManager\obj\Release\TimeManager.Shell.exe.postsharp
+W:\C#Projects\TimeManager\TimeManager\obj\Release\Views\Ribbon.g.cs
+W:\C#Projects\TimeManager\TimeManager\obj\Release\GeneratedInternalTypeHelper.g.cs
+W:\C#Projects\TimeManager\TimeManager\obj\Release\Views\Ribbon.baml

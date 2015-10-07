@@ -18,7 +18,7 @@ namespace TimeManager.ManageTodos.Views
     /// <summary>
     /// Interaktionslogik für RibbonView.xaml
     /// </summary>
-    public partial class RibbonView : UserControl
+    public partial class RibbonView
     {
         public RibbonView()
         {

@@ -1,23 +1,22 @@
-﻿<UserControl x:Class="TimeManager.ManageProjects.Views.RibbonView"
+﻿<ui:Ribbon x:Class="TimeManager.ManageProjects.Views.RibbonView"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:TimeManager.ManageProjects.Views"
              xmlns:inf="clr-namespace:TimeManager.Infrastructure;assembly=TimeManager.Infrastructure"
+             xmlns:ui="clr-namespace:Crystalbyte.UI;assembly=Crystalbyte.Ribbon"
              xmlns:prism="http://prismlibrary.com/"
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
-    
-    <Ribbon>
-        <RibbonTab Header="Manage Projects Tab">
-        </RibbonTab>
-        <RibbonTab Header="Manage Projects">
-            <RibbonGroup Header="bla">
-                <RibbonButton Label="Group4.Button1 (Manage Projects)" />
-                <RibbonButton Label="Group4.Button2 (Manage Projects)" />
-                <RibbonButton Label="Group4.Button3 (Manage Projects)" />
-            </RibbonGroup>
-        </RibbonTab>
-    </Ribbon>
-</UserControl>
+
+    <ui:RibbonTab Header="Manage Projects" Foreground="White">
+        <ui:RibbonPage Foreground="White">
+            <ui:RibbonGroup Header="Group 1" Foreground="White">
+                <ui:RibbonButton Content="Group1.Button1 (Manage Projects)" />
+                <ui:RibbonButton Content="Group1.Button2 (Manage Projects)" />
+                <ui:RibbonButton Content="Group1.Button3 (Manage Projects)" />
+            </ui:RibbonGroup>
+        </ui:RibbonPage>
+    </ui:RibbonTab>
+</ui:Ribbon>

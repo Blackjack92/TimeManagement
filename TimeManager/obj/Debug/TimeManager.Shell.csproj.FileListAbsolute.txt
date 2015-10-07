@@ -16,6 +16,6 @@ W:\C#Projects\TimeManager\TimeManager\obj\Debug\TimeManager.Shell.csproj.Generat
 W:\C#Projects\TimeManager\TimeManager\obj\Debug\TimeManager.Shell.exe
 W:\C#Projects\TimeManager\TimeManager\obj\Debug\TimeManager.Shell.pdb
 W:\C#Projects\TimeManager\TimeManager\obj\Debug\TimeManager.Shell.exe.postsharp
+W:\C#Projects\TimeManager\TimeManager\obj\Debug\Views\ApplicationMenu.g.cs
 W:\C#Projects\TimeManager\TimeManager\obj\Debug\GeneratedInternalTypeHelper.g.cs
-W:\C#Projects\TimeManager\TimeManager\obj\Debug\Views\RibbonView.g.cs
-W:\C#Projects\TimeManager\TimeManager\obj\Debug\Views\RibbonView.baml
+W:\C#Projects\TimeManager\TimeManager\obj\Debug\Views\ApplicationMenu.baml

@@ -2,7 +2,6 @@ W:\C#Projects\TimeManager\Output\Release\log4net.config
 W:\C#Projects\TimeManager\Output\Release\TimeManager.Infrastructure.dll.config
 W:\C#Projects\TimeManager\Output\Release\TimeManager.Infrastructure.dll
 W:\C#Projects\TimeManager\Output\Release\TimeManager.Infrastructure.pdb
-W:\C#Projects\TimeManager\TimeManager.Infrastructure\obj\Release\TimeManager.Infrastructure.csprojResolveAssemblyReference.cache
 W:\C#Projects\TimeManager\TimeManager.Infrastructure\obj\Release\TimeManager.Infrastructure.dll
 W:\C#Projects\TimeManager\TimeManager.Infrastructure\obj\Release\TimeManager.Infrastructure.pdb
 W:\C#Projects\TimeManager\TimeManager.Infrastructure\obj\Release\TimeManager.Infrastructure.dll.postsharp

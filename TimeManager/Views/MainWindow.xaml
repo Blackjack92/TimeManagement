@@ -1,14 +1,26 @@
-﻿<Window x:Class="TimeManager.Shell.Views.MainWindow"
+﻿<ui:RibbonWindow x:Class="TimeManager.Shell.Views.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:TimeManager"
+        xmlns:ui="clr-namespace:Crystalbyte.UI;assembly=Crystalbyte.Ribbon"
+        xmlns:local="clr-namespace:TimeManager.Shell.Views"
         xmlns:inf="clr-namespace:TimeManager.Infrastructure;assembly=TimeManager.Infrastructure"
         xmlns:prism="http://prismlibrary.com/"
         xmlns:views="clr-namespace:TimeManager.Shell.Views"
+        AccentBrush="White"
+        Foreground="Black"
         mc:Ignorable="d"
         Title="MainWindow" Height="800" Width="1200">
+
+    <ui:RibbonWindow.ApplicationMenu>
+        <local:ApplicationMenu />
+    </ui:RibbonWindow.ApplicationMenu>
+    
+    <ui:RibbonWindow.StatusBarItemsSource >
+        <inf:StatusBarItemsSource />
+    </ui:RibbonWindow.StatusBarItemsSource>
+
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
@@ -19,13 +31,12 @@
             <ColumnDefinition Width="3*" />
         </Grid.ColumnDefinitions>
 
-        <Border Background="{StaticResource BaseTheme.Gray20}" Grid.Row="0" Grid.ColumnSpan="2" />
         <ContentControl Grid.Row="0" Grid.ColumnSpan="2" prism:RegionManager.RegionName="{x:Static inf:RegionNames.RibbonRegion}" />
-        
+
         <Border Background="{StaticResource BaseTheme.Blue40}" Grid.Row="1" Grid.Column="0" />
         <ContentControl Grid.Row="1" Grid.Column="0" prism:RegionManager.RegionName="{x:Static inf:RegionNames.NavigationRegion}" />
 
         <Border Background="{StaticResource BaseTheme.Blue20}" Grid.Row="1" Grid.Column="1" />
         <ContentControl Grid.Row="1" Grid.Column="1" prism:RegionManager.RegionName="{x:Static inf:RegionNames.MainRegion}" />
     </Grid>
-</Window>
+</ui:RibbonWindow>
