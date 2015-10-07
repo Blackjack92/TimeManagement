@@ -20,8 +20,7 @@
         </Grid.ColumnDefinitions>
 
         <Border Background="{StaticResource BaseTheme.Gray20}" Grid.Row="0" Grid.ColumnSpan="2" />
-        <!--<ContentControl Grid.Row="0" Grid.ColumnSpan="2" prism:RegionManager.RegionName="{x:Static Inf:RegionNames.RibbonRegion}" />-->
-        <views:RibbonView Grid.Row="0" Grid.ColumnSpan="2" />
+        <ContentControl Grid.Row="0" Grid.ColumnSpan="2" prism:RegionManager.RegionName="{x:Static inf:RegionNames.RibbonRegion}" />
         
         <Border Background="{StaticResource BaseTheme.Blue40}" Grid.Row="1" Grid.Column="0" />
         <ContentControl Grid.Row="1" Grid.Column="0" prism:RegionManager.RegionName="{x:Static inf:RegionNames.NavigationRegion}" />

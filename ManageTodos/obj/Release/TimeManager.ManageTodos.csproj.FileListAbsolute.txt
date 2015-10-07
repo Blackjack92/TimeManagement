@@ -1,0 +1,17 @@
+W:\C#Projects\TimeManager\Output\Release\log4net.config
+W:\C#Projects\TimeManager\Output\Release\TimeManager.ManageTodos.dll.config
+W:\C#Projects\TimeManager\Output\Release\TimeManager.ManageTodos.dll
+W:\C#Projects\TimeManager\Output\Release\TimeManager.ManageTodos.pdb
+W:\C#Projects\TimeManager\ManageTodos\obj\Release\TimeManager.ManageTodos.csprojResolveAssemblyReference.cache
+W:\C#Projects\TimeManager\ManageTodos\obj\Release\Views\MainView.g.cs
+W:\C#Projects\TimeManager\ManageTodos\obj\Release\Views\RibbonView.g.cs
+W:\C#Projects\TimeManager\ManageTodos\obj\Release\TimeManager.ManageTodos_MarkupCompile.cache
+W:\C#Projects\TimeManager\ManageTodos\obj\Release\TimeManager.ManageTodos_MarkupCompile.lref
+W:\C#Projects\TimeManager\ManageTodos\obj\Release\Views\MainView.baml
+W:\C#Projects\TimeManager\ManageTodos\obj\Release\Views\RibbonView.baml
+W:\C#Projects\TimeManager\ManageTodos\obj\Release\TimeManager.ManageTodos.g.resources
+W:\C#Projects\TimeManager\ManageTodos\obj\Release\TimeManager.ManageTodos.Properties.Resources.resources
+W:\C#Projects\TimeManager\ManageTodos\obj\Release\TimeManager.ManageTodos.csproj.GenerateResource.Cache
+W:\C#Projects\TimeManager\ManageTodos\obj\Release\TimeManager.ManageTodos.dll
+W:\C#Projects\TimeManager\ManageTodos\obj\Release\TimeManager.ManageTodos.pdb
+W:\C#Projects\TimeManager\ManageTodos\obj\Release\TimeManager.ManageTodos.dll.postsharp

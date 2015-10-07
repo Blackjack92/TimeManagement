@@ -8,9 +8,9 @@ using Microsoft.Practices.Unity;
 using TimeManager.Navigation;
 using Prism.Regions;
 using Microsoft.Practices.ServiceLocation;
-using Prism.RibbonRegionAdapter;
 using System.Windows.Controls;
 using System.Windows.Controls.Ribbon;
+using System.Windows.Controls.Primitives;
 
 namespace TimeManager
 {
@@ -25,16 +25,6 @@ namespace TimeManager
         protected override void InitializeShell()
         {
             Application.Current.MainWindow.Show();
-        }
-
-        protected override RegionAdapterMappings ConfigureRegionAdapterMappings()
-        {
-            var mappings = base.ConfigureRegionAdapterMappings();
-
-            mappings.RegisterMapping(typeof(Ribbon), ServiceLocator.Current.GetInstance<RibbonRegionAdapter>());
-            mappings.RegisterMapping(typeof(ContextMenu), ServiceLocator.Current.GetInstance<MergingItemsControlRegionAdapter>());
-
-            return mappings;
         }
 
         protected override void ConfigureModuleCatalog()

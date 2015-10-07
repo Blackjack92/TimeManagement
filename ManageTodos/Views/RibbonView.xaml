@@ -5,30 +5,17 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:TimeManager.ManageTodos.Views"
              xmlns:inf="clr-namespace:TimeManager.Infrastructure;assembly=TimeManager.Infrastructure"
-             xmlns:ribbon="clr-namespace:Prism.RibbonRegionAdapter;assembly=TimeManager.Infrastructure"
              xmlns:prism="http://prismlibrary.com/"
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
-    
-    <Ribbon x:Name="MainMenu" x:FieldModifier="protected internal">
-        <RibbonTab Header="Module1 Tab">
+    <Ribbon>
+        <RibbonTab Header="Manage Todos Tab">
         </RibbonTab>
-        <RibbonTab Header="General (to be merged)"
-                 ribbon:UIElementExtension.MergeKey="GeneralTab"
-                 ribbon:UIElementExtension.MergeOrder="10">
-            <RibbonGroup Header="Group 1b">
-                <RibbonButton Label="Group1b.Button1 (Module1)" />
-                <RibbonButton Label="Group1b.Button2 (Module1)" />
-            </RibbonGroup>
-            <RibbonGroup Header="Group 2"
-                     ribbon:UIElementExtension.MergeKey="GeneralTabGroup2">
-                <RibbonButton Label="Group2.Button1 (Module1, 10)" ribbon:UIElementExtension.MergeOrder="10" />
-                <RibbonButton Label="Group2.Button2 (Module1, 99999)" ribbon:UIElementExtension.MergeOrder="99999" />
-            </RibbonGroup>
-            <RibbonGroup Header="Group 3">
-                <RibbonButton Label="Group3.Button1 (Module1)" />
-                <RibbonButton Label="Group3.Button2 (Module1)" />
-                <RibbonButton Label="Group3.Button3 (Module1)" />
+        <RibbonTab Header="Manage Todos">
+            <RibbonGroup Header="Group 1">
+                <RibbonButton Label="Group1.Button1 (Manage Todos)" />
+                <RibbonButton Label="Group1.Button2 (Manage Todos)" />
+                <RibbonButton Label="Group1.Button3 (Manage Todos)" />
             </RibbonGroup>
         </RibbonTab>
     </Ribbon>
