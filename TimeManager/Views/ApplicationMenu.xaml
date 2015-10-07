@@ -13,6 +13,27 @@
         <Style TargetType="TextBlock">
             <Setter Property="Foreground" Value="White" />
         </Style>
+
+        <Style TargetType="ui:ApplicationMenuSeparator">
+            <Setter Property="IsHitTestVisible" Value="False" />
+            <Setter Property="Margin" Value="18,8,18,8" />
+            <Setter Property="Height" Value="1" />
+            <Setter Property="SnapsToDevicePixels" Value="True" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="ui:ApplicationMenuSeparator">
+                        <Border Height="{TemplateBinding Height}"
+                            HorizontalAlignment="Stretch"
+                            VerticalAlignment="Center"
+                            Background="{TemplateBinding Background}"
+                            BorderThickness="0"
+                            Opacity="0.2"
+                            RenderOptions.EdgeMode="Aliased"
+                            SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
     </ui:ApplicationMenu.Resources>
     
     <ui:ApplicationMenuItem Header="New">
@@ -27,7 +48,7 @@
     <ui:ApplicationMenuItem Header="Print">
         <TextBlock>Content for print</TextBlock>
     </ui:ApplicationMenuItem>
-    <ui:ApplicationMenuSeparator />
+    <ui:ApplicationMenuSeparator Background="Black"/>
     <ui:ApplicationMenuButton Command="Close" Content="Close" />
 </ui:ApplicationMenu>
 
