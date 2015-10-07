@@ -6,7 +6,15 @@
              xmlns:ui="clr-namespace:Crystalbyte.UI;assembly=Crystalbyte.Ribbon"
              xmlns:local="clr-namespace:TimeManager.Shell.Views"
              mc:Ignorable="d" 
-             d:DesignHeight="300" d:DesignWidth="300">
+             d:DesignHeight="300" d:DesignWidth="300"
+             >
+
+    <ui:ApplicationMenu.Resources>
+        <Style TargetType="TextBlock">
+            <Setter Property="Foreground" Value="White" />
+        </Style>
+    </ui:ApplicationMenu.Resources>
+    
     <ui:ApplicationMenuItem Header="New">
         <TextBlock>Content for new</TextBlock>
     </ui:ApplicationMenuItem>
