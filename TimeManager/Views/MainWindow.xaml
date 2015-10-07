@@ -8,16 +8,25 @@
         xmlns:inf="clr-namespace:TimeManager.Infrastructure;assembly=TimeManager.Infrastructure"
         xmlns:prism="http://prismlibrary.com/"
         xmlns:views="clr-namespace:TimeManager.Shell.Views"
-        AccentBrush="White"
-        Foreground="Black"
+        AccentBrush="{StaticResource BaseTheme.White}"
+        Foreground="{StaticResource BaseTheme.White}"
         mc:Ignorable="d"
         Title="MainWindow" Height="800" Width="1200">
 
+    
+    
+    <ui:RibbonWindow.StatusBarContainerStyle>
+        <Style BasedOn="{StaticResource {x:Type StatusBarItem}}" TargetType="StatusBarItem">
+        <Setter Property="Margin" Value="0,1,0,1" />
+        <Setter Property="Foreground" Value="{StaticResource BaseTheme.Black}"/>
+        </Style>
+    </ui:RibbonWindow.StatusBarContainerStyle>
+    
     <ui:RibbonWindow.ApplicationMenu>
         <local:ApplicationMenu />
     </ui:RibbonWindow.ApplicationMenu>
     
-    <ui:RibbonWindow.StatusBarItemsSource >
+    <ui:RibbonWindow.StatusBarItemsSource>
         <inf:StatusBarItemsSource />
     </ui:RibbonWindow.StatusBarItemsSource>
 

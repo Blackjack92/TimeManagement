@@ -42,4 +42,15 @@
         </Style.Triggers>
     </Style>
 
+    <Style TargetType="ui:RibbonGroup">
+        <Setter Property="Foreground" Value="{StaticResource BaseTheme.White}" />
+    </Style>
+
+    <Style TargetType="ui:RibbonPage">
+        <Setter Property="Foreground" Value="{StaticResource BaseTheme.White}" />
+    </Style>
+
+    <Style TargetType="ui:RibbonTab">
+        <Setter Property="Foreground" Value="{StaticResource BaseTheme.White}" />
+    </Style>
 </ResourceDictionary>

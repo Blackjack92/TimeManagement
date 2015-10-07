@@ -8,14 +8,24 @@
              xmlns:ui="clr-namespace:Crystalbyte.UI;assembly=Crystalbyte.Ribbon"
              xmlns:prism="http://prismlibrary.com/"
              mc:Ignorable="d" 
-             d:DesignHeight="300" d:DesignWidth="300">
+             d:DesignHeight="300" d:DesignWidth="300"
+           x:Name="ribbon">
 
-    <ui:RibbonTab Header="Manage Todos" Foreground="White">
-        <ui:RibbonPage Foreground="White">
-            <ui:RibbonGroup Header="Group 1" Foreground="White">
-                <ui:RibbonButton Content="Group1.Button1 (Manage Todos)" />
-                <ui:RibbonButton Content="Group1.Button2 (Manage Todos)" />
-                <ui:RibbonButton Content="Group1.Button3 (Manage Todos)" />
+    <ui:RibbonTab Header="Manage Todos">
+        <ui:RibbonPage>
+            <ui:RibbonGroup Header="Group 1">
+                <ui:RibbonButton Content="Btn1" />
+                <ui:RibbonButton Content="Btn2" />
+                <ui:RibbonButton Content="Btn3" />
+            </ui:RibbonGroup>
+        </ui:RibbonPage>
+    </ui:RibbonTab>
+    <ui:RibbonTab Header="Manage Todos 2">
+        <ui:RibbonPage>
+            <ui:RibbonGroup Header="Group 1">
+                <ui:RibbonButton Content="Btn1" />
+                <ui:RibbonButton Content="Btn2" />
+                <ui:RibbonButton Content="Btn3" />
             </ui:RibbonGroup>
         </ui:RibbonPage>
     </ui:RibbonTab>

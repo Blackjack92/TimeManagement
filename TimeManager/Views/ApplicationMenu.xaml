@@ -13,8 +13,9 @@
         <Style TargetType="TextBlock">
             <Setter Property="Foreground" Value="White" />
         </Style>
-
+        
         <Style TargetType="ui:ApplicationMenuSeparator">
+            <Setter Property="Background" Value="Black" />
             <Setter Property="IsHitTestVisible" Value="False" />
             <Setter Property="Margin" Value="18,8,18,8" />
             <Setter Property="Height" Value="1" />
@@ -34,6 +35,14 @@
                 </Setter.Value>
             </Setter>
         </Style>
+
+        <Style TargetType="ui:ApplicationMenuItem">
+            <Setter Property="Foreground" Value="{StaticResource BaseTheme.Black}" />
+        </Style>
+
+        <Style TargetType="ui:ApplicationMenuButton">
+            <Setter Property="Foreground" Value="{StaticResource BaseTheme.Black}" />
+        </Style>
     </ui:ApplicationMenu.Resources>
     
     <ui:ApplicationMenuItem Header="New">
@@ -48,7 +57,7 @@
     <ui:ApplicationMenuItem Header="Print">
         <TextBlock>Content for print</TextBlock>
     </ui:ApplicationMenuItem>
-    <ui:ApplicationMenuSeparator Background="Black"/>
+    <ui:ApplicationMenuSeparator />
     <ui:ApplicationMenuButton Command="Close" Content="Close" />
 </ui:ApplicationMenu>
 
