@@ -6,6 +6,7 @@ using PostSharp.Patterns.Model;
 using PostSharp;
 using System.ComponentModel;
 using TimeManager.Infrastructure;
+using System.Windows.Data;
 
 namespace TimeManager.ManageTodos.ViewModels
 {
@@ -23,6 +24,7 @@ namespace TimeManager.ManageTodos.ViewModels
         public ManageWorkingItemsService ManageWorkingItemsService { get; private set; }
         public Todo SelectedTodo { get; set; }
         public WorkingItem SelectedWorkingItem { get; set; }
+        public ListCollectionView GroupedTodos { get; private set; }
         #endregion
 
         #region ctor
@@ -38,6 +40,10 @@ namespace TimeManager.ManageTodos.ViewModels
             RibbonCommands.RemoveWorkingItemCommand = new DelegateCommand(RemoveWorkingItem, CanRemoveWorkingItem);
 
             Post.Cast<MainViewModel, INotifyPropertyChanged>(this).PropertyChanged += OnPropertyChanged;
+
+            GroupedTodos = new ListCollectionView(manageTodosService.Todos);
+            GroupedTodos.GroupDescriptions.Add(new PropertyGroupDescription(Todo.TodoProperties.Done));
+            GroupedTodos.SortDescriptions.Add(new SortDescription(Todo.TodoProperties.Done, ListSortDirection.Ascending));
         }
         #endregion
 

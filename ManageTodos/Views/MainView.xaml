@@ -6,6 +6,7 @@
              xmlns:local="clr-namespace:TimeManager.ManageTodos.Views"
              xmlns:models="clr-namespace:TimeManager.ManageTodos.Models"
              xmlns:services="clr-namespace:TimeManager.ManageTodos.Services"
+             xmlns:converters="clr-namespace:TimeManager.ManageTodos.Converters"
              xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300"
@@ -21,6 +22,8 @@
             </ObjectDataProvider.MethodParameters>
         </ObjectDataProvider>
 
+        <converters:BoolToGroupHeaderConverter x:Key="BoolToGroupHeaderConverter" />
+        
         <DataTemplate x:Key="WorkingItemTemplate">
             <Grid>
                 <Grid.ColumnDefinitions>
@@ -76,13 +79,26 @@
     </UserControl.Resources>
 
     <DataGrid x:Name="todosDataGrid" Grid.Row="1" 
-                  ItemsSource="{Binding ManageTodosService.Todos}" 
+                  ItemsSource="{Binding GroupedTodos}" 
                   SelectedItem="{Binding SelectedTodo}"
                   AutoGenerateColumns="False" 
                   CanUserAddRows="False" 
                   CanUserDeleteRows="False"
                   RowDetailsTemplate="{StaticResource WorkingItemTemplate}">
+        <DataGrid.GroupStyle>
+            <GroupStyle>
+                <GroupStyle.HeaderTemplate>
+                <DataTemplate>
+                        <TextBlock Background="{StaticResource BaseTheme.Black}" 
+                                   Foreground="{StaticResource BaseTheme.White}" 
+                                   Text="{Binding Name, Mode=OneWay, Converter={StaticResource BoolToGroupHeaderConverter}}" 
+                                   FontSize="14" Padding="5, 5" />
+                    </DataTemplate>
+                </GroupStyle.HeaderTemplate>
+            </GroupStyle>
+        </DataGrid.GroupStyle>
         <DataGrid.Columns>
+            <DataGridCheckBoxColumn Width="Auto" Header="Done" Binding="{Binding Done}"/>
             <DataGridTemplateColumn Header="FinalDate" Width="*">
                 <DataGridTemplateColumn.CellTemplate>
                     <DataTemplate>

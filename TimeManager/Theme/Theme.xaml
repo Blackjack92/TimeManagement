@@ -70,6 +70,7 @@
     <Style TargetType="{x:Type DataGridColumnHeader}">
         <Setter Property="Background" Value="{StaticResource BaseTheme.Blue40}"/>
         <Setter Property="Foreground" Value="{StaticResource BaseTheme.Black}" />
+        <Setter Property="FontWeight" Value="SemiBold" />
         <Setter Property="Padding" Value="5" />
 
     </Style>
@@ -83,6 +84,19 @@
                     <Border Padding="{TemplateBinding Padding}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" SnapsToDevicePixels="True">
                         <ContentPresenter SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
                     </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style TargetType="{x:Type GroupItem}">
+        <Setter Property="Control.Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type GroupItem}">
+                    <StackPanel>
+                        <ContentPresenter Content="{TemplateBinding ContentControl.Content}" ContentTemplate="{TemplateBinding ContentControl.ContentTemplate}" ContentStringFormat="{TemplateBinding ContentControl.ContentStringFormat}" />
+                        <ItemsPresenter Margin="0,0,0,0" />
+                    </StackPanel>
                 </ControlTemplate>
             </Setter.Value>
         </Setter>

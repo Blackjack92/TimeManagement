@@ -6,6 +6,7 @@
     <Description>First description</Description>
     <Priority>High</Priority>
     <FinalDate>5/5/2015</FinalDate>
+    <Done>True</Done>
   </Todo>
   <Todo>
     <Id>89706025-C12F-42F3-855D-CDBC1868DBA4</Id>
@@ -13,6 +14,7 @@
     <Description>Second description</Description>
     <Priority>Medium</Priority>
     <FinalDate>5/5/2015</FinalDate>
+    <Done>False</Done>
   </Todo>
   <Todo>
     <Id>DC9FC3D7-7B29-4644-BDE6-5DD3B472D323</Id>
@@ -20,6 +22,7 @@
     <Description>Third description</Description>
     <Priority>High</Priority>
     <FinalDate>5/5/2015</FinalDate>
+    <Done>False</Done>
   </Todo>
   <Todo>
     <Id>F167E397-FA76-46CE-A60C-05214D7CD769</Id>
@@ -27,5 +30,6 @@
     <Description>Fourth description</Description>
     <Priority>Low</Priority>
     <FinalDate>5/5/2015</FinalDate>
+    <Done>False</Done>
   </Todo>
 </Todos>

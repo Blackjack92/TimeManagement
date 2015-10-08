@@ -38,7 +38,8 @@ namespace TimeManager.ManageTodos.Services
                     Title = element.Element("Title").Value,
                     Description = element.Element("Description").Value,
                     Priority = (Priority)Enum.Parse(typeof(Priority), element.Element("Priority").Value),
-                    FinalDate = DateTime.Parse(element.Element("FinalDate").Value)
+                    FinalDate = DateTime.Parse(element.Element("FinalDate").Value),
+                    Done = bool.Parse(element.Element("Done").Value)
                 };
                 manageTodosService.Todos.Add(item);
             }

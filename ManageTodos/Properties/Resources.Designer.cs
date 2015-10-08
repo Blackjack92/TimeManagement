@@ -99,6 +99,15 @@ namespace TimeManager.ManageTodos.Properties {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Already done ähnelt.
+        /// </summary>
+        public static string Done {
+            get {
+                return ResourceManager.GetString("Done", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Edit ähnelt.
         /// </summary>
         public static string Edit {
@@ -122,6 +131,15 @@ namespace TimeManager.ManageTodos.Properties {
         public static string ManageWorkingItems {
             get {
                 return ResourceManager.GetString("ManageWorkingItems", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Is still open ähnelt.
+        /// </summary>
+        public static string NotDone {
+            get {
+                return ResourceManager.GetString("NotDone", resourceCulture);
             }
         }
         

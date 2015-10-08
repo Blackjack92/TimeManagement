@@ -130,6 +130,9 @@
   <data name="Delete" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\resources\delete.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="Done" xml:space="preserve">
+    <value>Already done</value>
+  </data>
   <data name="Edit" xml:space="preserve">
     <value>Edit</value>
   </data>
@@ -138,6 +141,9 @@
   </data>
   <data name="ManageWorkingItems" xml:space="preserve">
     <value>Working Items</value>
+  </data>
+  <data name="NotDone" xml:space="preserve">
+    <value>Is still open</value>
   </data>
   <data name="RemoveTodo" xml:space="preserve">
     <value>Remove</value>
