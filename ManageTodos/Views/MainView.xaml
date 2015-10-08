@@ -47,7 +47,7 @@
                         <DataGridTemplateColumn Header="Start date">
                             <DataGridTemplateColumn.CellTemplate>
                                 <DataTemplate>
-                                    <TextBlock Text="{Binding Start}" />
+                                    <TextBlock Text="{Binding Start, StringFormat='{}{0:dd.MM.yy HH:mm:ss}'}" />
                                 </DataTemplate>
                             </DataGridTemplateColumn.CellTemplate>
                             <DataGridTemplateColumn.CellEditingTemplate>
@@ -59,7 +59,7 @@
                         <DataGridTemplateColumn Header="End date">
                             <DataGridTemplateColumn.CellTemplate>
                                 <DataTemplate>
-                                    <TextBlock Text="{Binding End}" />
+                                    <TextBlock Text="{Binding End, StringFormat='{}{0:dd.MM.yy HH:mm:ss}'}" />
                                 </DataTemplate>
                             </DataGridTemplateColumn.CellTemplate>
                             <DataGridTemplateColumn.CellEditingTemplate>
@@ -86,7 +86,7 @@
             <DataGridTemplateColumn Header="FinalDate" Width="*">
                 <DataGridTemplateColumn.CellTemplate>
                     <DataTemplate>
-                        <TextBlock Text="{Binding FinalDate}" />
+                        <TextBlock Text="{Binding FinalDate, StringFormat='{}{0:dd.MM.yy}'}" />
                     </DataTemplate>
                 </DataGridTemplateColumn.CellTemplate>
                 <DataGridTemplateColumn.CellEditingTemplate>
