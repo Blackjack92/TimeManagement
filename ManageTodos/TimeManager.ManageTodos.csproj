@@ -112,6 +112,7 @@
     <Compile Include="Services\DataLoadService.cs" />
     <Compile Include="Services\ManageTodosService.cs" />
     <Compile Include="Services\ManageWorkingItemsService.cs" />
+    <Compile Include="Services\RibbonCommands.cs" />
     <Compile Include="ViewModels\MainViewModel.cs" />
     <Compile Include="Views\MainView.xaml.cs">
       <DependentUpon>MainView.xaml</DependentUpon>

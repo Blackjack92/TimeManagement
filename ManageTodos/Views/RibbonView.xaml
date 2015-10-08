@@ -6,6 +6,7 @@
              xmlns:local="clr-namespace:TimeManager.ManageTodos.Views"
              xmlns:inf="clr-namespace:TimeManager.Infrastructure;assembly=TimeManager.Infrastructure"
              xmlns:ui="clr-namespace:Crystalbyte.UI;assembly=Crystalbyte.Ribbon"
+             xmlns:services="clr-namespace:TimeManager.ManageTodos.Services"
              xmlns:prism="http://prismlibrary.com/"
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300"
@@ -14,7 +15,7 @@
     <ui:RibbonTab Header="Manage Todos">
         <ui:RibbonPage>
             <ui:RibbonGroup Header="Group 1">
-                <ui:RibbonButton Content="Btn1" />
+                <ui:RibbonButton Content="Change" Command="{Binding Source={x:Static services:RibbonCommands.ChangeCommand}}" />
                 <ui:RibbonButton Content="Btn2" />
                 <ui:RibbonButton Content="Btn3" />
             </ui:RibbonGroup>

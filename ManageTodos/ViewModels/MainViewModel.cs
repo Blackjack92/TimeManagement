@@ -14,7 +14,6 @@ namespace TimeManager.ManageTodos.ViewModels
         #region properties
         public ManageTodosService ManageTodosService { get; private set; }
         public ManageWorkingItemsService ManageWorkingItemsService { get; private set; }
-        public ICommand ChangeCommand { get; private set; }
         #endregion
 
         #region ctor
@@ -24,7 +23,7 @@ namespace TimeManager.ManageTodos.ViewModels
             ManageWorkingItemsService = manageWorkingItemsService;
 
             dataLoadService.LoadData();
-            ChangeCommand = new DelegateCommand(Change);
+            RibbonCommands.ChangeCommand = new DelegateCommand(Change);
         }
 
         private void Change()
