@@ -8,26 +8,28 @@
              xmlns:ui="clr-namespace:Crystalbyte.UI;assembly=Crystalbyte.Ribbon"
              xmlns:services="clr-namespace:TimeManager.ManageTodos.Services"
              xmlns:prism="http://prismlibrary.com/"
+             xmlns:prop="clr-namespace:TimeManager.ManageTodos.Properties"
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300"
            x:Name="ribbon">
 
-    <ui:RibbonTab Header="Manage Todos">
+    <ui:RibbonTab Header="{x:Static prop:Resources.Edit}">
         <ui:RibbonPage>
-            <ui:RibbonGroup Header="Group 1">
-                <ui:RibbonButton Content="Add todo" Command="{Binding Source={x:Static services:RibbonCommands.AddTodoCommand}}" />
-                <ui:RibbonButton Content="Remove todo" Command="{Binding Source={x:Static services:RibbonCommands.RemoveTodoCommand}}" />
-                <ui:RibbonButton Content="Add working item" Command="{Binding Source={x:Static services:RibbonCommands.AddWorkingItemCommand}}" />
-                <ui:RibbonButton Content="Remove working item" Command="{Binding Source={x:Static services:RibbonCommands.RemoveWorkingItemCommand}}" />
+            <ui:RibbonGroup Header="{x:Static prop:Resources.ManageTodos}">
+                <ui:RibbonButton Content="{x:Static prop:Resources.AddTodo}" 
+                                 ImageSource="{x:Static services:ResourceService.AddImageSource}"
+                                 Command="{Binding Source={x:Static services:RibbonCommands.AddTodoCommand}}" />
+                <ui:RibbonButton Content="{x:Static prop:Resources.RemoveTodo}" 
+                                 ImageSource="{x:Static services:ResourceService.RemoveImageSource}"
+                                 Command="{Binding Source={x:Static services:RibbonCommands.RemoveTodoCommand}}" />
             </ui:RibbonGroup>
-        </ui:RibbonPage>
-    </ui:RibbonTab>
-    <ui:RibbonTab Header="Manage Todos 2">
-        <ui:RibbonPage>
-            <ui:RibbonGroup Header="Group 1">
-                <ui:RibbonButton Content="Btn1" />
-                <ui:RibbonButton Content="Btn2" />
-                <ui:RibbonButton Content="Btn3" />
+            <ui:RibbonGroup Header="{x:Static prop:Resources.ManageWorkingItems}">
+                <ui:RibbonButton Content="{x:Static prop:Resources.AddWorkingItem}" 
+                                 ImageSource="{x:Static services:ResourceService.AddImageSource}"
+                                 Command="{Binding Source={x:Static services:RibbonCommands.AddWorkingItemCommand}}" />
+                <ui:RibbonButton Content="{x:Static prop:Resources.RemoveWorkingItem}" 
+                                 ImageSource="{x:Static services:ResourceService.RemoveImageSource}"
+                                 Command="{Binding Source={x:Static services:RibbonCommands.RemoveWorkingItemCommand}}" />
             </ui:RibbonGroup>
         </ui:RibbonPage>
     </ui:RibbonTab>
