@@ -39,6 +39,9 @@
             <Trigger Property="ui:RibbonButton.IsPressed" Value="True">
                 <Setter Property="Foreground" Value="{StaticResource BaseTheme.Black}" />
             </Trigger>
+            <Trigger Property="ui:RibbonButton.IsEnabled" Value="False">
+                <Setter Property="Opacity" Value="0.5" />
+            </Trigger>
         </Style.Triggers>
     </Style>
 

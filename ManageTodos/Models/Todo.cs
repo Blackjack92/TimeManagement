@@ -1,5 +1,6 @@
 ﻿using PostSharp.Patterns.Model;
 using System;
+using System.Collections.ObjectModel;
 
 namespace TimeManager.ManageTodos.Models
 {
@@ -12,6 +13,14 @@ namespace TimeManager.ManageTodos.Models
         public string Description { get; set; }
         public Priority Priority { get; set; }
         public DateTime FinalDate { get; set; }
+        public ObservableCollection<WorkingItem> WorkingItems { get; set; }
+        #endregion
+
+        #region ctor
+        public Todo()
+        {
+            WorkingItems = new ObservableCollection<WorkingItem>();
+        }
         #endregion
     }
 }

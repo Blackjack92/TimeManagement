@@ -29,9 +29,14 @@
 
         <StackPanel Orientation="Horizontal">
             <TextBlock Text="Manage todos main view" />
-            <Button Content="Change" Command="{Binding Source={x:Static services:RibbonCommands.ChangeCommand}}"/>
+            <Button Content="Add" Command="{Binding Source={x:Static services:RibbonCommands.AddTodoCommand}}"/>
         </StackPanel>
-        <DataGrid Grid.Row="1" ItemsSource="{Binding ManageTodosService.Todos}" AutoGenerateColumns="False">
+        <DataGrid Grid.Row="1" 
+                  ItemsSource="{Binding ManageTodosService.Todos}" 
+                  SelectedItem="{Binding SelectedTodo}"
+                  AutoGenerateColumns="False" 
+                  CanUserAddRows="False" 
+                  CanUserDeleteRows="False">
             <DataGrid.Columns>
                 <DataGridTemplateColumn Header="FinalDate">
                     <DataGridTemplateColumn.CellTemplate>

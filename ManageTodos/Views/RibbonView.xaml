@@ -15,9 +15,10 @@
     <ui:RibbonTab Header="Manage Todos">
         <ui:RibbonPage>
             <ui:RibbonGroup Header="Group 1">
-                <ui:RibbonButton Content="Change" Command="{Binding Source={x:Static services:RibbonCommands.ChangeCommand}}" />
-                <ui:RibbonButton Content="Btn2" />
-                <ui:RibbonButton Content="Btn3" />
+                <ui:RibbonButton Content="Add todo" Command="{Binding Source={x:Static services:RibbonCommands.AddTodoCommand}}" />
+                <ui:RibbonButton Content="Remove todo" Command="{Binding Source={x:Static services:RibbonCommands.RemoveTodoCommand}}" />
+                <ui:RibbonButton Content="Add working item" Command="{Binding Source={x:Static services:RibbonCommands.AddWorkingItemCommand}}" />
+                <ui:RibbonButton Content="Remove working item" Command="{Binding Source={x:Static services:RibbonCommands.RemoveWorkingItemCommand}}" />
             </ui:RibbonGroup>
         </ui:RibbonPage>
     </ui:RibbonTab>
