@@ -37,15 +37,18 @@
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="5" />
             <ColumnDefinition Width="3*" />
         </Grid.ColumnDefinitions>
 
-        <ContentControl Grid.Row="0" Grid.ColumnSpan="2" prism:RegionManager.RegionName="{x:Static inf:RegionNames.RibbonRegion}" />
+        <ContentControl Grid.Row="0" Grid.ColumnSpan="3" prism:RegionManager.RegionName="{x:Static inf:RegionNames.RibbonRegion}" />
 
         <Border Background="{StaticResource BaseTheme.Blue40}" Grid.Row="1" Grid.Column="0" />
         <ContentControl Grid.Row="1" Grid.Column="0" prism:RegionManager.RegionName="{x:Static inf:RegionNames.NavigationRegion}" />
 
-        <Border Background="{StaticResource BaseTheme.Blue20}" Grid.Row="1" Grid.Column="1" />
-        <ContentControl Grid.Row="1" Grid.Column="1" prism:RegionManager.RegionName="{x:Static inf:RegionNames.MainRegion}" />
+        <GridSplitter Grid.Row="1" Grid.Column="1" HorizontalAlignment="Stretch"/>
+        
+        <Border Background="{StaticResource BaseTheme.Blue20}" Grid.Row="1" Grid.Column="2" />
+        <ContentControl Grid.Row="1" Grid.Column="2" prism:RegionManager.RegionName="{x:Static inf:RegionNames.MainRegion}" />
     </Grid>
 </ui:RibbonWindow>
