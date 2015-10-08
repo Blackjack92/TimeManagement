@@ -83,7 +83,7 @@
                   CanUserDeleteRows="False"
                   RowDetailsTemplate="{StaticResource WorkingItemTemplate}">
         <DataGrid.Columns>
-            <DataGridTemplateColumn Header="FinalDate">
+            <DataGridTemplateColumn Header="FinalDate" Width="*">
                 <DataGridTemplateColumn.CellTemplate>
                     <DataTemplate>
                         <TextBlock Text="{Binding FinalDate}" />
@@ -95,8 +95,8 @@
                     </DataTemplate>
                 </DataGridTemplateColumn.CellEditingTemplate>
             </DataGridTemplateColumn>
-            <DataGridTextColumn Header="Title" Binding="{Binding Title}" />
-            <DataGridComboBoxColumn Header="Priority" ItemsSource="{Binding Source={StaticResource priorityEnum}, Mode=OneWay}" SelectedItemBinding="{Binding Priority}" />
+            <DataGridTextColumn Header="Title" Binding="{Binding Title}" Width="3*" />
+            <DataGridComboBoxColumn Header="Priority" Width="*" ItemsSource="{Binding Source={StaticResource priorityEnum}, Mode=OneWay}" SelectedItemBinding="{Binding Priority}" />
         </DataGrid.Columns>
     </DataGrid>
 </UserControl>

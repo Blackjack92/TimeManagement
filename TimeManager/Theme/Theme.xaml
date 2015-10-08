@@ -56,4 +56,27 @@
     <Style TargetType="ui:RibbonTab">
         <Setter Property="Foreground" Value="{StaticResource BaseTheme.White}" />
     </Style>
+
+    <Style TargetType="{x:Type DataGrid}">
+        <Setter Property="FontSize" Value="14" />
+        <Setter Property="GridLinesVisibility" Value="None" />
+        <Setter Property="SelectionUnit" Value="FullRow" />
+        <Setter Property="ColumnWidth" Value="*" />
+        <Setter Property="RowHeaderWidth" Value="0" />
+        <Setter Property="AlternationCount" Value="2" />
+        <Setter Property="AlternatingRowBackground" Value="{StaticResource BaseTheme.Gray20}" />
+    </Style>
+    
+    <Style TargetType="{x:Type DataGridColumnHeader}">
+        <Setter Property="Background" Value="{StaticResource BaseTheme.Blue40}"/>
+        <Setter Property="Foreground" Value="{StaticResource BaseTheme.Black}" />
+        <Setter Property="Padding" Value="5" />
+
+    </Style>
+
+    <Style TargetType="{x:Type DataGridCell}">
+        <Setter Property="Padding" Value="5,5,10,5" />
+        <Setter Property="BorderThickness" Value="0" />
+    </Style>
+
 </ResourceDictionary>
