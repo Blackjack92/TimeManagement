@@ -134,10 +134,10 @@
     <value>Edit</value>
   </data>
   <data name="ManageTodos" xml:space="preserve">
-    <value>Manage Todos</value>
+    <value>Todos</value>
   </data>
   <data name="ManageWorkingItems" xml:space="preserve">
-    <value>Manage Working Items</value>
+    <value>Working Items</value>
   </data>
   <data name="RemoveTodo" xml:space="preserve">
     <value>Remove</value>

@@ -123,7 +123,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Converters\DummyConverter.cs" />
     <Compile Include="ManageTodosModule.cs" />
     <Compile Include="Models\Priority.cs" />
     <Compile Include="Models\Todo.cs" />

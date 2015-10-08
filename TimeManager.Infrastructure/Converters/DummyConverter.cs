@@ -2,7 +2,7 @@
 using System.Globalization;
 using System.Windows.Data;
 
-namespace TimeManager.ManageTodos.Converters
+namespace TimeManager.Infrastructure.Converters
 {
     public class DummyConverter : IValueConverter
     {

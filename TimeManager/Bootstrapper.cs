@@ -30,8 +30,8 @@ namespace TimeManager
         protected override void ConfigureModuleCatalog()
         {
             ModuleCatalog catalog = (ModuleCatalog)ModuleCatalog;
-            catalog.AddModule(typeof(ManageProjectsModule));
             catalog.AddModule(typeof(ManageTodosModule));
+            catalog.AddModule(typeof(ManageProjectsModule));
             catalog.AddModule(typeof(NavigationModule));
         }
         #endregion

@@ -108,7 +108,7 @@ namespace TimeManager.ManageTodos.Properties {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Manage Todos ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die Todos ähnelt.
         /// </summary>
         public static string ManageTodos {
             get {
@@ -117,7 +117,7 @@ namespace TimeManager.ManageTodos.Properties {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Manage Working Items ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die Working Items ähnelt.
         /// </summary>
         public static string ManageWorkingItems {
             get {

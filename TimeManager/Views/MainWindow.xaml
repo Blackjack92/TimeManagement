@@ -11,9 +11,9 @@
         AccentBrush="{StaticResource BaseTheme.White}"
         Foreground="{StaticResource BaseTheme.White}"
         mc:Ignorable="d"
-        Title="MainWindow" Height="800" Width="1200">
-
-    
+        Title="MainWindow" 
+        Height="800" Width="1200" 
+        MinWidth="500" MinHeight="300">
     
     <ui:RibbonWindow.StatusBarContainerStyle>
         <Style BasedOn="{StaticResource {x:Type StatusBarItem}}" TargetType="StatusBarItem">
@@ -36,9 +36,9 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" MinWidth="150" />
             <ColumnDefinition Width="5" />
-            <ColumnDefinition Width="3*" />
+            <ColumnDefinition Width="3*" MinWidth="150" />
         </Grid.ColumnDefinitions>
 
         <ContentControl Grid.Row="0" Grid.ColumnSpan="3" prism:RegionManager.RegionName="{x:Static inf:RegionNames.RibbonRegion}" />
@@ -48,7 +48,7 @@
 
         <GridSplitter Grid.Row="1" Grid.Column="1" HorizontalAlignment="Stretch"/>
         
-        <Border Background="{StaticResource BaseTheme.Blue20}" Grid.Row="1" Grid.Column="2" />
-        <ContentControl Grid.Row="1" Grid.Column="2" prism:RegionManager.RegionName="{x:Static inf:RegionNames.MainRegion}" />
+        <Border Background="{StaticResource BaseTheme.Gray10}" Grid.Row="1" Grid.Column="2" />
+        <ContentControl Grid.Row="1" Grid.Column="2" prism:RegionManager.RegionName="{x:Static inf:RegionNames.MainRegion}" Foreground="{StaticResource BaseTheme.Gray40}" />
     </Grid>
 </ui:RibbonWindow>

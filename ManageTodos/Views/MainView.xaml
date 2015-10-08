@@ -75,39 +75,28 @@
         </DataTemplate>
     </UserControl.Resources>
 
-    <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="*" />
-        </Grid.RowDefinitions>
-
-        <StackPanel Orientation="Horizontal">
-            <TextBlock Text="Manage todos main view" />
-            <Button Content="Add" Command="{Binding Source={x:Static services:RibbonCommands.AddTodoCommand}}"/>
-        </StackPanel>
-        <DataGrid x:Name="todosDataGrid" Grid.Row="1" 
+    <DataGrid x:Name="todosDataGrid" Grid.Row="1" 
                   ItemsSource="{Binding ManageTodosService.Todos}" 
                   SelectedItem="{Binding SelectedTodo}"
                   AutoGenerateColumns="False" 
                   CanUserAddRows="False" 
                   CanUserDeleteRows="False"
                   RowDetailsTemplate="{StaticResource WorkingItemTemplate}">
-            <DataGrid.Columns>
-                <DataGridTemplateColumn Header="FinalDate">
-                    <DataGridTemplateColumn.CellTemplate>
-                        <DataTemplate>
-                            <TextBlock Text="{Binding FinalDate}" />
-                        </DataTemplate>
-                    </DataGridTemplateColumn.CellTemplate>
-                    <DataGridTemplateColumn.CellEditingTemplate>
-                        <DataTemplate>
-                            <xctk:DateTimePicker Value="{Binding FinalDate}" />
-                        </DataTemplate>
-                    </DataGridTemplateColumn.CellEditingTemplate>
-                </DataGridTemplateColumn>
-                <DataGridTextColumn Header="Title" Binding="{Binding Title}" />
-                <DataGridComboBoxColumn Header="Priority" ItemsSource="{Binding Source={StaticResource priorityEnum}, Mode=OneWay}" SelectedItemBinding="{Binding Priority}" />
-            </DataGrid.Columns>
-        </DataGrid>
-    </Grid>
+        <DataGrid.Columns>
+            <DataGridTemplateColumn Header="FinalDate">
+                <DataGridTemplateColumn.CellTemplate>
+                    <DataTemplate>
+                        <TextBlock Text="{Binding FinalDate}" />
+                    </DataTemplate>
+                </DataGridTemplateColumn.CellTemplate>
+                <DataGridTemplateColumn.CellEditingTemplate>
+                    <DataTemplate>
+                        <xctk:DateTimePicker Value="{Binding FinalDate}" />
+                    </DataTemplate>
+                </DataGridTemplateColumn.CellEditingTemplate>
+            </DataGridTemplateColumn>
+            <DataGridTextColumn Header="Title" Binding="{Binding Title}" />
+            <DataGridComboBoxColumn Header="Priority" ItemsSource="{Binding Source={StaticResource priorityEnum}, Mode=OneWay}" SelectedItemBinding="{Binding Priority}" />
+        </DataGrid.Columns>
+    </DataGrid>
 </UserControl>
