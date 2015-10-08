@@ -47,12 +47,14 @@
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="Auto" SharedSizeGroup="StartDatedShared" />
                         <ColumnDefinition Width="Auto" SharedSizeGroup="EndDatedShared"  />
+                        <ColumnDefinition Width="Auto" SharedSizeGroup="SpentTimeShared"  />
                         <ColumnDefinition Width="*" SharedSizeGroup="DescriptionShared" />
                     </Grid.ColumnDefinitions>
 
                     <TextBlock Grid.Column="0" Text="Start" Margin="10,5,10,5" FontWeight="SemiBold" />
                     <TextBlock Grid.Column="1" Text="End" Margin="10,5" FontWeight="SemiBold" />
-                    <TextBlock Grid.Column="2" Text="Description" Margin="10,5" FontWeight="SemiBold" />
+                    <TextBlock Grid.Column="2" Text="SpentTime" Margin="10,5" FontWeight="SemiBold" />
+                    <TextBlock Grid.Column="3" Text="Description" Margin="10,5" FontWeight="SemiBold" />
                 </Grid>
 
                 <ListView  Grid.Row="1" 
@@ -64,6 +66,7 @@
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="Auto" SharedSizeGroup="StartDatedShared" />
                                     <ColumnDefinition Width="Auto" SharedSizeGroup="EndDatedShared"  />
+                                    <ColumnDefinition Width="Auto" SharedSizeGroup="SpentTimeShared"  />
                                     <ColumnDefinition Width="*" SharedSizeGroup="DescriptionShared" />
                                 </Grid.ColumnDefinitions>
 
@@ -72,7 +75,9 @@
                                 <TextBox Grid.Column="2" Text="{Binding Description}" HorizontalContentAlignment="Stretch" />-->
                                 <TextBlock Grid.Column="0" Text="{Binding Start, StringFormat='{}{0:dd.MM.yy HH:mm}'}" Margin="5" />
                                 <TextBlock Grid.Column="1" Text="{Binding End, StringFormat='{}{0:dd.MM.yy HH:mm}'}" Margin="5" />
-                                <TextBlock Grid.Column="2" Text="{Binding Description}" HorizontalAlignment="Stretch" Margin="5" />
+                                <!--StringFormat="{}{0}:{1:00}"-->
+                                <TextBlock Grid.Column="2" Text="{Binding SpentTime}" Margin="5" />
+                                <TextBlock Grid.Column="3" Text="{Binding Description}" HorizontalAlignment="Stretch" Margin="5" />
                             </Grid>
                         </DataTemplate>
                     </ListView.ItemTemplate>

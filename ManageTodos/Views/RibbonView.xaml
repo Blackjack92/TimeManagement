@@ -30,6 +30,9 @@
                 <ui:RibbonButton Content="{x:Static prop:Resources.RemoveWorkingItem}" 
                                  ImageSource="{x:Static services:ResourceService.RemoveImageSource}"
                                  Command="{Binding Source={x:Static services:RibbonCommands.RemoveWorkingItemCommand}}" />
+                <ui:RibbonButton Content="{x:Static prop:Resources.RemoveWorkingItem}" 
+                                 ImageSource="{x:Static services:ResourceService.RemoveImageSource}"
+                                 Command="{Binding Source={x:Static services:RibbonCommands.ChangeCommand}}" />
             </ui:RibbonGroup>
         </ui:RibbonPage>
     </ui:RibbonTab>

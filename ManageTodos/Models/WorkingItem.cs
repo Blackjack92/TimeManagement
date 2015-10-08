@@ -12,7 +12,17 @@ namespace TimeManager.ManageTodos.Models
         public DateTime Start { get; set; }
         public DateTime End { get; set; }
         public string Description { get; set; }
-        #endregion
-
+        public TimeSpan SpentTime
+        {
+            get
+            {
+                if (Depends.Guard)
+                {
+                    Depends.On(Start, End);
+                }
+                return End.Subtract(Start);
+            }
+        }
     }
+    #endregion
 }

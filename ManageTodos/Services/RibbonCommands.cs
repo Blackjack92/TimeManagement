@@ -9,5 +9,8 @@ namespace TimeManager.ManageTodos.Services
 
         public static DelegateCommand AddWorkingItemCommand { get; set; }
         public static DelegateCommand RemoveWorkingItemCommand { get; set; }
+
+        public static DelegateCommand ChangeCommand { get; set; }
+
     }
 }

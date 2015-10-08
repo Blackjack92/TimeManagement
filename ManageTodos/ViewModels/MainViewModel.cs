@@ -38,12 +38,21 @@ namespace TimeManager.ManageTodos.ViewModels
             RibbonCommands.RemoveTodoCommand = new DelegateCommand(RemoveTodo, CanRemoveTodo);
             RibbonCommands.AddWorkingItemCommand = new DelegateCommand(AddWorkingItem, CanAddWorkingItem);
             RibbonCommands.RemoveWorkingItemCommand = new DelegateCommand(RemoveWorkingItem, CanRemoveWorkingItem);
+            RibbonCommands.ChangeCommand = new DelegateCommand(Change);
 
             Post.Cast<MainViewModel, INotifyPropertyChanged>(this).PropertyChanged += OnPropertyChanged;
 
             GroupedTodos = new ListCollectionView(manageTodosService.Todos);
             GroupedTodos.GroupDescriptions.Add(new PropertyGroupDescription(Todo.TodoProperties.Done));
             GroupedTodos.SortDescriptions.Add(new SortDescription(Todo.TodoProperties.Done, ListSortDirection.Ascending));
+        }
+
+        private void Change()
+        {
+            if (SelectedWorkingItem != null)
+            {
+                SelectedWorkingItem.End = DateTime.Now;
+            }
         }
         #endregion
 
