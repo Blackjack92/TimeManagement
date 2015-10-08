@@ -11,7 +11,7 @@
     <Id>89706025-C12F-42F3-855D-CDBC1868DBA4</Id>
     <Title>Second todo</Title>
     <Description>Second description</Description>
-    <Priority>High</Priority>
+    <Priority>Medium</Priority>
     <FinalDate>5/5/2015</FinalDate>
   </Todo>
   <Todo>
@@ -25,7 +25,7 @@
     <Id>F167E397-FA76-46CE-A60C-05214D7CD769</Id>
     <Title>Fourth todo</Title>
     <Description>Fourth description</Description>
-    <Priority>High</Priority>
+    <Priority>Low</Priority>
     <FinalDate>5/5/2015</FinalDate>
   </Todo>
 </Todos>

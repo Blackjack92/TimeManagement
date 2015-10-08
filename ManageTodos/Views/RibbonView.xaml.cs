@@ -56,9 +56,6 @@ namespace TimeManager.ManageTodos.Views
             //    ((Crystalbyte.UI.RibbonTab)ribbon.Items[0]).BeginInit();
 
             //    UpdateDefaultStyle();
-                
-            }
-
         }
     }
 }

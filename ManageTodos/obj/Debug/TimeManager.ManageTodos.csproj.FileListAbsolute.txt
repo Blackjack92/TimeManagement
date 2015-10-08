@@ -15,3 +15,4 @@ W:\C#Projects\TimeManager\ManageTodos\obj\Debug\TimeManager.ManageTodos.csproj.G
 W:\C#Projects\TimeManager\ManageTodos\obj\Debug\TimeManager.ManageTodos.dll
 W:\C#Projects\TimeManager\ManageTodos\obj\Debug\TimeManager.ManageTodos.pdb
 W:\C#Projects\TimeManager\ManageTodos\obj\Debug\TimeManager.ManageTodos.dll.postsharp
+W:\C#Projects\TimeManager\ManageTodos\obj\Debug\GeneratedInternalTypeHelper.g.cs
