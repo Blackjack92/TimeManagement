@@ -19,7 +19,7 @@
   <Todo>
     <Id>DC9FC3D7-7B29-4644-BDE6-5DD3B472D323</Id>
     <Title>Third todo</Title>
-    <Description>Third description</Description>
+    <Description>Third description Third description Third description Third description Third description</Description>
     <Priority>High</Priority>
     <FinalDate>5/5/2015</FinalDate>
     <Done>False</Done>

@@ -72,7 +72,6 @@
         <Setter Property="Foreground" Value="{StaticResource BaseTheme.Black}" />
         <Setter Property="FontWeight" Value="SemiBold" />
         <Setter Property="Padding" Value="5" />
-
     </Style>
 
     <Style TargetType="{x:Type DataGridCell}">

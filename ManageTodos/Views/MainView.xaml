@@ -23,57 +23,63 @@
         </ObjectDataProvider>
 
         <converters:BoolToGroupHeaderConverter x:Key="BoolToGroupHeaderConverter" />
-        
+
+        <DataTemplate x:Key="StartTemplate">
+            <TextBlock Text="{Binding Start}" />
+        </DataTemplate>
+
+        <DataTemplate x:Key="StartEditTemplate">
+            <xctk:DateTimePicker Value="{Binding Start}" />
+        </DataTemplate>
+
         <DataTemplate x:Key="WorkingItemTemplate">
-            <Grid>
+            <Grid Grid.IsSharedSizeScope="True">
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="Auto" />
                     <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="300" />
                 </Grid.ColumnDefinitions>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
 
-                <TextBlock Grid.Column="0" Grid.Row="0" Text="Description" />
-                <TextBlock Grid.Column="1" Grid.Row="0" Text="{Binding Description}" />
+                <Grid Background="{StaticResource BaseTheme.Gray10}" TextBlock.FontSize="14">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" SharedSizeGroup="StartDatedShared" />
+                        <ColumnDefinition Width="Auto" SharedSizeGroup="EndDatedShared"  />
+                        <ColumnDefinition Width="*" SharedSizeGroup="DescriptionShared" />
+                    </Grid.ColumnDefinitions>
 
-                <TextBlock Grid.Column="0" Grid.Row="1" Text="Id" />
-                <TextBlock Grid.Column="1" Grid.Row="1" Text="{Binding Id}" />
+                    <TextBlock Grid.Column="0" Text="Start" Margin="10,5,10,5" FontWeight="SemiBold" />
+                    <TextBlock Grid.Column="1" Text="End" Margin="10,5" FontWeight="SemiBold" />
+                    <TextBlock Grid.Column="2" Text="Description" Margin="10,5" FontWeight="SemiBold" />
+                </Grid>
 
-                <TextBlock Grid.Column="0" Grid.Row="2" Text="Working items" />
-                <DataGrid Grid.Column="1" Grid.Row="2" ItemsSource="{Binding WorkingItems}" 
-                          AutoGenerateColumns="False" CanUserAddRows="False" CanUserDeleteRows="False"
-                          SelectedItem="{Binding Path=DataContext.SelectedWorkingItem, ElementName=todosDataGrid}">
-                    <DataGrid.Columns>
-                        <DataGridTemplateColumn Header="Start date">
-                            <DataGridTemplateColumn.CellTemplate>
-                                <DataTemplate>
-                                    <TextBlock Text="{Binding Start, StringFormat='{}{0:dd.MM.yy HH:mm:ss}'}" />
-                                </DataTemplate>
-                            </DataGridTemplateColumn.CellTemplate>
-                            <DataGridTemplateColumn.CellEditingTemplate>
-                                <DataTemplate>
-                                    <xctk:DateTimePicker Value="{Binding Start}" />
-                                </DataTemplate>
-                            </DataGridTemplateColumn.CellEditingTemplate>
-                        </DataGridTemplateColumn>
-                        <DataGridTemplateColumn Header="End date">
-                            <DataGridTemplateColumn.CellTemplate>
-                                <DataTemplate>
-                                    <TextBlock Text="{Binding End, StringFormat='{}{0:dd.MM.yy HH:mm:ss}'}" />
-                                </DataTemplate>
-                            </DataGridTemplateColumn.CellTemplate>
-                            <DataGridTemplateColumn.CellEditingTemplate>
-                                <DataTemplate>
-                                    <xctk:DateTimePicker Value="{Binding End}" />
-                                </DataTemplate>
-                            </DataGridTemplateColumn.CellEditingTemplate>
-                        </DataGridTemplateColumn>
-                        <DataGridTextColumn Header="Description" Binding="{Binding Description}" />
-                    </DataGrid.Columns>
-                </DataGrid>
+                <ListView  Grid.Row="1" 
+                           ItemsSource="{Binding WorkingItems}"
+                           SelectedItem="{Binding Path=DataContext.SelectedWorkingItem, ElementName=todosDataGrid}">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto" SharedSizeGroup="StartDatedShared" />
+                                    <ColumnDefinition Width="Auto" SharedSizeGroup="EndDatedShared"  />
+                                    <ColumnDefinition Width="*" SharedSizeGroup="DescriptionShared" />
+                                </Grid.ColumnDefinitions>
+
+                                <!--<xctk:DateTimePicker Grid.Column="0" Value="{Binding Start}" />
+                                <xctk:DateTimePicker Grid.Column="1" Value="{Binding End}" />
+                                <TextBox Grid.Column="2" Text="{Binding Description}" HorizontalContentAlignment="Stretch" />-->
+                                <TextBlock Grid.Column="0" Text="{Binding Start, StringFormat='{}{0:dd.MM.yy HH:mm}'}" Margin="5" />
+                                <TextBlock Grid.Column="1" Text="{Binding End, StringFormat='{}{0:dd.MM.yy HH:mm}'}" Margin="5" />
+                                <TextBlock Grid.Column="2" Text="{Binding Description}" HorizontalAlignment="Stretch" Margin="5" />
+                            </Grid>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+                
+                <TextBlock Grid.Column="1" Grid.Row="0" Text="Description" FontWeight="SemiBold" Margin="5" />
+                <TextBlock Grid.Column="1" Grid.Row="1" Text="{Binding Description}" Margin="5" TextWrapping="Wrap" />
             </Grid>
         </DataTemplate>
     </UserControl.Resources>
