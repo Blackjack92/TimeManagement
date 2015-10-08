@@ -1,9 +1,7 @@
 ﻿using Prism.Commands;
-using System.Windows.Input;
 using TimeManager.ManageTodos.Services;
 using System;
 using TimeManager.ManageTodos.Models;
-using System.Linq;
 using PostSharp.Patterns.Model;
 using PostSharp;
 using System.ComponentModel;
@@ -92,8 +90,13 @@ namespace TimeManager.ManageTodos.ViewModels
 
         private void OnPropertyChanged(object sender, PropertyChangedEventArgs e)
         {
-            if (e.PropertyName == MainViewModelProperties.SelectedTodo ||
-                e.PropertyName == MainViewModelProperties.SelectedWorkingItem)
+            if (e.PropertyName == MainViewModelProperties.SelectedTodo)
+            {
+                SelectedWorkingItem = null;
+                UpdateCommands();
+            }
+
+            if(e.PropertyName == MainViewModelProperties.SelectedWorkingItem)
             {
                 UpdateCommands();
             }

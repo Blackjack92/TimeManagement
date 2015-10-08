@@ -2,7 +2,6 @@
 using System.Xml.Linq;
 using TimeManager.ManageTodos.Models;
 using TimeManager.ManageTodos.Properties;
-using PostSharp.Patterns.Diagnostics;
 
 namespace TimeManager.ManageTodos.Services
 {
@@ -52,17 +51,11 @@ namespace TimeManager.ManageTodos.Services
             {
                 WorkingItem item = new WorkingItem
                 {
-                    Id = Guid.Parse(element.Element("Id").Value)
+                    Id = Guid.Parse(element.Element("Id").Value),
+                    Start = DateTime.Parse(element.Element("Start").Value),
+                    End = DateTime.Parse(element.Element("End").Value),
+                    Description = element.Element("Description").Value
                 };
-                foreach (XElement element2 in element.Element("WorkingTimes").Elements("WorkingTime"))
-                {
-                    WorkingTime time = new WorkingTime
-                    {
-                        Start = DateTime.Parse(element2.Attribute("Start").Value),
-                        End = DateTime.Parse(element2.Attribute("End").Value)
-                    };
-                    item.WorkingTimes.Add(time);
-                }
                 manageWorkingItemsService.WorkingItems.Add(item);
             }
         }
