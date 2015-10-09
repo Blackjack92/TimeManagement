@@ -59,7 +59,8 @@ namespace TimeManager.ManageTodos.ViewModels
         #region methods
         private void AddWorkingItem()
         {
-            var item = new WorkingItem();
+            var item = new WorkingItem() { Start = DateTime.Now, End = DateTime.Now.AddHours(2) };
+
             SelectedTodo.WorkingItems.Add(item);
             ManageWorkingItemsService.WorkingItems.Add(item);
         }
