@@ -95,7 +95,13 @@
         </DataTemplate>
     </UserControl.Resources>
 
-    <DataGrid x:Name="todosDataGrid" Grid.Row="1" 
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="4*" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        
+        <DataGrid x:Name="todosDataGrid"
                   ItemsSource="{Binding GroupedTodos}" 
                   SelectedItem="{Binding SelectedTodo}"
                   AutoGenerateColumns="False" 
@@ -132,4 +138,8 @@
             <DataGridComboBoxColumn Header="Priority" Width="*" ItemsSource="{Binding Source={StaticResource priorityEnum}, Mode=OneWay}" SelectedItemBinding="{Binding Priority}" />
         </DataGrid.Columns>
     </DataGrid>
+        
+        <local:TimeTrackingView Grid.Column="1" />
+    
+    </Grid>
 </UserControl>
