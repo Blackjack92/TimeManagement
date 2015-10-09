@@ -51,7 +51,7 @@ namespace TimeManager.ManageTodos.ViewModels
         {
             if (SelectedWorkingItem != null)
             {
-                SelectedWorkingItem.End = DateTime.Now;
+                SelectedWorkingItem.End = DateTime.Now.AddHours(3);
             }
         }
         #endregion

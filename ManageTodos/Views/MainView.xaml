@@ -43,7 +43,7 @@
                     <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
 
-                <DataGrid x:Name="todosDataGrid" Grid.RowSpan="2" 
+                <DataGrid Grid.RowSpan="2" 
                   ItemsSource="{Binding WorkingItems}"
                   SelectedItem="{Binding Path=DataContext.SelectedWorkingItem, ElementName=todosDataGrid}"
                   AlternationCount="0"
