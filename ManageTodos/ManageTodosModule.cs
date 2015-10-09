@@ -28,6 +28,7 @@ namespace TimeManager.ManageTodos
             container.RegisterType<ManageTodosService>(new ContainerControlledLifetimeManager());
             container.RegisterType<ManageWorkingItemsService>(new ContainerControlledLifetimeManager());
             container.RegisterType<DataLoadService>(new ContainerControlledLifetimeManager());
+            container.RegisterType<TimerService>(new ContainerControlledLifetimeManager());
 
             regionManager.RegisterViewWithRegion(RegionNames.MainRegion, typeof(MainView));
             regionManager.RegisterViewWithRegion(RegionNames.RibbonRegion, typeof(RibbonView));

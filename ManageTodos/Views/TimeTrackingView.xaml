@@ -8,11 +8,36 @@
              d:DesignHeight="300" d:DesignWidth="300"
              xmlns:prism="http://prismlibrary.com/"
              prism:ViewModelLocator.AutoWireViewModel="True">
-    <Grid Background="{StaticResource BaseTheme.Gray20}">
+
+    <Grid Background="{StaticResource BaseTheme.White}">
         <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
             <RowDefinition Height="Auto" />
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
-      <TextBlock Text="Time tracking" Background="{StaticResource BaseTheme.Gray40}" Foreground="{StaticResource BaseTheme.Black}" Padding="5" FontSize="14" />      
+
+        <TextBlock Text="Time tracking" Background="{StaticResource BaseTheme.Gray20}" Foreground="{StaticResource BaseTheme.Black}" Padding="5" FontSize="14" />
+
+        <TextBlock Grid.Row="1" Text="00:00:00" FontSize="30" HorizontalAlignment="Center" Margin="5"/>
+
+        <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Center">
+            <ToggleButton Padding="20,5" Margin="0,0,5,0">
+                <ToggleButton.Style>
+                    <Style TargetType="ToggleButton">
+                        <Style.Triggers>
+                            <Trigger Property="IsChecked" Value="False">
+                                <Setter Property="Content" Value="Start" />
+                            </Trigger>
+
+                            <Trigger Property="IsChecked" Value="True">
+                                <Setter Property="Content" Value="Stop" />
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </ToggleButton.Style>
+            </ToggleButton>
+            <Button Content="Reset" Padding="20,5" Margin="5,0,0,0" />
+        </StackPanel>
     </Grid>
 </UserControl>

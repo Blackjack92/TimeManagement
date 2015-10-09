@@ -46,7 +46,9 @@ namespace TimeManager.ManageTodos.ViewModels
             GroupedTodos.GroupDescriptions.Add(new PropertyGroupDescription(Todo.TodoProperties.Done));
             GroupedTodos.SortDescriptions.Add(new SortDescription(Todo.TodoProperties.Done, ListSortDirection.Ascending));
         }
+        #endregion
 
+        #region methods
         private void Change()
         {
             if (SelectedWorkingItem != null)
@@ -54,9 +56,7 @@ namespace TimeManager.ManageTodos.ViewModels
                 SelectedWorkingItem.End = DateTime.Now.AddHours(3);
             }
         }
-        #endregion
 
-        #region methods
         private void AddWorkingItem()
         {
             var item = new WorkingItem() { Start = DateTime.Now, End = DateTime.Now.AddHours(2) };

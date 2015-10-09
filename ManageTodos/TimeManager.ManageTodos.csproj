@@ -139,6 +139,7 @@
     <Compile Include="Services\ManageWorkingItemsService.cs" />
     <Compile Include="Services\ResourceService.cs" />
     <Compile Include="Services\RibbonCommands.cs" />
+    <Compile Include="Services\TimerService.cs" />
     <Compile Include="ViewModels\MainViewModel.cs" />
     <Compile Include="ViewModels\TimeTrackingViewModel.cs" />
     <Compile Include="Views\MainView.xaml.cs">
