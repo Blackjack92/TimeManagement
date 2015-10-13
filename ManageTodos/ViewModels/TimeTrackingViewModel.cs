@@ -23,6 +23,13 @@ namespace TimeManager.ManageTodos.ViewModels
 
             StartStopCommand = new DelegateCommand(ToggleStartStop);
             ResetCommand = new DelegateCommand(Reset);
+
+            TimerService.TimeTracked += OnTimeTracked;
+        }
+
+        private void OnTimeTracked(object sender, EventArgs.TimeTrackedEventArgs e)
+        {
+            // Add new working item to the manage working item service
         }
         #endregion
 

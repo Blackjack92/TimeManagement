@@ -14,15 +14,16 @@
             <RowDefinition Height="Auto" />
             <RowDefinition Height="Auto" />
             <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
 
         <TextBlock Text="Time tracking" Background="{StaticResource BaseTheme.Gray20}" Foreground="{StaticResource BaseTheme.Black}" Padding="5" FontSize="14" />
 
-        <TextBlock Grid.Row="1" Text="00:00:00" FontSize="30" HorizontalAlignment="Center" Margin="5"/>
+        <TextBlock Grid.Row="1" Text="{Binding TimerService.CurrentSpan, StringFormat='{}{0:hh\\:mm\\:ss}'}" FontSize="30" HorizontalAlignment="Center" Margin="5"/>
 
         <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Center">
-            <ToggleButton Padding="20,5" Margin="0,0,5,0">
+            <ToggleButton Padding="20,5" Margin="0,0,5,0" Command="{Binding StartStopCommand}">
                 <ToggleButton.Style>
                     <Style TargetType="ToggleButton">
                         <Style.Triggers>
@@ -37,7 +38,10 @@
                     </Style>
                 </ToggleButton.Style>
             </ToggleButton>
-            <Button Content="Reset" Padding="20,5" Margin="5,0,0,0" />
+            <Button Content="Reset" Command="{Binding ResetCommand}" Padding="20,5" Margin="5,0,0,0" />
         </StackPanel>
+        
+        <TextBlock Grid.Row="3" Text="Description:" FontWeight="SemiBold" Margin="5" />
+        <TextBox Grid.Row="4" Text="Blllaaaaaa" Margin="5,0" />
     </Grid>
 </UserControl>

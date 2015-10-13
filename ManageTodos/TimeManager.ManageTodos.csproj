@@ -124,6 +124,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Converters\BoolToGroupHeaderConverter.cs" />
+    <Compile Include="EventArgs\TimerState.cs" />
+    <Compile Include="EventArgs\TimeTrackedEventArgs.cs" />
     <Compile Include="ManageTodosModule.cs" />
     <Compile Include="Models\Priority.cs" />
     <Compile Include="Models\Todo.cs" />
