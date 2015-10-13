@@ -59,7 +59,6 @@ namespace TimeManager.ManageTodos.ViewModels
         {
             TimerService.Reset();
         }
-
         #endregion
     }
 }
