@@ -150,6 +150,8 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Bootstrapper.cs" />
+    <Compile Include="Services\ApplicationMenuCommands.cs" />
+    <Compile Include="ViewModels\MainWindowModel.cs" />
     <Compile Include="Views\ApplicationMenu.xaml.cs">
       <DependentUpon>ApplicationMenu.xaml</DependentUpon>
     </Compile>

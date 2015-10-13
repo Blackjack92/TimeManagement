@@ -6,11 +6,11 @@ using TimeManager.Shell.Views;
 using Prism.Unity;
 using Microsoft.Practices.Unity;
 using TimeManager.Navigation;
-using Prism.Regions;
-using Microsoft.Practices.ServiceLocation;
-using System.Windows.Controls;
-using System.Windows.Controls.Ribbon;
-using System.Windows.Controls.Primitives;
+using Prism.Mvvm;
+using TimeManager.Shell.ViewModels;
+using System;
+using System.Reflection;
+using System.Globalization;
 
 namespace TimeManager
 {
@@ -25,6 +25,25 @@ namespace TimeManager
         protected override void InitializeShell()
         {
             Application.Current.MainWindow.Show();
+        }
+
+        protected override void ConfigureViewModelLocator()
+        {
+            base.ConfigureViewModelLocator();
+
+            ViewModelLocationProvider.SetDefaultViewTypeToViewModelTypeResolver((viewType) => 
+            {
+                if (viewType == typeof(MainWindow))
+                {
+                    return typeof(MainWindowModel);
+                }
+
+                var viewName = viewType.FullName;
+                viewName = viewName.Replace(".Views.", ".ViewModels.");
+                var viewAssemblyName = viewType.GetTypeInfo().Assembly.FullName;
+                var viewModelName = string.Format(CultureInfo.InvariantCulture, "{0}Model, {1}", viewName, viewAssemblyName);
+                return Type.GetType(viewModelName);
+            });
         }
 
         protected override void ConfigureModuleCatalog()

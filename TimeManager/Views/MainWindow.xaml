@@ -8,6 +8,7 @@
         xmlns:inf="clr-namespace:TimeManager.Infrastructure;assembly=TimeManager.Infrastructure"
         xmlns:prism="http://prismlibrary.com/"
         xmlns:views="clr-namespace:TimeManager.Shell.Views"
+        prism:ViewModelLocator.AutoWireViewModel="True"
         AccentBrush="{StaticResource BaseTheme.White}"
         Foreground="{StaticResource BaseTheme.White}"
         mc:Ignorable="d"
