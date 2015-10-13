@@ -1,5 +1,7 @@
 ﻿using PostSharp.Patterns.Model;
 using Prism.Commands;
+using Prism.Events;
+using TimeManager.Infrastructure.Events;
 using TimeManager.Shell.Services;
 
 namespace TimeManager.Shell.ViewModels
@@ -7,9 +9,13 @@ namespace TimeManager.Shell.ViewModels
     [NotifyPropertyChanged]
     public class MainWindowModel
     {
+        private readonly IEventAggregator eventAggregator;
+
         #region ctor
-        public MainWindowModel()
+        public MainWindowModel(IEventAggregator eventAggregator)
         {
+            this.eventAggregator = eventAggregator;
+
             ApplicationMenuCommands.OpenCommand = new DelegateCommand(Open);
             ApplicationMenuCommands.SaveCommand = new DelegateCommand(Save);
         }
@@ -18,12 +24,12 @@ namespace TimeManager.Shell.ViewModels
         #region methods
         private void Save()
         {
-
+            eventAggregator.GetEvent<StringEvent>().Publish("test");
         }
 
         private void Open()
         {
-
+            eventAggregator.GetEvent<StringEvent>().Publish("test");
         }
         #endregion
     }
