@@ -18,7 +18,7 @@
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
 
-        <TextBlock Text="Time tracking" Background="{StaticResource BaseTheme.Gray20}" Foreground="{StaticResource BaseTheme.Black}" Padding="5" FontSize="14" />
+        <TextBlock Text="Time tracking" Background="{StaticResource BaseTheme.Gray20}" Foreground="{StaticResource BaseTheme.Black}" Padding="5" FontSize="14" FontWeight="SemiBold" />
 
         <TextBlock Grid.Row="1" Text="{Binding TimerService.CurrentSpan, StringFormat='{}{0:hh\\:mm\\:ss}'}" FontSize="30" HorizontalAlignment="Center" Margin="5"/>
 
@@ -42,6 +42,6 @@
         </StackPanel>
         
         <TextBlock Grid.Row="3" Text="Description:" FontWeight="SemiBold" Margin="5" />
-        <TextBox Grid.Row="4" Text="Blllaaaaaa" Margin="5,0" />
+        <TextBox Grid.Row="4" Text="{Binding Description}" Margin="5,0" />
     </Grid>
 </UserControl>

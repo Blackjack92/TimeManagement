@@ -11,7 +11,7 @@ using System.Windows.Data;
 namespace TimeManager.ManageTodos.ViewModels
 {
     [NotifyPropertyChanged]
-    public class MainViewModel
+    public class MainViewModel : ISelectedTodoProvider
     {
         public static class MainViewModelProperties
         {

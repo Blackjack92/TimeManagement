@@ -3,6 +3,7 @@ using Prism.Modularity;
 using Prism.Regions;
 using TimeManager.Infrastructure;
 using TimeManager.ManageTodos.Services;
+using TimeManager.ManageTodos.ViewModels;
 using TimeManager.ManageTodos.Views;
 
 namespace TimeManager.ManageTodos
@@ -29,6 +30,8 @@ namespace TimeManager.ManageTodos
             container.RegisterType<ManageWorkingItemsService>(new ContainerControlledLifetimeManager());
             container.RegisterType<DataLoadService>(new ContainerControlledLifetimeManager());
             container.RegisterType<TimerService>(new ContainerControlledLifetimeManager());
+
+            container.RegisterType<ISelectedTodoProvider, MainViewModel>(new ContainerControlledLifetimeManager());
 
             regionManager.RegisterViewWithRegion(RegionNames.MainRegion, typeof(MainView));
             regionManager.RegisterViewWithRegion(RegionNames.RibbonRegion, typeof(RibbonView));

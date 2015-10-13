@@ -84,7 +84,7 @@
                                 </DataTemplate>
                             </DataGridTemplateColumn.CellEditingTemplate>
                         </DataGridTemplateColumn>
-                        <DataGridTextColumn Header="Spent time" Binding="{Binding SpentTime, StringFormat={}{0:hh}:{0:mm}, FallbackValue=00:00}" IsReadOnly="True" />
+                        <DataGridTextColumn Header="Spent time" Binding="{Binding SpentTime, StringFormat='{}{0:hh\\:mm\\:ss}'}" IsReadOnly="True" />
                         <DataGridTextColumn Header="Description" Binding="{Binding Description}" />
                     </DataGrid.Columns>
                 </DataGrid>
@@ -97,10 +97,10 @@
 
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="4*" />
+            <ColumnDefinition Width="3*" />
             <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
-        
+
         <DataGrid x:Name="todosDataGrid"
                   ItemsSource="{Binding GroupedTodos}" 
                   SelectedItem="{Binding SelectedTodo}"
@@ -108,38 +108,38 @@
                   CanUserAddRows="False" 
                   CanUserDeleteRows="False"
                   RowDetailsTemplate="{StaticResource WorkingItemTemplate}">
-        <DataGrid.GroupStyle>
-            <GroupStyle>
-                <GroupStyle.HeaderTemplate>
-                <DataTemplate>
-                        <TextBlock Background="{StaticResource BaseTheme.Black}" 
+            <DataGrid.GroupStyle>
+                <GroupStyle>
+                    <GroupStyle.HeaderTemplate>
+                        <DataTemplate>
+                            <TextBlock Background="{StaticResource BaseTheme.Black}" 
                                    Foreground="{StaticResource BaseTheme.White}" 
                                    Text="{Binding Name, Mode=OneWay, Converter={StaticResource BoolToGroupHeaderConverter}}" 
                                    FontSize="14" Padding="5, 5" />
-                    </DataTemplate>
-                </GroupStyle.HeaderTemplate>
-            </GroupStyle>
-        </DataGrid.GroupStyle>
-        <DataGrid.Columns>
-            <DataGridCheckBoxColumn Width="Auto" Header="Done" Binding="{Binding Done}"/>
-            <DataGridTemplateColumn Header="FinalDate" Width="*">
-                <DataGridTemplateColumn.CellTemplate>
-                    <DataTemplate>
-                        <TextBlock Text="{Binding FinalDate, StringFormat='{}{0:dd.MM.yy}'}" />
-                    </DataTemplate>
-                </DataGridTemplateColumn.CellTemplate>
-                <DataGridTemplateColumn.CellEditingTemplate>
-                    <DataTemplate>
-                        <xctk:DateTimePicker Value="{Binding FinalDate}" />
-                    </DataTemplate>
-                </DataGridTemplateColumn.CellEditingTemplate>
-            </DataGridTemplateColumn>
-            <DataGridTextColumn Header="Title" Binding="{Binding Title}" Width="3*" />
-            <DataGridComboBoxColumn Header="Priority" Width="*" ItemsSource="{Binding Source={StaticResource priorityEnum}, Mode=OneWay}" SelectedItemBinding="{Binding Priority}" />
-        </DataGrid.Columns>
-    </DataGrid>
-        
+                        </DataTemplate>
+                    </GroupStyle.HeaderTemplate>
+                </GroupStyle>
+            </DataGrid.GroupStyle>
+            <DataGrid.Columns>
+                <DataGridCheckBoxColumn Width="Auto" Header="Done" Binding="{Binding Done}" />
+                <DataGridTemplateColumn Header="FinalDate" Width="*">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding FinalDate, StringFormat='{}{0:dd.MM.yy}'}" />
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                    <DataGridTemplateColumn.CellEditingTemplate>
+                        <DataTemplate>
+                            <xctk:DateTimePicker Value="{Binding FinalDate}" />
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellEditingTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTextColumn Header="Title" Binding="{Binding Title}" Width="3*" />
+                <DataGridComboBoxColumn Header="Priority" Width="*" ItemsSource="{Binding Source={StaticResource priorityEnum}, Mode=OneWay}" SelectedItemBinding="{Binding Priority}" />
+            </DataGrid.Columns>
+        </DataGrid>
+
         <local:TimeTrackingView Grid.Column="1" />
-    
+
     </Grid>
 </UserControl>
