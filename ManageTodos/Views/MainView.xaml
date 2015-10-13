@@ -33,7 +33,7 @@
         </DataTemplate>
 
         <DataTemplate x:Key="WorkingItemTemplate">
-            <Grid Grid.IsSharedSizeScope="True">
+            <Grid Grid.IsSharedSizeScope="True" Background="{StaticResource BaseTheme.White}">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*" />
                     <ColumnDefinition Width="300" />
@@ -43,7 +43,7 @@
                     <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
 
-                <DataGrid Grid.RowSpan="2" 
+                <DataGrid Grid.RowSpan="2" Margin="5,5,0,5"
                   ItemsSource="{Binding WorkingItems}"
                   SelectedItem="{Binding Path=DataContext.SelectedWorkingItem, ElementName=todosDataGrid}"
                   AlternationCount="0"
@@ -85,12 +85,19 @@
                             </DataGridTemplateColumn.CellEditingTemplate>
                         </DataGridTemplateColumn>
                         <DataGridTextColumn Header="Spent time" Binding="{Binding SpentTime, StringFormat='{}{0:hh\\:mm\\:ss}'}" IsReadOnly="True" />
-                        <DataGridTextColumn Header="Description" Binding="{Binding Description}" />
+                        <DataGridTextColumn Header="Description" Binding="{Binding Description}">
+                            <DataGridTextColumn.ElementStyle>
+                                <Style>
+                                    <Setter Property="TextBox.TextWrapping" Value="Wrap" />
+                                    <Setter Property="TextBox.AcceptsReturn" Value="True" />
+                                </Style>
+                            </DataGridTextColumn.ElementStyle>
+                        </DataGridTextColumn>
                     </DataGrid.Columns>
                 </DataGrid>
 
-                <TextBlock Grid.Column="1" Grid.Row="0" Text="Description" FontWeight="SemiBold" Margin="5" />
-                <TextBlock Grid.Column="1" Grid.Row="1" Text="{Binding Description}" Margin="5" TextWrapping="Wrap" />
+                <TextBlock Grid.Column="1" Grid.Row="0" Text="Description" FontWeight="SemiBold" Margin="5,10,5,5" />
+                <TextBox Grid.Column="1" Grid.Row="1" Text="{Binding Description}" TextWrapping="Wrap" AcceptsReturn="True" Margin="5,0,5,5"/>
             </Grid>
         </DataTemplate>
     </UserControl.Resources>

@@ -41,7 +41,7 @@
             <Button Content="Reset" Command="{Binding ResetCommand}" Padding="20,5" Margin="5,0,0,0" />
         </StackPanel>
         
-        <TextBlock Grid.Row="3" Text="Description:" FontWeight="SemiBold" Margin="5" />
+        <TextBlock Grid.Row="3" Text="Description" FontWeight="SemiBold" Margin="5" FontSize="14" />
         <TextBox Grid.Row="4" Text="{Binding Description}" Margin="5,0" />
     </Grid>
 </UserControl>
