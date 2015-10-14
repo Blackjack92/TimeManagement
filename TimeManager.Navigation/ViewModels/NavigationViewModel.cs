@@ -2,9 +2,9 @@
 using Prism.Regions;
 using System;
 using System.Windows.Input;
-using TimeManager.Infrastructure;
 using PostSharp.Patterns.Model;
 using PostSharp.Patterns.Diagnostics;
+using TimeManager.Infrastructure.Names;
 
 namespace TimeManager.Navigation.ViewModels
 {

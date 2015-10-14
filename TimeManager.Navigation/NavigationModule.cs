@@ -1,6 +1,6 @@
 ﻿using Prism.Modularity;
 using Prism.Regions;
-using TimeManager.Infrastructure;
+using TimeManager.Infrastructure.Names;
 using TimeManager.Navigation.Views;
 
 namespace TimeManager.Navigation

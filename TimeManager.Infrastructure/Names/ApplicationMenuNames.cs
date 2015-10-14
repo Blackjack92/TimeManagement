@@ -1,6 +1,6 @@
-﻿namespace TimeManager.Infrastructure
+﻿namespace TimeManager.Infrastructure.Names
 {
-    public class ApplicationMenuNames
+    public static class ApplicationMenuNames
     {
         public const string Open = "Open";
         public const string Save = "Save";

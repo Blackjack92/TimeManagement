@@ -1,9 +1,9 @@
 ﻿using Prism.Events;
 using Prism.Modularity;
 using Prism.Regions;
-using TimeManager.Infrastructure;
 using TimeManager.Infrastructure.Events;
 using TimeManager.ManageProjects.Views;
+using TimeManager.Infrastructure.Names;
 
 namespace TimeManager.ManageProjects
 {

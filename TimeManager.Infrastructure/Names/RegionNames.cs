@@ -1,4 +1,4 @@
-﻿namespace TimeManager.Infrastructure
+﻿namespace TimeManager.Infrastructure.Names
 {
     public static class RegionNames
     {

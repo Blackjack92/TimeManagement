@@ -1,6 +1,6 @@
-﻿namespace TimeManager.Infrastructure
+﻿namespace TimeManager.Infrastructure.Names
 {
-    public class ViewNames
+    public static class ViewNames
     {
         public const string MainViewManageTodos = "TimeManager.ManageTodos.Views";
         public const string MainViewManageProjects = "TimeManager.ManageProjects.Views";

@@ -1,8 +1,8 @@
 ﻿using PostSharp.Patterns.Model;
 using Prism.Commands;
 using Prism.Events;
-using TimeManager.Infrastructure;
 using TimeManager.Infrastructure.Events;
+using TimeManager.Infrastructure.Names;
 using TimeManager.Shell.Services;
 
 namespace TimeManager.Shell.ViewModels

@@ -2,11 +2,11 @@
 using Prism.Events;
 using Prism.Modularity;
 using Prism.Regions;
-using TimeManager.Infrastructure;
 using TimeManager.Infrastructure.Events;
 using TimeManager.ManageTodos.Services;
 using TimeManager.ManageTodos.ViewModels;
 using TimeManager.ManageTodos.Views;
+using TimeManager.Infrastructure.Names;
 
 namespace TimeManager.ManageTodos
 {

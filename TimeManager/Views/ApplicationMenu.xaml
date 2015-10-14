@@ -45,7 +45,6 @@
         </Style>
     </ui:ApplicationMenu.Resources>
 
-    <!--Command="{Binding Source={x:Static services:ApplicationMenuCommands.OpenCommand}}"-->
     <ui:ApplicationMenuButton Content="Open" Command="{Binding Source={x:Static services:ApplicationMenuCommands.OpenCommand}}" />
     <ui:ApplicationMenuButton Content="Save" Command="{Binding Source={x:Static services:ApplicationMenuCommands.SaveCommand}}" />
 
