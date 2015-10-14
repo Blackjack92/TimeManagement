@@ -6,7 +6,7 @@
         xmlns:ui="clr-namespace:Crystalbyte.UI;assembly=Crystalbyte.Ribbon"
         xmlns:local="clr-namespace:TimeManager.Shell.Views"
         xmlns:inf="clr-namespace:TimeManager.Infrastructure.Names;assembly=TimeManager.Infrastructure"
-        xmlns:ribbon="clr-namespace:TimeManager.Infrastructure;assembly=TimeManager.Infrastructure"
+        xmlns:ribbon="clr-namespace:TimeManager.Infrastructure.Utils;assembly=TimeManager.Infrastructure"
         xmlns:prism="http://prismlibrary.com/"
         xmlns:views="clr-namespace:TimeManager.Shell.Views"
         prism:ViewModelLocator.AutoWireViewModel="True"

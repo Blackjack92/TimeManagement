@@ -5,7 +5,7 @@ using TimeManager.ManageTodos.Models;
 using PostSharp.Patterns.Model;
 using PostSharp;
 using System.ComponentModel;
-using TimeManager.Infrastructure;
+using TimeManager.Infrastructure.Utils;
 using System.Windows.Data;
 
 namespace TimeManager.ManageTodos.ViewModels

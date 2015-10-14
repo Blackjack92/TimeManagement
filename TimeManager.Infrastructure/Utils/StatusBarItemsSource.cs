@@ -1,6 +1,6 @@
 ﻿using System.Collections.ObjectModel;
 
-namespace TimeManager.Infrastructure
+namespace TimeManager.Infrastructure.Utils
 {
     public sealed class StatusBarItemsSource : ObservableCollection<string>
     {

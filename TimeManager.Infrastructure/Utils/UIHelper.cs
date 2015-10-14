@@ -1,7 +1,7 @@
 ﻿using System.Windows;
 using System.Windows.Media;
 
-namespace TimeManager.Infrastructure
+namespace TimeManager.Infrastructure.Utils
 {
     public static class UIHelper
     {
