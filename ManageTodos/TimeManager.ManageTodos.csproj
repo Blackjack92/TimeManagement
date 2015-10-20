@@ -124,6 +124,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Converters\BoolToGroupHeaderConverter.cs" />
+    <Compile Include="Data\TodoDataStoreObject.cs" />
     <Compile Include="EventArgs\TimerState.cs" />
     <Compile Include="EventArgs\TimeTrackedEventArgs.cs" />
     <Compile Include="ManageTodosModule.cs" />
@@ -137,6 +138,7 @@
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <Compile Include="Services\DataLoadService.cs" />
+    <Compile Include="Services\DataStoreService.cs" />
     <Compile Include="Services\ManageTodosService.cs" />
     <Compile Include="Services\ManageWorkingItemsService.cs" />
     <Compile Include="Services\ResourceService.cs" />

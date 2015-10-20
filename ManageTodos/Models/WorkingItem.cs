@@ -1,11 +1,13 @@
 ﻿using System;
+using System.Xml.Linq;
 using PostSharp.Patterns.Model;
+using TimeManager.Infrastructure.Interfaces;
 
 namespace TimeManager.ManageTodos.Models
 {
 
     [NotifyPropertyChanged]
-    public class WorkingItem
+    public class WorkingItem : IXmlable
     {
         #region properties
         public Guid Id { get; set; }
@@ -23,6 +25,13 @@ namespace TimeManager.ManageTodos.Models
                 return End.Subtract(Start);
             }
         }
+        #endregion
+
+        #region methods
+        public XElement TransformToXml()
+        {
+            return null;
+        }
+        #endregion
     }
-    #endregion
 }

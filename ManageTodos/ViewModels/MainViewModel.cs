@@ -28,7 +28,7 @@ namespace TimeManager.ManageTodos.ViewModels
         #endregion
 
         #region ctor
-        public MainViewModel(ManageTodosService manageTodosService, ManageWorkingItemsService manageWorkingItemsService, DataLoadService dataLoadService)
+        public MainViewModel(ManageTodosService manageTodosService, ManageWorkingItemsService manageWorkingItemsService, DataLoadService dataLoadService, DataStoreService dataStoreService)
         {
             ManageTodosService = manageTodosService;
             ManageWorkingItemsService = manageWorkingItemsService;
@@ -38,7 +38,7 @@ namespace TimeManager.ManageTodos.ViewModels
             RibbonCommands.RemoveTodoCommand = new DelegateCommand(RemoveTodo, CanRemoveTodo);
             RibbonCommands.AddWorkingItemCommand = new DelegateCommand(AddWorkingItem, CanAddWorkingItem);
             RibbonCommands.RemoveWorkingItemCommand = new DelegateCommand(RemoveWorkingItem, CanRemoveWorkingItem);
-            RibbonCommands.ChangeCommand = new DelegateCommand(Change);
+            RibbonCommands.ChangeCommand = new DelegateCommand(dataStoreService.Save);
 
             Post.Cast<MainViewModel, INotifyPropertyChanged>(this).PropertyChanged += OnPropertyChanged;
 

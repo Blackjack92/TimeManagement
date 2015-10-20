@@ -119,6 +119,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Data\DataStoreObject.cs" />
+    <Compile Include="Interfaces\IXmlable.cs" />
     <Compile Include="Names\ApplicationMenuNames.cs" />
     <Compile Include="Converters\DummyConverter.cs" />
     <Compile Include="Events\StringEvent.cs" />

@@ -5,12 +5,14 @@ using System.Collections.ObjectModel;
 using System.Collections.Specialized;
 using System.ComponentModel;
 using System.Linq;
+using TimeManager.Infrastructure.Interfaces;
 using TimeManager.Infrastructure.Utils;
+using System.Xml.Linq;
 
 namespace TimeManager.ManageTodos.Models
 {
     [NotifyPropertyChanged]
-    public class Todo
+    public class Todo : IXmlable
     {
         public static class TodoProperties
         {
@@ -64,6 +66,11 @@ namespace TimeManager.ManageTodos.Models
         private void OnWorkingItemsCollectionItemChanged(object sender, PropertyChangedEventArgs e)
         {
             UpdateSpentTime();
+        }
+
+        public XElement TransformToXml()
+        {
+            return null;
         }
         #endregion
     }
