@@ -30,16 +30,15 @@ namespace TimeManager.ManageTodos.Services
 
                 XDocument document = new XDocument();
 
-                var element = new TodoDataStoreObject();
-                var todo = manageTodosService.Todos.First();
-                var ele = element.CreateXElement(todo);
+                var todosElement = new XElement("Todos");
+                var storeObject = new TodoDataStoreObject();
 
-                document.Add(new XElement("root",
-                    new XElement("children",
-                        new object[]{ new XElement("child1"),
-                        new XElement("child2"),
-                        new XElement("child3") })));
+                foreach (var item in manageTodosService.Todos)
+                {
+                    todosElement.Add(storeObject.CreateXElement(item));
+                }
 
+                document.Add(todosElement);
                 document.Save(file);
             }
         }
