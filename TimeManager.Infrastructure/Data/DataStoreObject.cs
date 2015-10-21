@@ -42,9 +42,9 @@ namespace TimeManager.Infrastructure.Data
                     }
                     else
                     {
-                        var subClass = DataStoreHelper.FindFirstStoreClass(type);
-                        // Check subClass exists so it is an advanced class
-                        if (subClass == null)
+                        var storeClass = DataStoreHelper.FindFirstStoreClass(type);
+                        // Check storeClass exists so it is an advanced class
+                        if (storeClass == null)
                         {
                             rootElement.Add(new XElement(StaticReflection.GetMemberName(item), contentElement));
                         }

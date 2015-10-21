@@ -1,7 +1,6 @@
 ﻿namespace TimeManager.Infrastructure.Data
 {
+    // Marker interface which is responsible to find the roots for the save operation
     public interface IStoreRoot
-    {
-        // TODO: use this marker interface for storing the data in the DataStoreService
-    }
+    { }
 }

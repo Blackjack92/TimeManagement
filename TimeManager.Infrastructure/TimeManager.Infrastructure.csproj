@@ -122,6 +122,7 @@
     <Compile Include="Data\DataStoreException.cs" />
     <Compile Include="Data\DataStoreHelper.cs" />
     <Compile Include="Data\DataStoreObject.cs" />
+    <Compile Include="Data\DataStoreService.cs" />
     <Compile Include="Data\IStoreRoot.cs" />
     <Compile Include="Names\ApplicationMenuNames.cs" />
     <Compile Include="Converters\DummyConverter.cs" />
