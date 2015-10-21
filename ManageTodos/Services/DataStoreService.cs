@@ -2,23 +2,20 @@
 using System.Collections.Generic;
 using System.Xml.Linq;
 using TimeManager.Infrastructure.Data;
-using TimeManager.ManageTodos.DataStoreObjects;
-using TimeManager.ManageTodos.Models;
 
 namespace TimeManager.ManageTodos.Services
 {
     public class DataStoreService
     {
         #region fields
-        private readonly TodosRoot todosRoot;
-        private readonly IEnumerable<IStoreRoot> storeRoots;
+        private const string DocumentRootElementName = "TimeManager";
+        private readonly IEnumerable<IStoreRoot> rootsToStore;
         #endregion
 
         #region ctor
-        public DataStoreService(TodosRoot todosRoot, IEnumerable<IStoreRoot> storeRoots)
+        public DataStoreService(IEnumerable<IStoreRoot> rootsToStore)
         {
-            this.todosRoot = todosRoot;
-            this.storeRoots = storeRoots;
+            this.rootsToStore = rootsToStore;
         }
         #endregion
 
@@ -32,15 +29,18 @@ namespace TimeManager.ManageTodos.Services
                 var file = dialog.FileName;
 
                 XDocument document = new XDocument();
-                
-                // Store todos
-                var storeObject = new TodosRootDataStoreObject();
-                var todos = storeObject.CreateXElement(todosRoot);
-                if (todos != null)
+                var documentRootElement = new XElement(DocumentRootElementName);
+
+                // Store all store roots
+                foreach (var root in rootsToStore)
                 {
-                    document.Add(todos);
-                    document.Save(file);
+                    var storeClass = DataStoreHelper.FindFirstStoreClass(root.GetType());
+                    var xElement = DataStoreHelper.CreateXElement(storeClass, root);
+                    documentRootElement.Add(xElement);
                 }
+
+                document.Add(documentRootElement);
+                document.Save(file);
             }
         }
         #endregion

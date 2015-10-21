@@ -9,7 +9,7 @@ namespace TimeManager.Infrastructure.Data
 {
     public static class DataStoreHelper
     {
-        public static Type FindFirstSubClass(Type genericType)
+        public static Type FindFirstStoreClass(Type genericType)
         {
             // Create generic class DataStoreObject<T> where T is the type of the content element
             Type genericClass = typeof(DataStoreObject<>);
@@ -53,7 +53,7 @@ namespace TimeManager.Infrastructure.Data
             // Iterate each content element
             foreach (var content in contentElements)
             {
-                var subClassType = FindFirstSubClass(content.GetType());
+                var subClassType = FindFirstStoreClass(content.GetType());
                 if (subClassType != null)
                 {
                     XElement xElement = CreateXElement(subClassType, content);

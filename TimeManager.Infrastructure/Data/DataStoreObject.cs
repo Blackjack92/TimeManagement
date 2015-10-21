@@ -42,7 +42,7 @@ namespace TimeManager.Infrastructure.Data
                     }
                     else
                     {
-                        var subClass = DataStoreHelper.FindFirstSubClass(type);
+                        var subClass = DataStoreHelper.FindFirstStoreClass(type);
                         // Check subClass exists so it is an advanced class
                         if (subClass == null)
                         {
