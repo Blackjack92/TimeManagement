@@ -86,17 +86,21 @@ namespace TimeManager.Infrastructure.Utils
         {
             //List<T> objects = new List<T>();
             List<Type> objects = new List<Type>();
-            foreach (var type in Assembly.GetAssembly(typeof(T))
-                .GetTypes()
-                .Where(t => t.IsClass && !t.IsAbstract && t.IsSubclassOf(typeof(T))))
-            {
-                //objects.Add((T)Activator.CreateInstance(type, contstructorArguments));
-                objects.Add(type);
-            }
 
+            foreach (var assembly in AppDomain.CurrentDomain.GetAssemblies().Where(a => a.FullName.Contains("TimeManager")))
+            {
+                //Assembly.GetAssembly(typeof(T)
+                foreach (var type in assembly
+                    .GetTypes()
+                    .Where(t => t.IsClass && !t.IsAbstract && t.IsSubclassOf(typeof(T))))
+                {
+                    //objects.Add((T)Activator.CreateInstance(type, contstructorArguments));
+                    objects.Add(type);
+                }
+            }
             //objects.Sort();
 
             return objects;
-        } 
+        }
     }
 }

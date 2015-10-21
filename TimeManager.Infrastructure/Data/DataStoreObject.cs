@@ -27,14 +27,25 @@ namespace TimeManager.Infrastructure.Data
                     var test = content as IEnumerable;
                     foreach(var x in test)
                     {
-                        MethodInfo method = typeof(StaticReflection).GetMethod("GetEnumerableOfType").MakeGenericMethod(new Type[] { x.GetType() });
+                        Type genericClass = typeof(DataStoreObject<>);
+                        //// MakeGenericType is badly named
+                        Type constructedClass = genericClass.MakeGenericType(x.GetType());
+
+                        //object created = Activator.CreateInstance(constructedClass);
+
+                        MethodInfo method = typeof(StaticReflection).GetMethod("GetEnumerableOfType").MakeGenericMethod(new Type[] { constructedClass });
                         var super = method.Invoke(null, null);
 
                     }
                 }
                 else
                 {
-                    MethodInfo method = typeof(StaticReflection).GetMethod("GetEnumerableOfType").MakeGenericMethod(new Type[] { type });
+                    Type genericClass = typeof(DataStoreObject<>);
+                    //// MakeGenericType is badly named
+                    Type constructedClass = genericClass.MakeGenericType(type);
+
+
+                    MethodInfo method = typeof(StaticReflection).GetMethod("GetEnumerableOfType").MakeGenericMethod(new Type[] { constructedClass });
                     //MethodInfo method = typeof(StaticReflection).GetMethod("GetEnumerableOfType").MakeGenericMethod(new Type[] { DataStoreObject<type> });
                     var test = method.Invoke(null, null);
                 }
