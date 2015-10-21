@@ -119,6 +119,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Data\DataStoreException.cs" />
     <Compile Include="Data\DataStoreObject.cs" />
     <Compile Include="Names\ApplicationMenuNames.cs" />
     <Compile Include="Converters\DummyConverter.cs" />
@@ -127,7 +128,6 @@
     <Compile Include="Names\RegionNames.cs" />
     <Compile Include="Utils\StaticReflection.cs" />
     <Compile Include="Utils\StatusBarItemsSource.cs" />
-    <Compile Include="Utils\T.cs" />
     <Compile Include="Utils\UIHelper.cs" />
     <Compile Include="Names\ViewNames.cs" />
   </ItemGroup>

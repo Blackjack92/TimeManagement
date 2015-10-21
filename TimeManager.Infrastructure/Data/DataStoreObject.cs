@@ -19,68 +19,99 @@ namespace TimeManager.Infrastructure.Data
 
             foreach (var item in properties)
             {
-                var content = item.Compile().Invoke(element);
+                // Get content elements
+                var contentElement = item.Compile().Invoke(element);
+                if (contentElement == null) { return null; }
 
-                // TODO: check content not null
+                Type type = contentElement.GetType();
 
-                Type type = content.GetType();
-
-                if (type.IsGenericType && content is IEnumerable)
+                // Check content is a IEnumerable
+                if (type.IsGenericType && contentElement is IEnumerable)
                 {
-                    var test = content as IEnumerable;
-                    foreach(var x in test)
-                    {
-                        Type genericClass = typeof(DataStoreObject<>);
-                        //// MakeGenericType is badly named
-                        Type constructedClass = genericClass.MakeGenericType(x.GetType());
-
-                        //object created = Activator.CreateInstance(constructedClass);
-
-                        MethodInfo method = typeof(StaticReflection).GetMethod("GetEnumerableOfType").MakeGenericMethod(new Type[] { constructedClass });
-                        var super = method.Invoke(null, null);
-
-                        if (super is IEnumerable)
-                        {
-                            foreach (var t in (IEnumerable)super)
-                            {
-                                object classInstance = Activator.CreateInstance((Type)t, null);
-
-                                MethodInfo methodInfo = constructedClass.GetMethod("CreateXElement");
-                                if (methodInfo != null)
-                                {
-                                    var xElement = methodInfo.Invoke(classInstance, new object[] { x });
-                                    if (xElement != null && xElement is XElement)
-                                    {
-                                        rootElement.Add((XElement)xElement);
-                                    }
-                                }
-                            }
-                        }
-                    }
+                    var contentElements = (IEnumerable)contentElement;
+                    var listXElement = CreateXElementFromIEnumerable(item, contentElements);
+                    rootElement.Add(listXElement);
                 }
                 else
                 {
-                    Type genericClass = typeof(DataStoreObject<>);
-                    //// MakeGenericType is badly named
-                    Type constructedClass = genericClass.MakeGenericType(type);
-
-
-                    MethodInfo method = typeof(StaticReflection).GetMethod("GetEnumerableOfType").MakeGenericMethod(new Type[] { constructedClass });
-                    //MethodInfo method = typeof(StaticReflection).GetMethod("GetEnumerableOfType").MakeGenericMethod(new Type[] { DataStoreObject<type> });
-                    var test = method.Invoke(null, null);
+                    var subClass = FindFirstSubClass(type);
+                    if (subClass == null)
+                    {
+                        rootElement.Add(new XElement(StaticReflection.GetMemberName(item), contentElement));
+                    }
+                    else
+                    {
+                        //CreateXElement
+                        rootElement.Add(new XElement(StaticReflection.GetMemberName(item), contentElement));
+                    }
                 }
-
-              
-
-
-                rootElement.Add(new XElement(StaticReflection.GetMemberName(item), content));
             }
 
             return rootElement;
         }
 
+        private static Type FindFirstSubClass(Type genericType)
+        {
+            // Create generic class DataStoreObject<T> where T is the type of the content element
+            Type genericClass = typeof(DataStoreObject<>);
+            Type baseClass = genericClass.MakeGenericType(genericType);
+
+            // Find derived classes from the DataStoreObject<T> where T is the type of the content element
+            MethodInfo getEnumerableOfType = typeof(StaticReflection).GetMethod("GetEnumerableOfType").MakeGenericMethod(new Type[] { baseClass });
+            var subClasses = getEnumerableOfType.Invoke(null, null);
+
+            // Return first found subClass
+            if (subClasses is IEnumerable)
+            {
+                foreach (var subClass in (IEnumerable)subClasses)
+                {
+                    return subClass as Type;
+                }
+            }
+
+            return null;
+        }
+
+        private static XElement CreateXElement(Type classType, object content)
+        {
+            // Create a derived DataStoreObject<T> object where T is the type of the content element
+            object classInstance = Activator.CreateInstance(classType, null);
+
+            // Invoke CreateXElement from the derived DataStoreObject
+            MethodInfo createXElement = classType.GetMethod("CreateXElement");
+            if (createXElement != null)
+            {
+                // Store created xElement in the rootElement
+                return (XElement) createXElement.Invoke(classInstance, new object[] { content });
+            }
+
+            return null;
+        }
+
+        private static XElement CreateXElementFromIEnumerable(Expression<Func<T, object>>  item, IEnumerable contentElements)
+        {
+            var listXElement = new XElement(StaticReflection.GetMemberName(item));
+
+            // Iterate each content element
+            foreach (var content in contentElements)
+            {
+                var subClassType = FindFirstSubClass(content.GetType());
+                if (subClassType != null)
+                {
+                    XElement xElement = CreateXElement(subClassType, content);
+                    if (xElement != null)
+                    {
+                        listXElement.Add(xElement);
+                    }
+                }
+                else
+                {
+                    throw new DataStoreException("No derived class for DataStoreObject<T> was found.");
+                }
+            }
+            return listXElement;
+        }
+
         protected abstract void SetProperties(List<Expression<Func<T, object>>> selector);
     }
-
-
 }
