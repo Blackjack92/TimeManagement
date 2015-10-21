@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Windows;
 using System.Xml.Linq;
 using TimeManager.ManageTodos.Models;
 using TimeManager.ManageTodos.Properties;
@@ -59,6 +60,11 @@ namespace TimeManager.ManageTodos.Services
                 };
                 manageWorkingItemsService.WorkingItems.Add(item);
             }
+        }
+
+        public void Open()
+        {
+            MessageBox.Show("Open called");
         }
         #endregion
     }

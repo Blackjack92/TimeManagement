@@ -12,5 +12,7 @@ namespace TimeManager.ManageTodos.Services
 
         public static DelegateCommand ChangeCommand { get; set; }
 
+        public static DelegateCommand SaveCommand { get; set; }
+        public static DelegateCommand OpenCommand { get; set; }
     }
 }

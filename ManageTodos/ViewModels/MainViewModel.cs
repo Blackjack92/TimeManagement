@@ -7,6 +7,8 @@ using PostSharp;
 using System.ComponentModel;
 using TimeManager.Infrastructure.Utils;
 using System.Windows.Data;
+using TimeManager.Infrastructure.Data;
+using System.Windows;
 
 namespace TimeManager.ManageTodos.ViewModels
 {
@@ -38,7 +40,11 @@ namespace TimeManager.ManageTodos.ViewModels
             RibbonCommands.RemoveTodoCommand = new DelegateCommand(RemoveTodo, CanRemoveTodo);
             RibbonCommands.AddWorkingItemCommand = new DelegateCommand(AddWorkingItem, CanAddWorkingItem);
             RibbonCommands.RemoveWorkingItemCommand = new DelegateCommand(RemoveWorkingItem, CanRemoveWorkingItem);
-            RibbonCommands.ChangeCommand = new DelegateCommand(dataStoreService.Save);
+
+            RibbonCommands.ChangeCommand = new DelegateCommand(Change);
+
+            RibbonCommands.SaveCommand = new DelegateCommand(dataStoreService.Save);
+            RibbonCommands.OpenCommand = new DelegateCommand(dataLoadService.Open);
 
             Post.Cast<MainViewModel, INotifyPropertyChanged>(this).PropertyChanged += OnPropertyChanged;
 
@@ -49,6 +55,11 @@ namespace TimeManager.ManageTodos.ViewModels
         #endregion
 
         #region methods
+        private void Change()
+        {
+            MessageBox.Show("Change called");
+        }
+
         private void AddWorkingItem()
         {
             var item = new WorkingItem() { Id = Guid.NewGuid(), Start = DateTime.Now, End = DateTime.Now.AddHours(2) };

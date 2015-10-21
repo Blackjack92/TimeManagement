@@ -15,6 +15,15 @@
 
     <ui:RibbonTab Header="{x:Static prop:Resources.Edit}">
         <ui:RibbonPage>
+            <ui:RibbonGroup Header="{x:Static prop:Resources.Edit}">
+                <ui:RibbonButton Content="{x:Static prop:Resources.SaveText}" 
+                                 ImageSource="{x:Static services:ResourceService.SaveImageSource}"
+                                 Command="{Binding Source={x:Static services:RibbonCommands.SaveCommand}}" />
+                <ui:RibbonButton Content="{x:Static prop:Resources.OpenText}" 
+                                 ImageSource="{x:Static services:ResourceService.OpenImageSource}"
+                                 Command="{Binding Source={x:Static services:RibbonCommands.OpenCommand}}" />
+            </ui:RibbonGroup>
+            
             <ui:RibbonGroup Header="{x:Static prop:Resources.ManageTodos}">
                 <ui:RibbonButton Content="{x:Static prop:Resources.AddTodo}" 
                                  ImageSource="{x:Static services:ResourceService.AddImageSource}"

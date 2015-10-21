@@ -20,12 +20,37 @@ namespace TimeManager.ManageTodos.Services
                           BitmapSizeOptions.FromEmptyOptions());
             }
         }
+
         public static ImageSource RemoveImageSource
         {
             get
             {
                 return Imaging.CreateBitmapSourceFromHBitmap(
                           Resources.Delete.GetHbitmap(),
+                          IntPtr.Zero,
+                          Int32Rect.Empty,
+                          BitmapSizeOptions.FromEmptyOptions());
+            }
+        }
+
+        public static ImageSource SaveImageSource
+        {
+            get
+            {
+                return Imaging.CreateBitmapSourceFromHBitmap(
+                          Resources.Save.GetHbitmap(),
+                          IntPtr.Zero,
+                          Int32Rect.Empty,
+                          BitmapSizeOptions.FromEmptyOptions());
+            }
+        }
+
+        public static ImageSource OpenImageSource
+        {
+            get
+            {
+                return Imaging.CreateBitmapSourceFromHBitmap(
+                          Resources.Open.GetHbitmap(),
                           IntPtr.Zero,
                           Int32Rect.Empty,
                           BitmapSizeOptions.FromEmptyOptions());

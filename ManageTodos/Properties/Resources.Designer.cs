@@ -144,6 +144,25 @@ namespace TimeManager.ManageTodos.Properties {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap Open {
+            get {
+                object obj = ResourceManager.GetObject("Open", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Open ähnelt.
+        /// </summary>
+        public static string OpenText {
+            get {
+                return ResourceManager.GetString("OpenText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Remove ähnelt.
         /// </summary>
         public static string RemoveTodo {
@@ -162,6 +181,25 @@ namespace TimeManager.ManageTodos.Properties {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap Save {
+            get {
+                object obj = ResourceManager.GetObject("Save", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Save ähnelt.
+        /// </summary>
+        public static string SaveText {
+            get {
+                return ResourceManager.GetString("SaveText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die &lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot; ?&gt;
         ///&lt;Todos xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; xmlns:xsd=&quot;http://www.w3.org/2001/XMLSchema&quot;&gt;
         ///  &lt;Todo&gt;
@@ -170,11 +208,12 @@ namespace TimeManager.ManageTodos.Properties {
         ///    &lt;Description&gt;First description&lt;/Description&gt;
         ///    &lt;Priority&gt;High&lt;/Priority&gt;
         ///    &lt;FinalDate&gt;5/5/2015&lt;/FinalDate&gt;
+        ///    &lt;Done&gt;True&lt;/Done&gt;
         ///  &lt;/Todo&gt;
         ///  &lt;Todo&gt;
         ///    &lt;Id&gt;89706025-C12F-42F3-855D-CDBC1868DBA4&lt;/Id&gt;
         ///    &lt;Title&gt;Second todo&lt;/Title&gt;
-        ///    &lt;Description&gt;Second description&lt;/Description&gt; [Rest der Zeichenfolge wurde abgeschnitten]&quot;; ähnelt.
+        ///    &lt;Description&gt;Second de [Rest der Zeichenfolge wurde abgeschnitten]&quot;; ähnelt.
         /// </summary>
         public static string Todos {
             get {
