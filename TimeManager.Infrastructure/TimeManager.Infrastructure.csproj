@@ -127,6 +127,7 @@
     <Compile Include="Names\RegionNames.cs" />
     <Compile Include="Utils\StaticReflection.cs" />
     <Compile Include="Utils\StatusBarItemsSource.cs" />
+    <Compile Include="Utils\T.cs" />
     <Compile Include="Utils\UIHelper.cs" />
     <Compile Include="Names\ViewNames.cs" />
   </ItemGroup>

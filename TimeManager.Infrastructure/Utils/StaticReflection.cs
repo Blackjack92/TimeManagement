@@ -1,5 +1,9 @@
 ﻿using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
 using System.Linq.Expressions;
+using System.Reflection;
 
 namespace TimeManager.Infrastructure.Utils
 {
@@ -76,5 +80,23 @@ namespace TimeManager.Infrastructure.Utils
 
             return ((MemberExpression)unaryExpression.Operand).Member.Name;
         }
+
+        //public static IEnumerable<T> GetEnumerableOfType<T>(params object[] contstructorArguments)
+        public static IEnumerable<Type> GetEnumerableOfType<T>()
+        {
+            //List<T> objects = new List<T>();
+            List<Type> objects = new List<Type>();
+            foreach (var type in Assembly.GetAssembly(typeof(T))
+                .GetTypes()
+                .Where(t => t.IsClass && !t.IsAbstract && t.IsSubclassOf(typeof(T))))
+            {
+                //objects.Add((T)Activator.CreateInstance(type, contstructorArguments));
+                objects.Add(type);
+            }
+
+            //objects.Sort();
+
+            return objects;
+        } 
     }
 }

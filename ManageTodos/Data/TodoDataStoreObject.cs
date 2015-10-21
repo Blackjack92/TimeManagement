@@ -12,6 +12,7 @@ namespace TimeManager.ManageTodos.Data
         {
             selector.Add(todo => todo.Id);
             selector.Add(todo => todo.Title);
+            selector.Add(todo => todo.WorkingItems);
         }
     }
 }
