@@ -22,32 +22,39 @@ namespace TimeManager.Infrastructure.Data
             {
                 // Get content elements
                 var contentElement = item.Compile().Invoke(element);
-                if (contentElement == null) { return null; }
-
-                Type type = contentElement.GetType();
-
-                // Check content is a IEnumerable
-                if (type.IsGenericType && contentElement is IEnumerable)
+                if (contentElement != null)
                 {
-                    var contentElements = (IEnumerable)contentElement;
-                    var listXElement = new XElement(StaticReflection.GetMemberName(item));
-                    CreateXElementListFromIEnumerable(contentElements).ToList().ForEach(e => listXElement.Add(e));
-                    rootElement.Add(listXElement);
-                }
-                else
-                {
-                    var subClass = FindFirstSubClass(type);
-                    // Check subClass exists so it is an advanced class
-                    if (subClass == null)
+                    Type type = contentElement.GetType();
+
+                    // Check content is a IEnumerable
+                    if (type.IsGenericType && contentElement is IEnumerable)
                     {
-                        rootElement.Add(new XElement(StaticReflection.GetMemberName(item), contentElement));
+                        var contentElements = (IEnumerable)contentElement;
+                        var xElementLists = CreateXElementListFromIEnumerable(contentElements);
+
+                        // Only add a XElement, when it has content
+                        if (xElementLists.Any())
+                        {
+                            var listXElement = new XElement(StaticReflection.GetMemberName(item));
+                            xElementLists.ToList().ForEach(e => listXElement.Add(e));
+                            rootElement.Add(listXElement);
+                        }
                     }
                     else
                     {
-                        // TODO: CreateXElement
-                        rootElement.Add(new XElement(StaticReflection.GetMemberName(item), contentElement));
+                        var subClass = FindFirstSubClass(type);
+                        // Check subClass exists so it is an advanced class
+                        if (subClass == null)
+                        {
+                            rootElement.Add(new XElement(StaticReflection.GetMemberName(item), contentElement));
+                        }
+                        else
+                        {
+                            // TODO: CreateXElement
+                            rootElement.Add(new XElement(StaticReflection.GetMemberName(item), contentElement));
+                        }
                     }
-                }
+                } 
             }
 
             return rootElement;

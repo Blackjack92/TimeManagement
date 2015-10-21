@@ -4,7 +4,7 @@ using System.Linq.Expressions;
 using TimeManager.Infrastructure.Data;
 using TimeManager.ManageTodos.Models;
 
-namespace TimeManager.ManageTodos.Data
+namespace TimeManager.ManageTodos.DataStoreObjects
 {
     internal class TodoDataStoreObject : DataStoreObject<Todo>
     {

@@ -1,6 +1,6 @@
 ﻿using Microsoft.Win32;
 using System.Xml.Linq;
-using TimeManager.ManageTodos.Data;
+using TimeManager.ManageTodos.DataStoreObjects;
 
 namespace TimeManager.ManageTodos.Services
 {

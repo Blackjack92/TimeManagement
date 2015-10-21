@@ -59,7 +59,7 @@ namespace TimeManager.ManageTodos.ViewModels
 
         private void AddWorkingItem()
         {
-            var item = new WorkingItem() { Start = DateTime.Now, End = DateTime.Now.AddHours(2) };
+            var item = new WorkingItem() { Id = Guid.NewGuid(), Start = DateTime.Now, End = DateTime.Now.AddHours(2) };
 
             SelectedTodo.WorkingItems.Add(item);
             ManageWorkingItemsService.WorkingItems.Add(item);

@@ -124,8 +124,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Converters\BoolToGroupHeaderConverter.cs" />
-    <Compile Include="Data\TodoDataStoreObject.cs" />
-    <Compile Include="Data\WorkingItemDataStoreObject.cs" />
+    <Compile Include="DataStoreObjects\TodoDataStoreObject.cs" />
+    <Compile Include="DataStoreObjects\WorkingItemDataStoreObject.cs" />
     <Compile Include="EventArgs\TimerState.cs" />
     <Compile Include="EventArgs\TimeTrackedEventArgs.cs" />
     <Compile Include="ManageTodosModule.cs" />
