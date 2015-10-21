@@ -1,15 +1,16 @@
 ﻿using Microsoft.Win32;
 using System.Xml.Linq;
 using TimeManager.ManageTodos.DataStoreObjects;
+using TimeManager.ManageTodos.Models;
 
 namespace TimeManager.ManageTodos.Services
 {
     public class DataStoreService
     {
-        private readonly ManageTodosService manageTodosService;
-        private readonly ManageWorkingItemsService manageWorkingItemsService;
+        private readonly TodosRoot manageTodosService;
+        private readonly WorkingItemsRoot manageWorkingItemsService;
 
-        public DataStoreService(ManageTodosService manageTodosService, ManageWorkingItemsService manageWorkingItemsService)
+        public DataStoreService(TodosRoot manageTodosService, WorkingItemsRoot manageWorkingItemsService)
         {
             this.manageTodosService = manageTodosService;
             this.manageWorkingItemsService = manageWorkingItemsService;

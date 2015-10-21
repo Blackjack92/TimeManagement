@@ -50,7 +50,7 @@ namespace TimeManager.Infrastructure.Data
                         }
                         else
                         {
-                            // TODO: CreateXElement
+                            // TODO: CreateXElement with using the subClass CreateXElement
                             rootElement.Add(new XElement(StaticReflection.GetMemberName(item), contentElement));
                         }
                     }

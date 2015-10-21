@@ -20,15 +20,15 @@ namespace TimeManager.ManageTodos.ViewModels
         }
 
         #region properties
-        public ManageTodosService ManageTodosService { get; private set; }
-        public ManageWorkingItemsService ManageWorkingItemsService { get; private set; }
+        public TodosRoot ManageTodosService { get; private set; }
+        public WorkingItemsRoot ManageWorkingItemsService { get; private set; }
         public Todo SelectedTodo { get; set; }
         public WorkingItem SelectedWorkingItem { get; set; }
         public ListCollectionView GroupedTodos { get; private set; }
         #endregion
 
         #region ctor
-        public MainViewModel(ManageTodosService manageTodosService, ManageWorkingItemsService manageWorkingItemsService, DataLoadService dataLoadService, DataStoreService dataStoreService)
+        public MainViewModel(TodosRoot manageTodosService, WorkingItemsRoot manageWorkingItemsService, DataLoadService dataLoadService, DataStoreService dataStoreService)
         {
             ManageTodosService = manageTodosService;
             ManageWorkingItemsService = manageWorkingItemsService;

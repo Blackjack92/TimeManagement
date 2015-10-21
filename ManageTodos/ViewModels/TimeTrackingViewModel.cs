@@ -13,7 +13,7 @@ namespace TimeManager.ManageTodos.ViewModels
     {
         #region fields
         private readonly ISelectedTodoProvider selectedTodoProvider;
-        private readonly ManageWorkingItemsService manageWorkingItemsService;
+        private readonly WorkingItemsRoot manageWorkingItemsService;
         #endregion
 
         #region properties
@@ -25,7 +25,7 @@ namespace TimeManager.ManageTodos.ViewModels
         #endregion
 
         #region ctor
-        public TimeTrackingViewModel(TimerService timerService, ISelectedTodoProvider selectedTodoProvider, ManageWorkingItemsService manageWorkingItemsService)
+        public TimeTrackingViewModel(TimerService timerService, ISelectedTodoProvider selectedTodoProvider, WorkingItemsRoot manageWorkingItemsService)
         {
             TimerService = timerService;
             this.selectedTodoProvider = selectedTodoProvider;

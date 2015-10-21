@@ -3,17 +3,17 @@ using TimeManager.ManageTodos.Models;
 using PostSharp.Patterns.Model;
 using System;
 
-namespace TimeManager.ManageTodos.Services
+namespace TimeManager.ManageTodos.Models
 {
     [NotifyPropertyChanged]
-    public class ManageTodosService
+    public class TodosRoot
     {
         #region properties
         public ObservableCollection<Todo> Todos { get; set; }
         #endregion
 
         #region ctor
-        public ManageTodosService()
+        public TodosRoot()
         {
             Todos = new ObservableCollection<Todo>();
         }

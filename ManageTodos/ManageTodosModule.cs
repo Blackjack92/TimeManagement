@@ -7,6 +7,7 @@ using TimeManager.ManageTodos.Services;
 using TimeManager.ManageTodos.ViewModels;
 using TimeManager.ManageTodos.Views;
 using TimeManager.Infrastructure.Names;
+using TimeManager.ManageTodos.Models;
 
 namespace TimeManager.ManageTodos
 {
@@ -43,8 +44,8 @@ namespace TimeManager.ManageTodos
 
         public void Initialize()
         {
-            container.RegisterType<ManageTodosService>(new ContainerControlledLifetimeManager());
-            container.RegisterType<ManageWorkingItemsService>(new ContainerControlledLifetimeManager());
+            container.RegisterType<TodosRoot>(new ContainerControlledLifetimeManager());
+            container.RegisterType<WorkingItemsRoot>(new ContainerControlledLifetimeManager());
             container.RegisterType<DataLoadService>(new ContainerControlledLifetimeManager());
             container.RegisterType<TimerService>(new ContainerControlledLifetimeManager());
 

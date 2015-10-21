@@ -8,12 +8,12 @@ namespace TimeManager.ManageTodos.Services
     public class DataLoadService
     {
         #region fields
-        private readonly ManageTodosService manageTodosService;
-        private readonly ManageWorkingItemsService manageWorkingItemsService;
+        private readonly TodosRoot manageTodosService;
+        private readonly WorkingItemsRoot manageWorkingItemsService;
         #endregion
 
         #region ctor
-        public DataLoadService(ManageTodosService manageTodosService, ManageWorkingItemsService manageWorkingItemsService)
+        public DataLoadService(TodosRoot manageTodosService, WorkingItemsRoot manageWorkingItemsService)
         {
             this.manageTodosService = manageTodosService;
             this.manageWorkingItemsService = manageWorkingItemsService;

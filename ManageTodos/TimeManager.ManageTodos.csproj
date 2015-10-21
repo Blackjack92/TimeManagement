@@ -140,8 +140,8 @@
     </Compile>
     <Compile Include="Services\DataLoadService.cs" />
     <Compile Include="Services\DataStoreService.cs" />
-    <Compile Include="Services\ManageTodosService.cs" />
-    <Compile Include="Services\ManageWorkingItemsService.cs" />
+    <Compile Include="Models\TodosRoot.cs" />
+    <Compile Include="Models\WorkingItemsRoot.cs" />
     <Compile Include="Services\ResourceService.cs" />
     <Compile Include="Services\RibbonCommands.cs" />
     <Compile Include="Services\TimerService.cs" />

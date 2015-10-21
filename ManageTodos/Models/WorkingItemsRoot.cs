@@ -2,17 +2,17 @@
 using TimeManager.ManageTodos.Models;
 using PostSharp.Patterns.Model;
 
-namespace TimeManager.ManageTodos.Services
+namespace TimeManager.ManageTodos.Models
 {
     [NotifyPropertyChanged]
-    public class ManageWorkingItemsService
+    public class WorkingItemsRoot
     {
         #region properties
         public ObservableCollection<WorkingItem> WorkingItems { get; set; }
         #endregion
 
         #region ctor
-        public ManageWorkingItemsService()
+        public WorkingItemsRoot()
         {
             WorkingItems = new ObservableCollection<WorkingItem>();
         }
