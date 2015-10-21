@@ -120,6 +120,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Data\DataStoreException.cs" />
+    <Compile Include="Data\DataStoreHelper.cs" />
     <Compile Include="Data\DataStoreObject.cs" />
     <Compile Include="Names\ApplicationMenuNames.cs" />
     <Compile Include="Converters\DummyConverter.cs" />

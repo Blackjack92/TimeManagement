@@ -125,7 +125,9 @@
   <ItemGroup>
     <Compile Include="Converters\BoolToGroupHeaderConverter.cs" />
     <Compile Include="DataStoreObjects\TodoDataStoreObject.cs" />
+    <Compile Include="DataStoreObjects\TodosRootDataStoreObject.cs" />
     <Compile Include="DataStoreObjects\WorkingItemDataStoreObject.cs" />
+    <Compile Include="DataStoreObjects\WorkingItemsRootDataStoreObject.cs" />
     <Compile Include="EventArgs\TimerState.cs" />
     <Compile Include="EventArgs\TimeTrackedEventArgs.cs" />
     <Compile Include="ManageTodosModule.cs" />

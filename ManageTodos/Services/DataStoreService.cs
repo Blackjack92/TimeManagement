@@ -7,15 +7,18 @@ namespace TimeManager.ManageTodos.Services
 {
     public class DataStoreService
     {
-        private readonly TodosRoot manageTodosService;
-        private readonly WorkingItemsRoot manageWorkingItemsService;
+        #region fields
+        private readonly TodosRoot todosRoot;
+        #endregion
 
-        public DataStoreService(TodosRoot manageTodosService, WorkingItemsRoot manageWorkingItemsService)
+        #region ctor
+        public DataStoreService(TodosRoot todosRoot)
         {
-            this.manageTodosService = manageTodosService;
-            this.manageWorkingItemsService = manageWorkingItemsService;
+            this.todosRoot = todosRoot;
         }
+        #endregion
 
+        #region methods
         public void Save()
         {
             SaveFileDialog dialog = new SaveFileDialog();
@@ -25,18 +28,17 @@ namespace TimeManager.ManageTodos.Services
                 var file = dialog.FileName;
 
                 XDocument document = new XDocument();
-
-                var todosElement = new XElement("Todos");
-                var storeObject = new TodoDataStoreObject();
-
-                foreach (var item in manageTodosService.Todos)
+                
+                // Store todos
+                var storeObject = new TodosRootDataStoreObject();
+                var todos = storeObject.CreateXElement(todosRoot);
+                if (todos != null)
                 {
-                    todosElement.Add(storeObject.CreateXElement(item));
+                    document.Add(todos);
+                    document.Save(file);
                 }
-
-                document.Add(todosElement);
-                document.Save(file);
             }
         }
+        #endregion
     }
 }

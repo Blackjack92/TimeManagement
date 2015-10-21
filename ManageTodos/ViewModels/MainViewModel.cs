@@ -49,14 +49,6 @@ namespace TimeManager.ManageTodos.ViewModels
         #endregion
 
         #region methods
-        private void Change()
-        {
-            if (SelectedWorkingItem != null)
-            {
-                SelectedWorkingItem.End = DateTime.Now.AddHours(3);
-            }
-        }
-
         private void AddWorkingItem()
         {
             var item = new WorkingItem() { Id = Guid.NewGuid(), Start = DateTime.Now, End = DateTime.Now.AddHours(2) };
