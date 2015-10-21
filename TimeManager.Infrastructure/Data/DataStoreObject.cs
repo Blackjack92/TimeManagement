@@ -20,6 +20,9 @@ namespace TimeManager.Infrastructure.Data
             foreach (var item in properties)
             {
                 var content = item.Compile().Invoke(element);
+
+                // TODO: check content not null
+
                 Type type = content.GetType();
 
                 if (type.IsGenericType && content is IEnumerable)
@@ -36,6 +39,23 @@ namespace TimeManager.Infrastructure.Data
                         MethodInfo method = typeof(StaticReflection).GetMethod("GetEnumerableOfType").MakeGenericMethod(new Type[] { constructedClass });
                         var super = method.Invoke(null, null);
 
+                        if (super is IEnumerable)
+                        {
+                            foreach (var t in (IEnumerable)super)
+                            {
+                                object classInstance = Activator.CreateInstance((Type)t, null);
+
+                                MethodInfo methodInfo = constructedClass.GetMethod("CreateXElement");
+                                if (methodInfo != null)
+                                {
+                                    var xElement = methodInfo.Invoke(classInstance, new object[] { x });
+                                    if (xElement != null && xElement is XElement)
+                                    {
+                                        rootElement.Add((XElement)xElement);
+                                    }
+                                }
+                            }
+                        }
                     }
                 }
                 else
