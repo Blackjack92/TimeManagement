@@ -8,6 +8,8 @@ using TimeManager.ManageTodos.ViewModels;
 using TimeManager.ManageTodos.Views;
 using TimeManager.Infrastructure.Names;
 using TimeManager.ManageTodos.Models;
+using TimeManager.Infrastructure.Data;
+using System.Collections.Generic;
 
 namespace TimeManager.ManageTodos
 {
@@ -48,6 +50,8 @@ namespace TimeManager.ManageTodos
             container.RegisterType<WorkingItemsRoot>(new ContainerControlledLifetimeManager());
             container.RegisterType<DataLoadService>(new ContainerControlledLifetimeManager());
             container.RegisterType<TimerService>(new ContainerControlledLifetimeManager());
+            container.RegisterInstance<IStoreRoot>("TodosStoreRoot", container.Resolve<TodosRoot>());
+            container.RegisterType<IEnumerable<IStoreRoot>, IStoreRoot[]>();
 
             container.RegisterType<ISelectedTodoProvider, MainViewModel>(new ContainerControlledLifetimeManager());
 

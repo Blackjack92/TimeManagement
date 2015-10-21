@@ -1,5 +1,7 @@
 ﻿using Microsoft.Win32;
+using System.Collections.Generic;
 using System.Xml.Linq;
+using TimeManager.Infrastructure.Data;
 using TimeManager.ManageTodos.DataStoreObjects;
 using TimeManager.ManageTodos.Models;
 
@@ -9,12 +11,14 @@ namespace TimeManager.ManageTodos.Services
     {
         #region fields
         private readonly TodosRoot todosRoot;
+        private readonly IEnumerable<IStoreRoot> storeRoots;
         #endregion
 
         #region ctor
-        public DataStoreService(TodosRoot todosRoot)
+        public DataStoreService(TodosRoot todosRoot, IEnumerable<IStoreRoot> storeRoots)
         {
             this.todosRoot = todosRoot;
+            this.storeRoots = storeRoots;
         }
         #endregion
 

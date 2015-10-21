@@ -1,12 +1,11 @@
 ﻿using System.Collections.ObjectModel;
-using TimeManager.ManageTodos.Models;
 using PostSharp.Patterns.Model;
-using System;
+using TimeManager.Infrastructure.Data;
 
 namespace TimeManager.ManageTodos.Models
 {
     [NotifyPropertyChanged]
-    public class TodosRoot
+    public class TodosRoot : IStoreRoot
     {
         #region properties
         public ObservableCollection<Todo> Todos { get; set; }
