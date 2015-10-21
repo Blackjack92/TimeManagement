@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using System.Linq.Expressions;
 using System.Reflection;
 using System.Xml.Linq;
@@ -29,19 +30,21 @@ namespace TimeManager.Infrastructure.Data
                 if (type.IsGenericType && contentElement is IEnumerable)
                 {
                     var contentElements = (IEnumerable)contentElement;
-                    var listXElement = CreateXElementFromIEnumerable(item, contentElements);
+                    var listXElement = new XElement(StaticReflection.GetMemberName(item));
+                    CreateXElementListFromIEnumerable(contentElements).ToList().ForEach(e => listXElement.Add(e));
                     rootElement.Add(listXElement);
                 }
                 else
                 {
                     var subClass = FindFirstSubClass(type);
+                    // Check subClass exists so it is an advanced class
                     if (subClass == null)
                     {
                         rootElement.Add(new XElement(StaticReflection.GetMemberName(item), contentElement));
                     }
                     else
                     {
-                        //CreateXElement
+                        // TODO: CreateXElement
                         rootElement.Add(new XElement(StaticReflection.GetMemberName(item), contentElement));
                     }
                 }
@@ -88,10 +91,9 @@ namespace TimeManager.Infrastructure.Data
             return null;
         }
 
-        private static XElement CreateXElementFromIEnumerable(Expression<Func<T, object>>  item, IEnumerable contentElements)
+        private static IEnumerable<XElement> CreateXElementListFromIEnumerable(IEnumerable contentElements)
         {
-            var listXElement = new XElement(StaticReflection.GetMemberName(item));
-
+            var listXElements = new List<XElement>();
             // Iterate each content element
             foreach (var content in contentElements)
             {
@@ -101,7 +103,7 @@ namespace TimeManager.Infrastructure.Data
                     XElement xElement = CreateXElement(subClassType, content);
                     if (xElement != null)
                     {
-                        listXElement.Add(xElement);
+                        listXElements.Add(xElement);
                     }
                 }
                 else
@@ -109,7 +111,7 @@ namespace TimeManager.Infrastructure.Data
                     throw new DataStoreException("No derived class for DataStoreObject<T> was found.");
                 }
             }
-            return listXElement;
+            return listXElements;
         }
 
         protected abstract void SetProperties(List<Expression<Func<T, object>>> selector);
