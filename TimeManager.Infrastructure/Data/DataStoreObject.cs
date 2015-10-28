@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
+using System.Reflection;
 using System.Xml.Linq;
 using TimeManager.Infrastructure.Utils;
 
@@ -55,7 +56,7 @@ namespace TimeManager.Infrastructure.Data
                             rootElement.Add(new XElement(StaticReflection.GetMemberName(item), contentElement));
                         }
                     }
-                } 
+                }
             }
 
             return rootElement;
@@ -64,17 +65,35 @@ namespace TimeManager.Infrastructure.Data
         public T CreateObject(XElement element)
         {
             T obj = new T();
+            var objProperties = obj.GetType().GetProperties();
 
-            var properties = obj.GetType().GetProperties();
-
-            foreach(var property in element.Elements())
+            foreach (var elementProp in element.Elements())
             {
                 // TODO: check property contains list or other ref type
                 // then resolve this other ref type by using the appropriate DataStoreObject<T>
-                var x = properties.FirstOrDefault(p => p.Name == property.Name);
-                if (x != null)
+                var objProp = objProperties.FirstOrDefault(p => p.Name == elementProp.Name);
+
+                // Reference type
+                if (objProp != null)
                 {
-                    x.SetValue(obj, property.Value);
+                    var propType = objProp.GetType();
+                    var storeClass = DataStoreHelper.FindFirstStoreClass(propType);
+                    if (storeClass != null)
+                    {
+                        // TODO: solve by using store class
+                        var classInstance = Activator.CreateInstance(storeClass);
+                        MethodInfo createObject = storeClass.GetMethod("CreateObject");
+                        if (createObject != null)
+                        {
+                            return (T)createObject.Invoke(classInstance, new object[] { elementProp.Value });
+                        }
+                    }
+                    else
+                    {
+                        // TODO: check is list
+                        // Try to parse
+                        objProp.SetValue(obj, elementProp.Value);
+                    }
                 }
             }
 

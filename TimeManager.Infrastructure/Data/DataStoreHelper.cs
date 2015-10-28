@@ -34,7 +34,7 @@ namespace TimeManager.Infrastructure.Data
         public static XElement CreateXElement(Type classType, object content)
         {
             // Create a derived DataStoreObject<T> object where T is the type of the content element
-            object classInstance = Activator.CreateInstance(classType, null);
+            object classInstance = Activator.CreateInstance(classType);
 
             // Invoke CreateXElement from the derived DataStoreObject
             MethodInfo createXElement = classType.GetMethod("CreateXElement");
