@@ -47,6 +47,18 @@ namespace TimeManager.Infrastructure.Data
             return null;
         }
 
+        public static object CreateObject(Type instanceType, object[] parameters)
+        {
+            var classInstance = Activator.CreateInstance(instanceType);
+            MethodInfo createObject = instanceType.GetMethod("CreateObject");
+            if (createObject != null)
+            {
+                return createObject.Invoke(classInstance, parameters);
+            }
+
+            return null;
+        }
+
         public static IEnumerable<XElement> CreateXElementListFromIEnumerable(IEnumerable contentElements)
         {
             var listXElements = new List<XElement>();
@@ -70,5 +82,9 @@ namespace TimeManager.Infrastructure.Data
             return listXElements;
         }
 
+        public static bool IsDataStoreClass(Type type)
+        {
+            return FindFirstStoreClass(type) != null;
+        }
     }
 }

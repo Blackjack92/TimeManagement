@@ -1,8 +1,7 @@
 ﻿using Microsoft.Win32;
 using System;
-using System.Windows;
+using System.Linq;
 using System.Xml.Linq;
-using TimeManager.Infrastructure.Data;
 using TimeManager.ManageTodos.DataStoreObjects;
 using TimeManager.ManageTodos.Models;
 using TimeManager.ManageTodos.Properties;
@@ -77,6 +76,8 @@ namespace TimeManager.ManageTodos.Services
                 {
                     var storeObject = new TodosRootDataStoreObject();
                     var todosRoot = storeObject.CreateObject(element);
+                    manageTodosService.Todos.Clear();
+                    todosRoot.Todos.ToList().ForEach(manageTodosService.Todos.Add);
                 }
             }
         }

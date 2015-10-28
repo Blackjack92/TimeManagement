@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
@@ -81,26 +80,37 @@ namespace TimeManager.Infrastructure.Utils
             return ((MemberExpression)unaryExpression.Operand).Member.Name;
         }
 
-        //public static IEnumerable<T> GetEnumerableOfType<T>(params object[] contstructorArguments)
         public static IEnumerable<Type> GetEnumerableOfType<T>()
         {
-            //List<T> objects = new List<T>();
             List<Type> objects = new List<Type>();
 
             foreach (var assembly in AppDomain.CurrentDomain.GetAssemblies().Where(a => a.FullName.Contains("TimeManager")))
             {
-                //Assembly.GetAssembly(typeof(T)
                 foreach (var type in assembly
                     .GetTypes()
                     .Where(t => t.IsClass && !t.IsAbstract && t.IsSubclassOf(typeof(T))))
                 {
-                    //objects.Add((T)Activator.CreateInstance(type, contstructorArguments));
                     objects.Add(type);
                 }
             }
-            //objects.Sort();
-
             return objects;
+        }
+
+        public static Type GetTypeOfString(string typeName)
+        {
+            foreach (var a in AppDomain.CurrentDomain.GetAssemblies())
+            {
+                Type type = a.GetTypes().FirstOrDefault(t => t.Name == typeName);
+                if (type != null) { return type; }
+            }
+
+            return null;
+        }
+
+        public static object ParseToObject(Type objectType, object valueToParse)
+        {
+            MethodInfo mi = objectType.GetMethod("Parse", new Type[] { typeof(string) });
+            return mi.Invoke(null, new object[] { valueToParse });
         }
     }
 }

@@ -3,7 +3,6 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
-using System.Reflection;
 using System.Xml.Linq;
 using TimeManager.Infrastructure.Utils;
 
@@ -67,60 +66,40 @@ namespace TimeManager.Infrastructure.Data
             T obj = Activator.CreateInstance<T>();
             var objProperties = obj.GetType().GetProperties();
 
+            // Iterate all properties
             foreach (var elementProp in element.Elements())
             {
-                // TODO: check property contains list or other ref type
-                // then resolve this other ref type by using the appropriate DataStoreObject<T>
+                // Check of the object does contain such a property
                 var objProp = objProperties.FirstOrDefault(p => p.Name == elementProp.Name);
 
-                // Reference type
                 if (objProp != null)
                 {
+                    // Depending on the propertytype the value has to be loaded correct
                     var propType = objProp.GetType();
                     var storeClass = DataStoreHelper.FindFirstStoreClass(propType);
-                    if (storeClass != null)
+                    if (DataStoreHelper.IsDataStoreClass(propType))
                     {
-                        // TODO: solve by using store class
-                        var classInstance = Activator.CreateInstance(storeClass);
-                        MethodInfo createObject = storeClass.GetMethod("CreateObject");
-                        if (createObject != null)
-                        {
-                            return (T)createObject.Invoke(classInstance, new object[] { elementProp.Value });
-                        }
+                        // Reference type
+                        var createdObject = DataStoreHelper.CreateObject(storeClass, new object[] { elementProp.Value });
+                        return (T)createdObject;
                     }
                     else
                     {
-
-                        // TODO: check is list
+                        // Handle list
                         if (elementProp.HasElements)
                         {
                             var list = objProp.GetValue(obj) as IList;
                             // IsList, add elements to existing list
                             foreach (var item in elementProp.Elements())
                             {
-                                Type type = null;
-                                foreach (var a in AppDomain.CurrentDomain.GetAssemblies())
+                                Type type = StaticReflection.GetTypeOfString(item.Name.LocalName);
+
+                                // Check if the list contains of DataStoreObjects<T>
+                                var listStoreClass = DataStoreHelper.FindFirstStoreClass(type);
+                                if (listStoreClass != null)
                                 {
-                                    if (a.GetTypes().Any(ty => ty.Name == item.Name.LocalName))
-                                    {
-                                        type = a.GetTypes().FirstOrDefault(ty => ty.Name == item.Name.LocalName);
-                                        break;
-                                    }
-                                }
-
-
-                                //var type =  Type.GetType(item.Name.LocalName);
-
-                                var test = DataStoreHelper.FindFirstStoreClass(type);
-                                if (test != null)
-                                {
-                                    // TODO: solve by using store class
-                                    var classInstance = Activator.CreateInstance(test);
-                                    MethodInfo createObject = test.GetMethod("CreateObject");
-                                    if (createObject != null)
-                                    {
-                                        list.Add(createObject.Invoke(classInstance, new object[] { item }));
-                                    }
+                                    var createdObject = DataStoreHelper.CreateObject(listStoreClass, new object[] { item });
+                                    list.Add(createdObject);
                                 }
                                 else
                                 {
@@ -130,25 +109,28 @@ namespace TimeManager.Infrastructure.Data
                         }
                         else
                         {
-                            var bla = objProp.PropertyType;
-                            try
-                            {
-                                objProp.SetValue(obj, Convert.ChangeType(elementProp.Value, bla));
-                            }
-                            catch (Exception)
-                            {
-                                var test = Activator.CreateInstance(bla);
-
-                                MethodInfo mi = bla.GetMethod("Parse", new Type[] { typeof(string) });
-                                var value = mi.Invoke(null, new object[] { elementProp.Value });
-                                objProp.SetValue(obj, value);
-                            }
+                            // Handle single element
+                            var propertyType = objProp.PropertyType;
+                            var value = ParseToPropertyType(propertyType, elementProp.Value);
+                            objProp.SetValue(obj, value);
                         }
                     }
                 }
             }
 
             return obj;
+        }
+
+        private object ParseToPropertyType(Type propertyType, object value)
+        {
+            try
+            {
+                return Convert.ChangeType(value, propertyType);
+            }
+            catch (InvalidCastException)
+            {
+                return StaticReflection.ParseToObject(propertyType, value);
+            }
         }
 
         protected abstract void SetProperties(List<Expression<Func<T, object>>> selector);
