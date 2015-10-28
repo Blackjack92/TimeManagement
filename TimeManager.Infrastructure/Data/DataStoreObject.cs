@@ -64,7 +64,7 @@ namespace TimeManager.Infrastructure.Data
 
         public T CreateObject(XElement element)
         {
-            T obj = Activator.CreateInstance<T>(); 
+            T obj = Activator.CreateInstance<T>();
             var objProperties = obj.GetType().GetProperties();
 
             foreach (var elementProp in element.Elements())
@@ -90,7 +90,7 @@ namespace TimeManager.Infrastructure.Data
                     }
                     else
                     {
-                        
+
                         // TODO: check is list
                         if (elementProp.HasElements)
                         {
@@ -131,12 +131,11 @@ namespace TimeManager.Infrastructure.Data
                         else
                         {
                             var bla = objProp.PropertyType;
-                            // Try to parse
-                            if (bla == typeof(string))
+                            try
                             {
-                                objProp.SetValue(obj, elementProp.Value);
+                                objProp.SetValue(obj, Convert.ChangeType(elementProp.Value, bla));
                             }
-                            else
+                            catch (Exception)
                             {
                                 var test = Activator.CreateInstance(bla);
 
@@ -144,7 +143,6 @@ namespace TimeManager.Infrastructure.Data
                                 var value = mi.Invoke(null, new object[] { elementProp.Value });
                                 objProp.SetValue(obj, value);
                             }
-                           
                         }
                     }
                 }
