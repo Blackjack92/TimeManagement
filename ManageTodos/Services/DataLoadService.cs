@@ -72,8 +72,8 @@ namespace TimeManager.ManageTodos.Services
             if (result.HasValue && result.Value)
             {
                 var file = dialog.FileName;
-                var document = XDocument.Parse(file);
-                foreach (XElement element in document.Descendants("Todo"))
+                var document = XDocument.Load(file);
+                foreach (XElement element in document.Descendants("TodosRoot"))
                 {
                     var storeObject = new TodosRootDataStoreObject();
                     var todosRoot = storeObject.CreateObject(element);

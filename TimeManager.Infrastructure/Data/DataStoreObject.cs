@@ -90,18 +90,61 @@ namespace TimeManager.Infrastructure.Data
                     }
                     else
                     {
+                        
                         // TODO: check is list
                         if (elementProp.HasElements)
                         {
+                            var list = objProp.GetValue(obj) as IList;
                             // IsList, add elements to existing list
+                            foreach (var item in elementProp.Elements())
+                            {
+                                Type type = null;
+                                foreach (var a in AppDomain.CurrentDomain.GetAssemblies())
+                                {
+                                    if (a.GetTypes().Any(ty => ty.Name == item.Name.LocalName))
+                                    {
+                                        type = a.GetTypes().FirstOrDefault(ty => ty.Name == item.Name.LocalName);
+                                        break;
+                                    }
+                                }
 
 
+                                //var type =  Type.GetType(item.Name.LocalName);
 
+                                var test = DataStoreHelper.FindFirstStoreClass(type);
+                                if (test != null)
+                                {
+                                    // TODO: solve by using store class
+                                    var classInstance = Activator.CreateInstance(test);
+                                    MethodInfo createObject = test.GetMethod("CreateObject");
+                                    if (createObject != null)
+                                    {
+                                        list.Add(createObject.Invoke(classInstance, new object[] { item }));
+                                    }
+                                }
+                                else
+                                {
+                                    list.Add(Activator.CreateInstance(type));
+                                }
+                            }
                         }
                         else
                         {
+                            var bla = objProp.PropertyType;
                             // Try to parse
-                            objProp.SetValue(obj, elementProp.Value);
+                            if (bla == typeof(string))
+                            {
+                                objProp.SetValue(obj, elementProp.Value);
+                            }
+                            else
+                            {
+                                var test = Activator.CreateInstance(bla);
+
+                                MethodInfo mi = bla.GetMethod("Parse", new Type[] { typeof(string) });
+                                var value = mi.Invoke(null, new object[] { elementProp.Value });
+                                objProp.SetValue(obj, value);
+                            }
+                           
                         }
                     }
                 }
