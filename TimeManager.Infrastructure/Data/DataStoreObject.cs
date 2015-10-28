@@ -10,7 +10,7 @@ using TimeManager.Infrastructure.Utils;
 namespace TimeManager.Infrastructure.Data
 {
     // TODO: Add a static caching of the used DataStoreObjects
-    public abstract class DataStoreObject<T> where T : new()
+    public abstract class DataStoreObject<T>
     {
         public XElement CreateXElement(T element)
         {
@@ -64,7 +64,7 @@ namespace TimeManager.Infrastructure.Data
 
         public T CreateObject(XElement element)
         {
-            T obj = new T();
+            T obj = Activator.CreateInstance<T>(); 
             var objProperties = obj.GetType().GetProperties();
 
             foreach (var elementProp in element.Elements())
@@ -91,8 +91,18 @@ namespace TimeManager.Infrastructure.Data
                     else
                     {
                         // TODO: check is list
-                        // Try to parse
-                        objProp.SetValue(obj, elementProp.Value);
+                        if (elementProp.HasElements)
+                        {
+                            // IsList, add elements to existing list
+
+
+
+                        }
+                        else
+                        {
+                            // Try to parse
+                            objProp.SetValue(obj, elementProp.Value);
+                        }
                     }
                 }
             }

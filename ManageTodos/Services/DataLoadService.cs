@@ -1,6 +1,9 @@
-﻿using System;
+﻿using Microsoft.Win32;
+using System;
 using System.Windows;
 using System.Xml.Linq;
+using TimeManager.Infrastructure.Data;
+using TimeManager.ManageTodos.DataStoreObjects;
 using TimeManager.ManageTodos.Models;
 using TimeManager.ManageTodos.Properties;
 
@@ -64,7 +67,18 @@ namespace TimeManager.ManageTodos.Services
 
         public void Open()
         {
-            MessageBox.Show("Open called");
+            OpenFileDialog dialog = new OpenFileDialog();
+            var result = dialog.ShowDialog();
+            if (result.HasValue && result.Value)
+            {
+                var file = dialog.FileName;
+                var document = XDocument.Parse(file);
+                foreach (XElement element in document.Descendants("Todo"))
+                {
+                    var storeObject = new TodosRootDataStoreObject();
+                    var todosRoot = storeObject.CreateObject(element);
+                }
+            }
         }
         #endregion
     }

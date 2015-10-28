@@ -8,7 +8,7 @@ namespace TimeManager.ManageTodos.Models
     public class TodosRoot : IStoreRoot
     {
         #region properties
-        public ObservableCollection<Todo> Todos { get; set; }
+        public ObservableCollection<Todo> Todos { get; private set; }
         #endregion
 
         #region ctor

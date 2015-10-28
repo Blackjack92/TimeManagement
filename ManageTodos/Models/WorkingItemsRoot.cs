@@ -8,7 +8,7 @@ namespace TimeManager.ManageTodos.Models
     public class WorkingItemsRoot
     {
         #region properties
-        public ObservableCollection<WorkingItem> WorkingItems { get; set; }
+        public ObservableCollection<WorkingItem> WorkingItems { get; private set; }
         #endregion
 
         #region ctor

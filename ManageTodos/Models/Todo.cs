@@ -6,7 +6,6 @@ using System.Collections.Specialized;
 using System.ComponentModel;
 using System.Linq;
 using TimeManager.Infrastructure.Utils;
-using System.Xml.Linq;
 
 namespace TimeManager.ManageTodos.Models
 {
