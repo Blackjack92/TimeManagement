@@ -9,7 +9,7 @@ using TimeManager.Infrastructure.Utils;
 namespace TimeManager.Infrastructure.Data
 {
     // TODO: Add a static caching of the used DataStoreObjects
-    public abstract class DataStoreObject<T>
+    public abstract class DataStoreObject<T> where T : new()
     {
         public XElement CreateXElement(T element)
         {
@@ -59,6 +59,26 @@ namespace TimeManager.Infrastructure.Data
             }
 
             return rootElement;
+        }
+
+        public T CreateObject(XElement element)
+        {
+            T obj = new T();
+
+            var properties = obj.GetType().GetProperties();
+
+            foreach(var property in element.Elements())
+            {
+                // TODO: check property contains list or other ref type
+                // then resolve this other ref type by using the appropriate DataStoreObject<T>
+                var x = properties.FirstOrDefault(p => p.Name == property.Name);
+                if (x != null)
+                {
+                    x.SetValue(obj, property.Value);
+                }
+            }
+
+            return obj;
         }
 
         protected abstract void SetProperties(List<Expression<Func<T, object>>> selector);
