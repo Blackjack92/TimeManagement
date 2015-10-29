@@ -140,7 +140,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <Compile Include="Services\DataLoadService.cs" />
     <Compile Include="Models\TodosRoot.cs" />
     <Compile Include="Models\WorkingItemsRoot.cs" />
     <Compile Include="Services\ResourceService.cs" />

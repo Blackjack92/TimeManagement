@@ -48,7 +48,7 @@ namespace TimeManager.ManageTodos
         {
             container.RegisterType<TodosRoot>(new ContainerControlledLifetimeManager());
             container.RegisterType<WorkingItemsRoot>(new ContainerControlledLifetimeManager());
-            container.RegisterType<DataLoadService>(new ContainerControlledLifetimeManager());
+            //container.RegisterType<DataLoadService>(new ContainerControlledLifetimeManager());
             container.RegisterType<TimerService>(new ContainerControlledLifetimeManager());
             container.RegisterInstance<IStoreRoot>("TodosStoreRoot", container.Resolve<TodosRoot>());
             container.RegisterType<IEnumerable<IStoreRoot>, IStoreRoot[]>();

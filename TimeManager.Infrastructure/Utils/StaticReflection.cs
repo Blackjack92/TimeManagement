@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
@@ -111,6 +112,30 @@ namespace TimeManager.Infrastructure.Utils
         {
             MethodInfo mi = objectType.GetMethod("Parse", new Type[] { typeof(string) });
             return mi.Invoke(null, new object[] { valueToParse });
+        }
+
+        public static void SetValuesFromObject<T>(T objectToSet, T objectWithValues)
+        {
+            var propertiesWithValues = objectWithValues.GetType().GetProperties();
+            foreach (var prop in propertiesWithValues)
+            {
+                if (typeof(IList).IsAssignableFrom(prop.PropertyType))
+                {
+                    
+                    var listToAdd = prop.GetValue(objectToSet) as IList;
+                    var list = prop.GetValue(objectWithValues) as IList;
+                    listToAdd.Clear();
+
+                    foreach (var item in list)
+                    {
+                        listToAdd.Add(item);
+                    }
+                }
+                else
+                {
+                    prop.SetValue(objectToSet, prop.GetValue(objectWithValues));
+                }
+            }
         }
     }
 }

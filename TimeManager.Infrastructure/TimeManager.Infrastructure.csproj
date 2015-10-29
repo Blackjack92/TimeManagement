@@ -119,6 +119,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Data\DataLoadService.cs" />
     <Compile Include="Data\DataStoreException.cs" />
     <Compile Include="Data\DataStoreHelper.cs" />
     <Compile Include="Data\DataStoreObject.cs" />

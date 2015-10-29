@@ -2,6 +2,7 @@
 using PostSharp.Patterns.Model;
 using Microsoft.Win32;
 using System.Xml.Linq;
+using TimeManager.Infrastructure.Utils;
 
 namespace TimeManager.Infrastructure.Data
 {
@@ -9,13 +10,13 @@ namespace TimeManager.Infrastructure.Data
     public class DataLoadService
     {
         #region fields
-        private readonly IEnumerable<IStoreRoot> rootsToStore;
+        private readonly IEnumerable<IStoreRoot> rootsToLoad;
         #endregion
 
         #region ctor
-        public DataLoadService(IEnumerable<IStoreRoot> rootsToStore)
+        public DataLoadService(IEnumerable<IStoreRoot> rootsToLoad)
         {
-            this.rootsToStore = rootsToStore;
+            this.rootsToLoad = rootsToLoad;
         }
         #endregion
 
@@ -30,12 +31,14 @@ namespace TimeManager.Infrastructure.Data
                 var document = XDocument.Load(file);
 
                 // Store all store roots
-                foreach (var root in rootsToStore)
+                foreach (var root in rootsToLoad)
                 {
                     foreach (XElement element in document.Descendants(root.GetType().Name))
                     {
                         var storeClass = DataStoreHelper.FindFirstStoreClass(root.GetType());
                         var createdObject = DataStoreHelper.CreateObject(storeClass, new object[] { element });
+
+                        StaticReflection.SetValuesFromObject(root, createdObject);
                     }
                 }
             }

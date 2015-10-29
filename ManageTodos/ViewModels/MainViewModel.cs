@@ -9,6 +9,7 @@ using TimeManager.Infrastructure.Utils;
 using System.Windows.Data;
 using TimeManager.Infrastructure.Data;
 using System.Windows;
+using System.Collections.ObjectModel;
 
 namespace TimeManager.ManageTodos.ViewModels
 {
@@ -35,7 +36,6 @@ namespace TimeManager.ManageTodos.ViewModels
             ManageTodosService = manageTodosService;
             ManageWorkingItemsService = manageWorkingItemsService;
 
-            dataLoadService.LoadData();
             RibbonCommands.AddTodoCommand = new DelegateCommand(AddTodo);
             RibbonCommands.RemoveTodoCommand = new DelegateCommand(RemoveTodo, CanRemoveTodo);
             RibbonCommands.AddWorkingItemCommand = new DelegateCommand(AddWorkingItem, CanAddWorkingItem);
