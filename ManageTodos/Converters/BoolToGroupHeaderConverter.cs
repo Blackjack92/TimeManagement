@@ -11,7 +11,7 @@ namespace TimeManager.ManageTodos.Converters
         {
             if (value == null || !(value is bool)) { return null; }
 
-            return (bool)value ? Resources.Done : Resources.NotDone;
+            return (bool)value ? Resources.AlreadyDone : Resources.NotDone;
         }
 
         public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
