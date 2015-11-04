@@ -125,6 +125,7 @@
     <Compile Include="Data\DataStoreObject.cs" />
     <Compile Include="Data\DataStoreService.cs" />
     <Compile Include="Data\IStoreRoot.cs" />
+    <Compile Include="Extensions\DataGridExtensions.cs" />
     <Compile Include="Names\ApplicationMenuNames.cs" />
     <Compile Include="Converters\DummyConverter.cs" />
     <Compile Include="Events\StringEvent.cs" />

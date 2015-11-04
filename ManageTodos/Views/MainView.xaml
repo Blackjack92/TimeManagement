@@ -11,7 +11,8 @@
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300"
              xmlns:prism="http://prismlibrary.com/"
-             prism:ViewModelLocator.AutoWireViewModel="True">
+             prism:ViewModelLocator.AutoWireViewModel="True"
+             xmlns:extension="clr-namespace:TimeManager.Infrastructure.Extensions;assembly=TimeManager.Infrastructure">
 
     <UserControl.Resources>
         <ObjectDataProvider x:Key="priorityEnum"
@@ -33,10 +34,10 @@
         </DataTemplate>
 
         <DataTemplate x:Key="WorkingItemTemplate">
-            <Grid Grid.IsSharedSizeScope="True" Background="{StaticResource BaseTheme.White}">
+            <Grid Grid.IsSharedSizeScope="True" Background="{StaticResource BaseTheme.Gray20}">
                 <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="470" />
                     <ColumnDefinition Width="*" />
-                    <ColumnDefinition Width="300" />
                 </Grid.ColumnDefinitions>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto"/>
@@ -50,7 +51,8 @@
                   AlternatingRowBackground="{StaticResource BaseTheme.White}"
                   AutoGenerateColumns="False" 
                   CanUserAddRows="False" 
-                  CanUserDeleteRows="False">
+                  CanUserDeleteRows="False"
+                  extension:DataGridExtensions.LastColumnFill="True">
                     <DataGrid.ColumnHeaderStyle>
                         <Style TargetType="{x:Type DataGridColumnHeader}">
                             <Setter Property="Background" Value="{StaticResource BaseTheme.Gray20}"/>
@@ -60,7 +62,7 @@
                         </Style>
                     </DataGrid.ColumnHeaderStyle>
                     <DataGrid.Columns>
-                        <DataGridTemplateColumn Header="Start date">
+                        <DataGridTemplateColumn Header="Start date" MinWidth="120" MaxWidth="120">
                             <DataGridTemplateColumn.CellTemplate>
                                 <DataTemplate>
                                     <TextBlock Text="{Binding Start, StringFormat='{}{0:dd.MM.yy HH:mm}'}" />
@@ -72,7 +74,7 @@
                                 </DataTemplate>
                             </DataGridTemplateColumn.CellEditingTemplate>
                         </DataGridTemplateColumn>
-                        <DataGridTemplateColumn Header="End date">
+                        <DataGridTemplateColumn Header="End date" MinWidth="120" MaxWidth="120">
                             <DataGridTemplateColumn.CellTemplate>
                                 <DataTemplate>
                                     <TextBlock Text="{Binding End, StringFormat='{}{0:dd.MM.yy HH:mm}'}" />
@@ -84,8 +86,8 @@
                                 </DataTemplate>
                             </DataGridTemplateColumn.CellEditingTemplate>
                         </DataGridTemplateColumn>
-                        <DataGridTextColumn Header="Spent time" Binding="{Binding SpentTime, StringFormat='{}{0:hh\\:mm\\:ss}'}" IsReadOnly="True" />
-                        <DataGridTextColumn Header="Description" Binding="{Binding Description}">
+                        <DataGridTextColumn Header="Spent time" Binding="{Binding SpentTime, StringFormat='{}{0:hh\\:mm\\:ss}'}" IsReadOnly="True" MinWidth="100" MaxWidth="100" />
+                        <DataGridTextColumn Header="Description" Binding="{Binding Description}" MinWidth="123" MaxWidth="123">
                             <DataGridTextColumn.ElementStyle>
                                 <Style>
                                     <Setter Property="TextBox.TextWrapping" Value="Wrap" />
@@ -128,8 +130,8 @@
                 </GroupStyle>
             </DataGrid.GroupStyle>
             <DataGrid.Columns>
-                <DataGridCheckBoxColumn Width="Auto" Header="Done" Binding="{Binding Done}" />
-                <DataGridTemplateColumn Header="FinalDate" Width="*">
+                <DataGridCheckBoxColumn Width="Auto" MinWidth="100" Header="Done" Binding="{Binding Done}" />
+                <DataGridTemplateColumn Header="FinalDate" MinWidth="100" MaxWidth="100">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
                             <TextBlock Text="{Binding FinalDate, StringFormat='{}{0:dd.MM.yy}'}" />
@@ -141,9 +143,9 @@
                         </DataTemplate>
                     </DataGridTemplateColumn.CellEditingTemplate>
                 </DataGridTemplateColumn>
-                <DataGridTextColumn Header="Spent time" Binding="{Binding SpentTime, StringFormat='{}{0:hh\\:mm\\:ss}'}" IsReadOnly="True" />
-                <DataGridTextColumn Header="Title" Binding="{Binding Title}" Width="3*" />
-                <DataGridComboBoxColumn Header="Priority" Width="*" ItemsSource="{Binding Source={StaticResource priorityEnum}, Mode=OneWay}" SelectedItemBinding="{Binding Priority}" />
+                <DataGridTextColumn Header="Spent time" MinWidth="100" Binding="{Binding SpentTime, StringFormat='{}{0:hh\\:mm\\:ss}'}" IsReadOnly="True" />
+                <DataGridTextColumn Header="Title" MinWidth="313.8" Binding="{Binding Title}" Width="*" />
+                <DataGridComboBoxColumn Header="Priority" MinWidth="100" ItemsSource="{Binding Source={StaticResource priorityEnum}, Mode=OneWay}" SelectedItemBinding="{Binding Priority}" />
             </DataGrid.Columns>
         </DataGrid>
 
