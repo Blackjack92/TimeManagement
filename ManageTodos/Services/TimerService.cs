@@ -28,17 +28,23 @@ namespace TimeManager.ManageTodos.Services
 
         private void TimerElapsed(object sender, ElapsedEventArgs e)
         {
-            CurrentSpan = e.SignalTime.Subtract(startTime);
+            CalculateCurrentSpan(e.SignalTime, startTime);
+        }
+
+        private void CalculateCurrentSpan(DateTime end, DateTime start)
+        {
+            CurrentSpan = end.Subtract(start);
         }
 
         public void ToggleStartStop()
         {
             // Toggle tracking
-            if (TimerState == TimerState.Stopped || TimerState == TimerState.Reset)
+            if (TimerState == TimerState.Stopped)
             {
                 // Same behavior for reset and stop
                 startTime = DateTime.Now;
                 timer.Start();
+                TimerState = TimerState.Tracking;
             }
             else
             {
@@ -47,16 +53,22 @@ namespace TimeManager.ManageTodos.Services
 
                 // Call event that the time was tracked
                 OnTimeTracked();
-            }
 
-            TimerState = TimerState.ToggleState();
+                // Reset time after tracking
+                Reset();
+            }
         }
 
         public void Reset()
         {
             // Stop tracking and reset time
-            //TimerState = TimerState.Reset;
-            //CurrentSpan = new TimeSpan();
+            timer.Stop();
+            TimerState = TimerState.Stopped;
+
+            startTime = DateTime.Now;
+            endTime = startTime;
+
+            CalculateCurrentSpan(endTime, startTime);
         }
 
         private void OnTimeTracked()

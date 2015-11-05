@@ -124,6 +124,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Converters\BoolToGroupHeaderConverter.cs" />
+    <Compile Include="Converters\TimerStateToIsCheckedConverter.cs" />
     <Compile Include="DataStoreObjects\TodoDataStoreObject.cs" />
     <Compile Include="DataStoreObjects\TodosRootDataStoreObject.cs" />
     <Compile Include="DataStoreObjects\WorkingItemDataStoreObject.cs" />
