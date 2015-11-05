@@ -9,6 +9,7 @@
              d:DesignHeight="300" d:DesignWidth="300"
              xmlns:prism="http://prismlibrary.com/"
              xmlns:services="clr-namespace:TimeManager.Navigation.Services"
+             xmlns:prop="clr-namespace:TimeManager.Navigation.Properties"
              prism:ViewModelLocator.AutoWireViewModel="True">
 
     <UserControl.Resources>
@@ -26,8 +27,9 @@
     <StackPanel Orientation="Vertical">
         <Button Command="{Binding NavigationCommand}" CommandParameter="{x:Static Inf:ViewNames.MainViewManageProjects}" Style="{StaticResource Button.Navigation}">
             <Button.Content>
-                <StackPanel>
-                    <TextBlock Text="Manage projects" />
+                <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                    <Image Source="{x:Static services:ResourceService.TodosImageSource}" Width="16" Margin="5" />
+                    <TextBlock Text="{x:Static prop:Resources.ManageProjects}" VerticalAlignment="Center" FontSize="14" />
                 </StackPanel>
             </Button.Content>
         </Button>
@@ -35,7 +37,7 @@
             <Button.Content>
                 <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
                     <Image Source="{x:Static services:ResourceService.TodosImageSource}" Width="16" Margin="5" />
-                    <TextBlock Text="Manage todos" VerticalAlignment="Center" FontWeight="SemiBold" FontSize="14" />
+                    <TextBlock Text="{x:Static prop:Resources.ManageTodos}" VerticalAlignment="Center" FontSize="14" />
                 </StackPanel>
             </Button.Content>
         </Button>
